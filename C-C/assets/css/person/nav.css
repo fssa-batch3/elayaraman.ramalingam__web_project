@@ -1,0 +1,38 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid;
+    align-items: center;
+    height: 10%;
+    padding: 0 20px;
+}
+nav img{
+    height: 50px;
+    padding: 0 20px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+a{
+    cursor: pointer;
+}
+button{
+    width: 75px;
+    height: 30px;
+}
+body{
+    margin: 0;
+}
+div.home_BG{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 90%;
+}
+div.home_BG img{
+    height: 600px;
+    border-radius: 100px;
+}

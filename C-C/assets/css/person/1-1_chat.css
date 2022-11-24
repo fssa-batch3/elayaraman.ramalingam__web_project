@@ -1,0 +1,57 @@
+section{
+    display: flex;
+    height: 90%;
+    justify-content: space-between;
+}
+aside#sidebar{
+    width: 5%;
+    margin: 0;
+    border-right: 3px solid;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0;
+    border-bottom: 3px solid;
+    justify-content: space-between;
+}
+main div.profile_bar{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    height: 80px;
+    border-bottom: 3px solid;
+}
+h1{
+    display: inline;
+}
+.name{
+    display: flex;
+    width: 250px;
+    justify-content: space-around;
+    align-items: center;
+}
+.message{
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    margin: 20px;
+}
+.name img{
+    height: 50px;
+}
+.chat_bar{
+    border-top: 3px solid;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 20px;
+}
+input[type="text"]{
+    height: 40px;
+}

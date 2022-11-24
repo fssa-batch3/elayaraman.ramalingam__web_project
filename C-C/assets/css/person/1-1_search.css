@@ -1,0 +1,21 @@
+aside#profile {
+    width: 25%;
+    border-left: 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.search_result img{
+    height: 100px;
+}
+div.search_result{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+aside#profile {
+    padding: 20px;
+}
+aside#profile button{
+    display: inline;
+}
