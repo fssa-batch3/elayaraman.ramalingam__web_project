@@ -1,3 +1,4 @@
+
 .form{
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@
     display: flex;
     flex-direction: column;
     padding: 30px;
+    text-align: center;
 }
 a{
     display: flex;
@@ -21,15 +23,35 @@ a{
 }
 button{
     width: 100px;
-    height: 30px;
+    height: 40px;
     margin: 20px;
     cursor: pointer;
+    border: 3px solid black;
+    padding: 0 10px;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #00C2DC,#00A2EB);
+    color: #004799;
+}
+button:hover{
+    background-image: linear-gradient(to right top, #55b4fc, #3fbfff, #26c9ff, #07d3ff, #00dcff);
 }
 input{
     margin:10px 0px ;
     height: 30px;
     width: 175px;
+    border-radius: 50px;
+    padding: 10px;
 } 
 div.main img{
     height: 200px;
+}
+body{
+    background-image: linear-gradient(to right top, #00d2ff,#3a7bd5);
+}
+label{
+    font-size: 14px;
+}
+h1{
+    font-size: 28px;
+   
 }
