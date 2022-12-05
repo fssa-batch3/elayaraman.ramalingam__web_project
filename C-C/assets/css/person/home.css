@@ -1,0 +1,85 @@
+body{
+    margin: 0;
+}
+section{
+    display: flex;
+    height: fit-content;
+}
+aside{
+    width: 10vh;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 0;
+    display: flex;
+    width: 95%;
+    margin: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+main div .container{
+    display: flex;
+    padding: 20px 0;
+    justify-content: space-around;
+    align-items: center;
+    height: 25vh;
+    border-radius: 30px;
+    background-color: #D2DFFF;
+    margin-top:20px;
+    width: 90vh;
+}
+main .bottom{
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+}
+div.holder{
+    display:flex ;
+    justify-content:center;
+    width: 75vh;
+    flex-wrap: wrap;
+}
+div.profile_card{
+    height: 275px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 30px;
+    background-color: #D2DFFF;
+}
+div.profile_card img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 10px;
+}
+h1{
+    font-size: 30px;
+    margin: 5px 0;
+    color: #6a5be2;
+}
+.logo img{
+    height: 175px;
+    border-radius: 50%;
+}
+button.btn_con{
+    font-size:26;
+}
+button.btn_pro{
+    font-size:24;
+    margin: 5px;
+}
+button.btn_nav{
+    font-size:28px;
+    transition: all 0.5s ease 0s;
+    text-align: center;
+    width: 100px;
+}

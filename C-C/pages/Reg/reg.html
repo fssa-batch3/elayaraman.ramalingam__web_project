@@ -3,6 +3,7 @@
         <title>Regitration</title>
         <link rel="stylesheet" href="../../assets/css/Reg/form.css">
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
+        <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
     </head>
     <body>
         <div class="form">
@@ -15,9 +16,13 @@
                 <label for="name">Ph No(Optional)</label>
                 <input type="tel" name="tel" id="" placeholder="enter your phone no" >
                 <label for="name">D/O/B</label>
-                <input type="date" name="D/O/B" placeholder="Enter D/O/B">
-                <button type="submit">
-                    <a href="./Passwd.html">Submit</a>
+                <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date">
+                <label for="name">Enter the Password</label>
+                <input type="password" name="name" id="" placeholder="Enter the Password">
+                <label for="name">Confirm the Password</label>
+                <input type="password" name="email" id="" placeholder="Confirm the Password">
+                <button type="submit" class="btn_2 btn1">
+                    <a href="./login.html" class="a1">Submit</a>
                 </button>
             </form>
         </div>

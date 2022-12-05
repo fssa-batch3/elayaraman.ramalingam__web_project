@@ -1,12 +1,22 @@
 aside#profile {
     width: 25%;
-    border-left: 2px solid;
     display: flex;
     flex-direction: column;
+    border-radius: 30px;
+    background-color: #D2DFFF;
+    margin-top: 20px;
     align-items: center;
+    height: 80vh;
+    overflow-y: scroll;
+    
 }
+#profile::-webkit-scrollbar {
+    display: none;
+}
+
 div.search_result img{
-    height: 100px;
+    height: 120px;
+    border-radius: 50%;
 }
 div.search_result{
     padding: 20px;
@@ -16,6 +26,52 @@ div.search_result{
 aside#profile {
     padding: 20px;
 }
-aside#profile button{
-    display: inline;
+div.search_result{
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    margin: 30px;
+    width: 150px;
+}
+input{
+    margin:10px 15px ;
+    height: 50px;
+    width: 250px;
+    border-radius: 50px;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    border: 0;
+}
+div.btn_holder button{
+    width: 100px;
+    margin: 5px;
+    height: 40px;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 18px;
+} 
+.red{
+    background-color: #FF645C;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.green{
+    background-color:#00C294 ;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+div.btn_holder{
+    display: flex;
+}
+.btn_req{
+    background-color: #6a5be2;
+    font-size: 18;
+}
+.search_bar{
+    position:sticky;
 }

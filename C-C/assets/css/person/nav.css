@@ -1,10 +1,22 @@
+header{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+nav div.logo{
+    display: flex;
+    align-items: center;
+}
+nav div.logo p{
+    font-size: 22;
+}
 nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10%;
-    margin: 20px 80px 20px 80px;
-    
+    height: 150px;
+    margin: 0 15vh;
 }
 nav .logo img{
     height: 80px;
@@ -25,7 +37,7 @@ button{
     height: 30px;
     border: 0;
     background: none;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
 }
 button:hover{
@@ -33,17 +45,4 @@ button:hover{
 }
 body{
     margin: 0;
-}
-div.home_BG{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-content: center;
-    height: 90%;
-}
-div.home_BG img{
-    height: 90%;
-    border-radius: 100px;
-    width: 100%;
-    padding: 0 40px;
 }

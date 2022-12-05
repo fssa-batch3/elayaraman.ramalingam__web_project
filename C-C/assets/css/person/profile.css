@@ -1,0 +1,57 @@
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label{
+    font-size: 14px;
+}
+section form #form{
+    width: fit-content;
+    margin: 0;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    width: fit-content;
+}
+.logo img{
+    height: 150px;
+}
+input{
+    width: 250px;
+    background: none;
+    border: 0;
+    color: black;
+}
+a{
+    font-size: 16px;
+}
+form div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+}
+#form{
+    width: fit-content;
+    padding: 60px;
+}
+input{
+    width: 300px;
+}
+profile{
+    margin-top: 100px;
+}
+label{
+    font-size: 22px;
+}
+
+.file{
+    font-size:1 0;
+}
+.btn_holder {
+    margin: 40px 0 0 0;
+    display: flex;
+}

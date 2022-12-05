@@ -2,56 +2,103 @@
 .form{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }
 #form{
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 30px 0;
+    width: 40vw;
     text-align: center;
+    align-items: center;
+    border-radius: 40px;
+    background: #D2DFFF;
+    box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
 }
 a{
     display: flex;
     text-decoration: none;
     justify-content: center;
+    color: #004799;
+    font-size: 24px;
 }
 .logo{
     border-radius: 50%;
     margin: 20px;
 }
-button{
-    width: 100px;
-    height: 40px;
+.btn_1{
+    height: 90px;
+    width: 270px;
+    font-size: 32px;
+    border: 0;
+    border-radius: 30px;
     margin: 20px;
     cursor: pointer;
-    border: 3px solid black;
-    padding: 0 10px;
-    border-radius: 20px;
-    background-image: linear-gradient(to right top, #00C2DC,#00A2EB);
-    color: #004799;
+    box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
 }
-button:hover{
-    background-image: linear-gradient(to right top, #55b4fc, #3fbfff, #26c9ff, #07d3ff, #00dcff);
+.btn_2{
+  width: 180px;
+  height: 70px;
+  border: 0;
+  border-radius: 30px;
+  margin: 20px;
+  cursor: pointer;
+  font-size: 28px;
+}
+.btn_2 a{
+  color: #f3f3f3;
+  
+}
+.btn1{
+    background-color: #6a5be2;
+    color: #f3f3f3;   
+}
+.btn2{
+    animation: tracking-out-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.btn2{
+    background-color: #D2DFFF;
+    color: #6A5BE2;
 }
 input{
-    margin:10px 0px ;
-    height: 30px;
-    width: 175px;
+    margin:10px 15px ;
+    height: 70px;
+    width: 20vw;
     border-radius: 50px;
     padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    border: 0;
 } 
 div.main img{
-    height: 200px;
+    height: 300px;
+}
+div.main p{
+    text-align: center;
+    font-size: 36px;
+    margin: 10px 0;
 }
 body{
-    background-image: linear-gradient(to right top, #00d2ff,#3a7bd5);
+    background-color: #F3F3FF;
 }
 label{
-    font-size: 14px;
+    font-size: 22px;
 }
 h1{
-    font-size: 28px;
-   
+    font-size: 36px;
+    margin: 8px 0;  
+    color: #6a5be2;
+    margin: 10px;
 }
+button{
+    width: 100px;
+    height: 50px;
+    margin: 0 10px;
+    border-radius: 20px;
+    font-size: 16px;
+}
+#edit{
+    background: #8A76FF;
+  }
