@@ -1,0 +1,132 @@
+section{
+    display: flex;
+    height: 85%;
+    justify-content: space-between;
+}
+aside#sidebar{
+    width: 5%;
+    margin: 0;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    margin: 20px 0;
+    justify-content: space-between;
+    background-color: #D2DFFF;
+    padding: 30px 0px;
+    border-radius: 50px;
+}
+main div.profile_bar{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    justify-content: space-between;
+}
+main .box{
+    margin: 15px 0;
+}
+h1{
+    display: inline;
+}
+.name{
+    display: flex;
+    width: fit-content;
+    justify-content: space-around;
+    align-items: center;
+}
+.message{
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+}
+.name img{
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 15px;
+}
+.chat_bar{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 20px;
+    width: 90%;
+}
+input[type="text"]{
+    height: 80px;
+    margin:0 30px ;
+    border-radius: 50px;
+    padding: 10px 10px 10px 50px;
+    font-size: 22px;
+    border: 0;
+}
+.chat_box{
+    height: 100%;
+    width: 90%;
+    border-radius: 50px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.chat_box div{
+    padding: 20px;
+    margin: 20px ;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    justify-content: end;
+}
+.chat_box div span{
+    color: grey;
+    font-size: 16;
+}
+.chat_box div.chat_right {
+    text-align: start;
+    background-color: #9BA8C6;
+    align-items: flex-end;
+    color: #ffffff;
+    display: flex;
+    text-align: end;
+}
+.chat_box div.chat_left{
+    background-color: #A4ABBD;
+    align-items: flex-start;
+    display: flex;
+}
+p{
+    margin: 0;
+}
+input, .chat_box{
+	animation: shadow-inset-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+@keyframes shadow-inset-bottom {
+    0% {
+      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+    100% {
+      box-shadow: inset 0 -6px 14px -6px rgba(0, 0, 0, 0.5);
+    }
+  }
+main, .chat div{
+    box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
+}
+.btn_snd{
+    display: flex;
+    align-items: center;
+
+}
+.btn_snd button{
+    width: 150px;
+    height: 70px;
+    border: 0;
+    border-radius: 30px;
+    margin: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    background-color: #6a5be2;
+    color: #f3f3f3;  
+}

@@ -1,0 +1,49 @@
+header{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+nav div.logo a{
+    display: flex;
+    align-items: center;
+}
+nav div.logo p{
+    font-size: 22;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    margin: 0 15vh;
+}
+nav .logo img{
+    height: 80px;
+    padding: 0 20px;
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+    justify-content: center;
+}
+a{
+    cursor: pointer;
+    text-decoration: none;
+}
+button{
+    width: 75px;
+    height: 30px;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+}
+body{
+    margin: 0;
+}
+
