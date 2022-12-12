@@ -1,10 +1,13 @@
 
 .form{
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-content: center;
+  flex-direction: column;
+
 }
 #form{
     display: flex;
@@ -14,8 +17,8 @@
     text-align: center;
     align-items: center;
     border-radius: 40px;
-    height: max-content;
     background: #D2DFFF;
+    height: fit-content;
     box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
 }
 .form {
@@ -68,16 +71,14 @@ a{
     background-color: #6a5be2;
     color: #f3f3f3;   
 }
-.btn2{
-    animation: tracking-out-expand 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
+
 .btn2{
     background-color: var(--gray1);
     color: var(--white);
 }
 input{
-    margin:10px 15px ;
-    height: 70px;
+    margin:5px 15px ;
+    height: 60px;
     width: 25vw;
     border-radius: 50px;
     padding: 10px;

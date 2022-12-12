@@ -48,8 +48,8 @@ div.holder{
     flex-wrap: wrap;
 }
 div.profile_card{
-    height: 275px;
-    width: 200px;
+    height: 250px;
+    width: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,8 +65,8 @@ div.profile_card:hover{
     scale: 1.1 ;
 }
 div.profile_card img{
-    height: 100px;
-    width: 100px;
+    height: 75px;
+    width: 75px;
     border-radius: 50%;
     margin: 10px;
 }

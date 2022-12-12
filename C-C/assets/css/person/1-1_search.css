@@ -53,14 +53,17 @@ div.btn_holder button{
     font-size: 18px;
 } 
 div.profile_card{
-    height: 275px;
-    width: 175px;
+    height: 250px;
+    width: 150px;
     padding: 0;
-    margin: 20px 15px;
+    margin: 20px 10px;
 
 }
+div.profile_card img{
+    height: 75px;
+}
 div.profile_card h1{
-    font-size: 28px;
+    font-size: 24px;
 }
 .red{
     background-color: #FF645C;
