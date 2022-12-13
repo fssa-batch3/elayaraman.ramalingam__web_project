@@ -6,7 +6,7 @@ aside#profile {
     background-color: #D2DFFF;
     align-items: center;
     height: 75vh;
-
+    padding: 20px;
 }
 #search_result::-webkit-scrollbar {
     display:none
@@ -23,11 +23,6 @@ div.search_result{
     padding: 20px;
     display: flex;
     flex-direction: column;
-}
-aside#profile {
-    padding: 20px;
-}
-div.search_result{
     height: 220px;
     justify-content: center;
     align-items: center;

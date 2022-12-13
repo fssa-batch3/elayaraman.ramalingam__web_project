@@ -90,7 +90,6 @@ input[type="text"]{
     align-items: flex-end;
     color: #ffffff;
     display: flex;
-    text-align: end;
 }
 .chat_box div.chat_left{
     background-color: #A4ABBD;

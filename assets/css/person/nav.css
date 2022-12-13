@@ -26,7 +26,6 @@ nav .logo img{
     display: flex;
     justify-content: space-between;
     width: 15%;
-    justify-content: center;
 }
 a{
     cursor: pointer;
@@ -38,9 +37,6 @@ button{
     border: 0;
     background: none;
     font-size: 24px;
-    cursor: pointer;
-}
-button{
     cursor: pointer;
 }
 body{

@@ -3,9 +3,6 @@ section{
     justify-content: center;
     align-items: center;
 }
-label{
-    font-size: 14px;
-}
 section form #form{
     width: fit-content;
     margin: 0;
@@ -39,12 +36,6 @@ a{
 #form{
     width: 500px;
     padding: 60px;
-}
-input{
-    width: 300px;
-}
-profile{
-    margin-top: 100px;
 }
 label{
     font-size: 22px;

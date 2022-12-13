@@ -34,7 +34,6 @@ main div .container{
     background-color: #D2DFFF;
     margin-top:20px;
     width: 90%;
-    margin: 0;
 }
 main .bottom{
     display: flex;
