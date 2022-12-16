@@ -16,9 +16,14 @@
                 <input type="email" name="name" id="" placeholder="Enter your Email" required>
                 <label for="name">Password</label>
                 <input type="password" name="email" id="" placeholder="Enter your password" required>
-                <button type="submit" class="btn_2 btn1">
-                    Submit
-                </button>
+                <div class="btn_holder">
+                    <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
+                        back
+                    </button>
+                    <button type="submit" class="btn_2 btn1" formaction="../person/home.html">
+                        Submit
+                    </button>
+                </div>
             </form>
         </div>
     </body>

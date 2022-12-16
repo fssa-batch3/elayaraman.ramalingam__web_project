@@ -1,7 +1,7 @@
 
 .form{
   display: flex;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
@@ -14,13 +14,9 @@
     display: flex;
     flex-direction: column;
     padding: 30px 0;
-    width: 40vw;
     text-align: center;
     align-items: center;
     border-radius: 40px;
-    background: #D2DFFF;
-    height: fit-content;
-    box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
 }
 @keyframes slide-top{
     0% {
@@ -38,14 +34,10 @@ a{
     color: #004799;
     font-size: 24px;
 }
-.logo{
-    border-radius: 50%;
-    margin: 20px;
-}
 .btn_1{
-    height: 90px;
-    width: 270px;
-    font-size: 32px;
+    height: 60px;
+    width: 220px;
+    font-size: 24px;
     border: 0;
     border-radius: 30px;
     margin: 20px;
@@ -53,13 +45,13 @@ a{
     box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
 }
 .btn_2{
-  width: 180px;
-  height: 70px;
+  width: 120px;
+  height: 50px;
   border: 0;
   border-radius: 30px;
   margin: 20px;
   cursor: pointer;
-  font-size: 28px;
+  font-size: 20px;
 }
 .btn_2 a{
   color: #f3f3f3;
@@ -77,32 +69,41 @@ a{
 input{
     margin:5px 15px ;
     height: 2em;
-    min-width: 18em;
-    max-width: 20rem;
+    width: 250px;
     border-radius: 50px;
     padding: 10px;
     text-align: center;
     font-size: 1rem;
     border: 0;
     animation: shadow-inset-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+.link{
+  background: none;
+  text-decoration: underline;
+  color: #6a5be2;
 } 
 input:focus{
   outline: none;
 }
+div.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 div.main img{
-    height: 300px;
+    height: 120px;
 }
 div.main p{
     text-align: center;
-    font-size: 36px;
+    font-size: 26px;
     margin: 10px 0;
 }
 label{
-    font-size: 1.5rem;
+    font-size: 18px;
 }
 h1{
-    font-size: 2em;  
+    font-size: 32px;  
     color: #6a5be2;
     margin: 10px;
 }
@@ -127,4 +128,7 @@ button{
       box-shadow: inset 0 -6px 14px -6px rgba(0, 0, 0, 0.5);
     }
   }
+.btn_holder {
+  display: flex;
+}
   
