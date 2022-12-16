@@ -3,9 +3,9 @@
 *{
     font-family: 'Poppins', sans-serif;
 }
-body{
+html,body{
     background-color: var(--blue3);
-    height: 100vh;
+    height: 100%;
     width: 100%;
     margin: 0;
 }
