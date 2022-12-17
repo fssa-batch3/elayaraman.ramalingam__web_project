@@ -5,7 +5,6 @@
         
         <title>1-1_requests</title>
         <link rel="stylesheet" href="../../assets/css/person/nav.css">
-        <link rel="stylesheet" href="../../assets/css/person/home.css">
         <link rel="stylesheet" href="../../assets/css/person/1-1_search.css">
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
@@ -26,63 +25,8 @@
                 </div>
             </nav>
         </header>
-        <section>
-            <aside class="sidebar" aria-label="sidebar">
-
-            </aside>
-            <main>
-                <div class="top">
-                    <div class="container">
-                        <div>
-                            <a href="./1-1_search.html">
-                                <button type="button" class="btn_con">Search</button>
-                            </a>
-                        </div>
-                        <div class="logo">
-                            <img src="../../assets/images/Logos/1-1_logo.jpg" alt="1-1" onclick="location.href='./profile.html'">
-                        </div>
-                        <div>
-                            <a href="./1-1_requests.html">
-                                <button type="button" class="btn_con">Request</button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottom">
-                    <div class="holder">
-                        <div class="profile_card">
-                            <div><img src="../../assets/images/profile/1.jpg" alt=""></div>
-                            <a href="./profiles/profile 1.html">
-                                <h1>Karthi</h1>
-                            </a>
-                            <a href="./chat/1-1_chat 1.html"><button class="btn_pro">Chat</button></a>
-                        </div>
-                        <div class="profile_card">
-                            <div><img src="../../assets/images/profile/2.jpg" alt=""></div>
-                            <a href="./profiles/profile 2.html">
-                                <h1>Sandy</h1>
-                            </a>
-                            <a href="./chat/1-1_chat 2.html"><button class="btn_pro">Chat</button></a>
-                        </div>
-                        <div class="profile_card">
-                            <div><img src="../../assets/images/profile/3.jpg" alt=""></div>
-                            <a href="./profiles/profile 3.html">
-                                <h1>Naomi</h1>
-                            </a>
-                            <a href="./chat/1-1_chat 3.html"><button class="btn_pro">Chat</button></a>
-                        </div>
-                        <div class="profile_card">
-                            <div><img src="../../assets/images/profile/4.jpg" alt=""></div>
-                            <a href="./profiles/profile 4.html">
-                                <h1>PKS</h1>
-                            </a>
-                            <a href="./chat/1-1_chat 4.html"><button class="btn_pro">Chat</button></a>
-                        </div>
-                    </div>
-                </div>
-            </main>
-            <aside id="profile" class="slide-left" aria-label="sidebar">
-                   <div>
+        <section id="profile">
+            <div  >
                     <div id="search">
                         <input type="text" placeholder="Search with ID ">
                     </div>
@@ -98,11 +42,14 @@
                             </div>
                         </div>
                     </div>  
-                   </div> 
-            </aside>
-            <aside class="sidebar" aria-label="sidebar">
-
-            </aside>
+                <div class="btn_holder">
+                    <div>
+                        <button type="button" class="search" onclick="location.href='./1-1_search.html'">Search</button>
+                    </div>
+                    <div>
+                        <button type="button" class="search" onclick="location.href='./1-1_requests.html'">Requests</button>
+                    </div>
+                </div>
         </section>
     </body>
 </html>

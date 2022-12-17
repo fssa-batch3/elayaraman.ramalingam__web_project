@@ -18,14 +18,13 @@ div.holder{
 div.profile_card{
     display: flex;
     justify-content: space-between;
-    height: 15%;
     width: 80%;
     flex-wrap: wrap;
     align-content: center;
     align-items: center;
     margin: 10px;
     border-radius: 30px;
-    padding: 20px;
+    padding: 10px;
     background-color: var(--white1);
 }
 div.profile_card:hover{
@@ -42,6 +41,7 @@ div.profile_card img.chat{
     width: 25px;
     border-radius: 50%;
     margin: 10px;
+    cursor: pointer;
 }
 h1{
     font-size: 30px;
