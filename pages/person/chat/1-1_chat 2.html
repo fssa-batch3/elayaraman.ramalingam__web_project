@@ -13,64 +13,62 @@
     <body>
         <header>
             <nav>
-                <div class="logo">
-                    <a href="../home.html"><img src="../../../assets/images/logo.png" alt="logo">
-                    <p>Chit-Chat</p>
-                    </a>  
+                <div>
+                    <div class="logo">
+                        <a href=".././home.html"><img src="../../../assets/images/logo.png" alt="logo">
+                        </a>  
+                    </div>
                 </div>
                 <div class="nav">
-                    <div>
-                        <a href=".././profile.html"><button>Profile</button></a>
-                    </div>
+                        <a>
+                            <button class="btn_nav" onclick="location.href='../profile.html'">Profile</button>
+                        </a>
                 </div>
             </nav>
         </header>
         <section>
-            <aside aria-label="sidebar">
-
-            </aside>
-            <main>
-                <div class="profile_bar box">
-                    <div class="name">
-                        <img src="../../../assets/images/profile/2.jpg" alt="profile_picture">
-                        <a href="../profiles/profile 2.html">
-                            <h1>Sandy</h1>
-                        </a>
+                <main>
+                    <div class="profile_bar">
+                        <div class="name">
+                            <img src="../../../assets/images/profile/2.jpg" alt="profile_picture">
+                            <a href="../profiles/profile 2.html">
+                                <h1>Sandy</h1>
+                            </a>
+                        </div>
+                        <div>
+                            <button onclick="history.back()">Close</button>
+                        </div>
                     </div>
-                    <div>
-                        <button onclick="history.back()">Close</button>
+                    <div class="chat_box">
+                        <div class="chat">
+                            <div class="chat_left">
+                               <div class="message left">
+                                <p>
+                                    Pillainga koopduthu vaa park ku polam
+                                </p>
+                                <span>5:50 P.M</span>
+                               </div>
+                            </div>
+                            <div class="chat_right">
+                                <div class="message right">
+                                    <p>
+                                        Hmm varen
+                                    </p>
+                                    <span>5:51 P.M</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="chat_box box">
-                    <div class="chat">
-                        <div class="chat_left">
-                            <p>
-                                Pillainga koopduthu vaa park ku polam
-                            </p>
-                            <span>5:50 P.M</span>
+                    <div class="chat_bar">
+                        <div class="input">
+                            <input type="text" name="" id="" size="" placeholder="Enter your message here">
                             
                         </div>
-                        <div class="chat_right">
-                            <p>
-                                Hmm varen
-                            </p>
-                            <span>5:51 P.M</span>
+                        <div class="btn_snd">
+                            <button type="submit">send</button>
                         </div>
                     </div>
-                </div>
-                <div class="chat_bar box">
-                    <div class="message">
-                        <input type="text" name="" id="" size="" placeholder="Enter your message here">
-                        
-                    </div>
-                    <div class="btn_snd">
-                        <button type="submit">send</button>
-                    </div>
-                </div>
-            </main>
-            <aside aria-label="sidebar">
-
-            </aside>
+                </main>
         </section>
     </body>
 </html>

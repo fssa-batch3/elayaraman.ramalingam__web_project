@@ -13,65 +13,62 @@
     <body>
         <header>
             <nav>
-                <div class="logo">
-                    <a href="../home.html"><img src="../../../assets/images/logo.png" alt="logo">
-                    <p>Chit-Chat</p>
-                    </a>  
+                <div>
+                    <div class="logo">
+                        <a href=".././home.html"><img src="../../../assets/images/logo.png" alt="logo">
+                        </a>  
+                    </div>
                 </div>
                 <div class="nav">
-                    <div>
-                        <a href=".././profile.html"><button>Profile</button></a>
-                    </div>
+                        <a>
+                            <button class="btn_nav" onclick="location.href='../profile.html'">Profile</button>
+                        </a>
                 </div>
             </nav>
         </header>
         <section>
-            <aside aria-label="sidebar">
-
-            </aside>
-            <main>
-                <div class="profile_bar box">
-                    <div class="name">
-                        <img src="../../../assets/images/profile/3.jpg" alt="profile_picture">
-                        <a href="../profiles/profile 3.html">
-                            <h1>Naomi</h1>
-                        </a>
-                    </div>
-                    <div>
-                        <button onclick="history.back()">Close</button>
-                    </div>
-                </div>
-                <div class="chat_box box">
-                    <div class="chat">
-                        <div class="chat_left">
-                            <p>
-                                Evening veliya polama
-                            </p>
-                            <span>11:50 A.M</span>
-                            
+                <main>
+                    <div class="profile_bar">
+                        <div class="name">
+                            <img src="../../../assets/images/profile/3.jpg" alt="profile_picture">
+                            <a href="../profiles/profile 3.html">
+                                <h1>Naomi</h1>
+                            </a>
                         </div>
-                        <div class="chat_right">
-                            <p>
-                                illa venam enga amma Thittum
-                            </p>
-                            <span>11:51 A.M</span>
-                            
+                        <div>
+                            <button onclick="history.back()">Close</button>
                         </div>
                     </div>
-                </div>
-                <div class="chat_bar box">
-                    <div class="message">
-                        <input type="text" name="" id="" size="" placeholder="Enter your message here">
-                        
+                    <div class="chat_box ">
+                        <div class="chat">
+                            <div class="chat_left">
+                                <div class="message left">
+                                    <p>
+                                        Evening veliya polama
+                                    </p>
+                                    <span>11:50 A.M</span>
+                                </div>
+                            </div>
+                            <div class="chat_right">
+                               <div class="message right">
+                                <p>
+                                    illa venam enga amma Thittum
+                                </p>
+                                <span>11:51 A.M</span>
+                               </div>   
+                            </div>
+                        </div>
                     </div>
-                    <div class="btn_snd">
-                        <button type="submit">send</button>
+                    <div class="chat_bar ">
+                        <div class="input">
+                            <input type="text" name="" id="" size="" placeholder="Enter your message here">
+                            
+                        </div>
+                        <div class="btn_snd">
+                            <button type="submit">send</button>
+                        </div>
                     </div>
-                </div>
-            </main>
-            <aside aria-label="sidebar">
-
-            </aside>
+                </main>      
         </section>
     </body>
 </html>

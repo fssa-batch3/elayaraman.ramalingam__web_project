@@ -1,33 +1,33 @@
 section{
     display: flex;
     height: 85%;
-    justify-content: space-between;
-}
-aside#sidebar{
-    width: 5%;
-    margin: 0;
+    justify-content: flex-start
 }
 main{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 90%;
     margin: 20px 0;
     justify-content: space-between;
     background-color: #D2DFFF;
-    padding: 30px 0px;
     border-radius: 50px;
+    align-items: center;
+    height: 100%;
 }
 main div.profile_bar{
     display: flex;
     align-items: center;
     width: 85%;
     justify-content: space-between;
+    height: 15%;
 }
-main .box{
-    margin: 15px 0;
+main div.profile_bar button{
+    background: none;
+    border: 0;
+    font-size: 18px;
 }
 h1{
-    display: inline;
+    font-size: 22px;
 }
 .name{
     display: flex;
@@ -37,13 +37,13 @@ h1{
 }
 .message{
     display: flex;
-    width: 95%;
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
+    width: 70%;
 }
 .name img{
-    height: 80px;
+    height: 60px;
     border-radius: 50%;
     margin: 0 15px;
 }
@@ -51,35 +51,41 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items:center;
-    padding: 0 20px;
     width: 90%;
+    height: 15%;
+}
+.chat_bar div{
+    margin: 5px;
 }
 input[type="text"]{
-    height: 80px;
-    margin:0 30px ;
-    border-radius: 50px;
-    padding: 10px 10px 10px 50px;
-    font-size: 22px;
+    border-radius: 15px;
+    font-size: 14px;
     border: 0;
+    height: 60px;
+    width: 100%;
+    text-align: center;
 }
 .chat_box{
-    height: 100%;
     width: 90%;
-    border-radius: 50px;
+    border-radius: 20px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    height: 70%;
+    margin: 5px;
 }
-.chat_box div{
-    padding: 20px;
-    margin: 20px ;
+.chat_box div.chat{
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     font-size: 22px;
     justify-content: end;
+    align-items: center;
+    padding: 5px 10px 10px 5px;
+    margin: 5px;
 }
+
 .chat_box div span{
     color: grey;
     font-size: 16;
@@ -90,14 +96,17 @@ input[type="text"]{
     align-items: flex-end;
     color: #ffffff;
     display: flex;
+    border-radius: 15px 15px 0 15px;
 }
 .chat_box div.chat_left{
     background-color: #A4ABBD;
     align-items: flex-start;
     display: flex;
+    border-radius: 15px 15px 15px 0px;
 }
 p{
     margin: 0;
+    font-size: 20px;
 }
 input, .chat_box{
 	animation: shadow-inset-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -110,22 +119,45 @@ input, .chat_box{
       box-shadow: inset 0 -6px 14px -6px rgba(0, 0, 0, 0.5);
     }
   }
-main, .chat div{
+.chat div.chat_left, .chat_right{
     box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
+    padding: 15px;
+    margin:10px 15px;
+    width: 85%;
 }
 .btn_snd{
     display: flex;
     align-items: center;
-
+    width: 30%;
+    justify-content: center;
 }
 .btn_snd button{
-    width: 150px;
-    height: 70px;
+    height: 60px;
+    width: 100%;
     border: 0;
-    border-radius: 30px;
-    margin: 20px;
+    border-radius: 15px;
     cursor: pointer;
-    font-size: 24px;
-    background-color: #6a5be2;
+    font-size: 18px;
+    background-color: #00C294;
     color: #f3f3f3;  
+}
+div.message{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.right{
+    align-items: flex-end;
+    text-align: right;
+}
+.left{
+    align-items: flex-start;
+    text-align: left;
+}
+.input{
+    display: flex;
+    flex-wrap: wrap;
+    width: 70%;
+    align-items: center;
+    justify-content: center;
 }
