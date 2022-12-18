@@ -3,6 +3,10 @@ header{
     flex-direction: column;
     height: 10%;
     margin-bottom: 5%;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #d2dfff;
 }
 nav div.logo a{
     display: flex;
@@ -29,9 +33,10 @@ a{
     cursor: pointer;
     text-decoration: none;
 }
-button{
+button.btn_nav{
     border: 0;
     background: none;
     font-size: 24px;
     cursor: pointer;
+    height: 40px;
 }

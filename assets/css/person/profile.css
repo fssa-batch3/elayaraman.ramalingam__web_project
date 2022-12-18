@@ -1,12 +1,15 @@
+header{
+    margin: 0;
+}
 section{
     display: flex;
     justify-content: center;
     align-items: center;
-}
-section form #form{
-    width: fit-content;
-    margin: 0;
-
+    overflow-y: scroll;
+    height: 90%;
+    margin-top: 5%; 
+    flex-wrap: wrap;
+    align-content: flex-start;
 }
 #form .logo{
     display: flex;
@@ -15,39 +18,51 @@ section form #form{
     justify-content: center;
 }
 .logo img{
-    height: 150px;
-}
-input{
-    width: 300px;
-    background: none;
-    border: 0;
-    color: black;
-    animation: none;
+    height: 120px;
+    border-radius: 50%;
 }
 a{
     font-size: 16px;
 }
-#form div{
-    display: flex;
-    align-items: center;
-    width: 450px;
-    justify-content: space-between;
-}
 label{
     font-size: 22px;
+    width: 50%;
+    text-align: left;
 }
-
 .file{
     font-size:1 0;
 }
 #form .btn_holder {
-    margin: 40px 0 0 0;
+    margin: 20px 0 0 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-.btn_holder a {
-    font-size: 26px;
+.btn_holder button {
+    font-size: 22px;
 }
-#edit a {
-    font-size: 26px;
+#edit{
+    height: 50px;
+    border: 0;
+}
+input{
+    background: none;
+    animation: none;
+    margin: 0;
+    width: 50%;
+    text-align: left;
+}
+#form{
+    width: 80%;
+    padding: 0 0 50px;
+}
+.details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+}
+.btn{
+    background: none;
+    border: 0;
 }

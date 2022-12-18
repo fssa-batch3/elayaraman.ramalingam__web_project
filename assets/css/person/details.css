@@ -1,9 +1,40 @@
 input{
-    width: 200px;
+    width: 100px;
 }
 .btn_holder{
     margin: 0;
 }
 #form div{
-    width: 300px;
+    width: 200px;
+}
+.logo img{
+    height: 100px;
+}
+.formhead{
+    font-size: 24px;
+}
+.details{
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+}
+input{
+    display: flex;
+    word-wrap: break-word;
+    border-radius: 0;
+    width: 50%;
+    margin: 0;
+    overflow: visible;
+    padding: 10px 0;
+}
+section #form{
+    width: 90%;
+}
+label{
+    text-decoration: solid;
+}
+#edit{
+    font-size: 20px;
+    height: 50px;
+
 }

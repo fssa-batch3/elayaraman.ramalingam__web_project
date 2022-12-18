@@ -117,7 +117,6 @@ button{
 #edit{
     background: #8A76FF;
     height: 60px;
-    font-size: 26px;
     color: var(--white1);
   }
 @keyframes shadow-inset-bottom {

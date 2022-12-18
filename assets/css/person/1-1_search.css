@@ -7,6 +7,7 @@
 h1{
     cursor: pointer;
     margin: 10px 0;
+    color: #6a5be2;
 }
 div.search_result img{
     height: 120px;
@@ -35,6 +36,7 @@ div.btn_holder button{
     border-radius: 15px;
     color: #ffffff;
     font-size: 18px;
+    border: 0;
 } 
 .red{
     background-color: #FF645C;
@@ -64,6 +66,12 @@ div.btn_holder{
 .btn_req{
     background-color: #6a5be2;
     font-size: 18;
+}
+.btn_req:focus{
+    background-color: rgba(106, 91, 226, 0.5);
+    border: #6a5be2 solid 3px;
+    color: #6a5be2;
+
 }
 .search_bar{
     position: -webkit-sticky;
