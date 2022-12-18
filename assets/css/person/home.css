@@ -76,8 +76,9 @@ button.search{
     color: white;
     font-size: 16px;
 }
-button.search:focus{
+button.search:focus,button.search:hover{
     background-color: #6a5be2;
+    scale: 1.1;
 }
 button.btn_pro:hover, button.btn_con:hover{
     color: #6a5be2;
