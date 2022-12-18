@@ -10,14 +10,21 @@ h1{
     color: #6a5be2;
 }
 div.search_result img{
-    height: 120px;
+    height: 60px;
     border-radius: 50%;
 }
 div.search_result{
+    margin: 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 30%;
+    justify-content: space-between;
+    background-color: var(--white1);
+    border-radius: 20px;
+    width: 80%;
+    box-shadow: 4px 3px 7px 0px rgba(62,66,66,0.31);
 }
 input{
     margin:10px 15px ;
@@ -98,10 +105,15 @@ div.holder{
 div.holder::-webkit-scrollbar{
     display: none;
 }
-
 .btn_req:hover{
     scale: 1.1;
 }
 .green:hover, .red:hover{
     scale: 1.1;
+}
+.name_holder{
+    display: flex;
+    align-items: center;
+    justify-content:space-around ;
+    width: 100%;
 }

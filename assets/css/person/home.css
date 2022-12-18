@@ -90,6 +90,6 @@ button.btn_nav{
     text-align: center;
     width: 100px;
 }
-.container, .profile_card{
+.container, .profile_card, .search_result{
     box-shadow: 6px 5px 13px 0px rgba(62,66,66,0.31);
 }
