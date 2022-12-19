@@ -114,6 +114,6 @@ div.holder::-webkit-scrollbar{
 .name_holder{
     display: flex;
     align-items: center;
-    justify-content:space-around ;
+    justify-content:space-evenly ;
     width: 100%;
 }
