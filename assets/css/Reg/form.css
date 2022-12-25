@@ -75,7 +75,6 @@ input{
     text-align: center;
     font-size: 1rem;
     border: 0;
-    animation: shadow-inset-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 .link{
   background: none;
@@ -118,14 +117,6 @@ button{
     background: #8A76FF;
     height: 60px;
     color: var(--white1);
-  }
-@keyframes shadow-inset-bottom {
-    0% {
-      box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
-    }
-    100% {
-      box-shadow: inset 0 -6px 14px -6px rgba(0, 0, 0, 0.5);
-    }
   }
 .btn_holder {
   display: flex;

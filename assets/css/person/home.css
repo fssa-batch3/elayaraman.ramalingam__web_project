@@ -17,10 +17,9 @@ div.holder{
 }
 div.profile_card{
     display: flex;
-    justify-content: space-between;
-    width: 80%;
-    flex-wrap: wrap;
-    align-content: center;
+    justify-content: space-evenly;
+    width: 75%;
+    max-width: 300px;
     align-items: center;
     margin: 10px;
     border-radius: 30px;
@@ -29,6 +28,15 @@ div.profile_card{
 }
 div.profile_card:hover{
     scale: 1.1 ;
+}
+.open_chat{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+}
+.open_chat:hover{
+    justify-content: space-between;
 }
 div.profile_card img.chat_profile{
     height: 50px;
@@ -89,7 +97,4 @@ button.btn_nav{
     transition: all 0.5s ease 0s;
     text-align: center;
     width: 100px;
-}
-.container, .profile_card, .search_result{
-    box-shadow: 6px 5px 13px 0px rgba(62,66,66,0.31);
 }

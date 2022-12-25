@@ -30,3 +30,7 @@ html {
 input:focus{
   outline: none;
 }
+a{
+  cursor: pointer;
+  text-decoration: none;
+}

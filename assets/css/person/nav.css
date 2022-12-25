@@ -29,10 +29,6 @@ nav .logo img{
     display: flex;
     justify-content: space-between;
 }
-a{
-    cursor: pointer;
-    text-decoration: none;
-}
 button.btn_nav{
     border: 0;
     background: none;
