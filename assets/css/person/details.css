@@ -1,6 +1,4 @@
-input{
-    width: 100px;
-}
+
 .btn_holder{
     margin: 0;
 }
@@ -27,6 +25,7 @@ input{
     overflow: visible;
     padding: 10px 0;
     background: none;
+    width: 100px;
 }
 section #form{
     width: 90%;
