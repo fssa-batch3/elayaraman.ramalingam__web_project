@@ -1,0 +1,19 @@
+{
+  "name": "chit-chat",
+  "version": "1.0.0",
+  "description": "[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa-batch3_elayaraman.ramalingam__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa-batch3_elayaraman.ramalingam__web_project)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fssa-batch3/elayaraman.ramalingam__web_project.git"
+  },
+  "author": "Elayaraman_Ramalingam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fssa-batch3/elayaraman.ramalingam__web_project/issues"
+  },
+  "homepage": "https://github.com/fssa-batch3/elayaraman.ramalingam__web_project#readme"
+}
