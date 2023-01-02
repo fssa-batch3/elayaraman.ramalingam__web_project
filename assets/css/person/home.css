@@ -20,7 +20,7 @@ div.profile_card{
     justify-content: space-evenly;
     width: 75%;
     height: 17.5%;
-    max-height: 180px;
+    max-height: 150px;
     max-width: 300px;
     align-items: center;
     margin: 10px;
@@ -31,15 +31,15 @@ div.profile_card{
 .open_chat{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     width: 50%;
 }
 .open_chat:hover{
     justify-content: space-between;
 }
 div.profile_card img.chat_profile{
-    height: 50px;
-    width: 50px;
+    height: 75px;
+    width: 75px;
     border-radius: 50%;
     margin: 10px;
 }
