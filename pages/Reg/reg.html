@@ -7,28 +7,54 @@
         <link rel="stylesheet" href="../../assets/css/Reg/form.css">
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
+
     </head>
     <body>
         <div class="form">
-            <form id="form" action="./login.html">
+            <form id="form">
                 <h1>Registration</h1>
                 <label for="name">Name</label>
-                <input type="text" name="name" id="" placeholder="enter your name" >
+                <input type="text" name="name" id="name" placeholder="enter your name"  >
                 <label for="name">Email</label>
-                <input type="email" name="email" id="" placeholder="enter your Email ID" >
+                <input type="email" name="email" id="email" placeholder="enter your Email ID"  >
                 <label for="name">Ph No</label>
-                <input type="tel" name="tel" id="" placeholder="enter your phone no" >
+                <input type="tel" name="tel" id="tel" placeholder="enter your phone no" >
                 <label for="name">D/O/B</label>
-                <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date" >
-                <div class="btn_holder">
-                    <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
-                        back
-                    </button>
-                    <button type="submit" class="btn_2 btn1" formaction="./Passwd.html">
-                        Submit
-                    </button>
-                </div>
+                <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date">
             </form>
+            <div class="btn_holder">
+                <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
+                    back
+                </button>
+                <button type="button" class="btn_2 btn1" onclick="submit()" >
+                    Submit
+                </button>
+            </div>
         </div>
+        <script>
+            function submit(){
+
+                const name = document.getElementById("name").value
+                const email = document.getElementById("email").value
+                const tel = document.getElementById("tel").value
+                const date = document.getElementById("date").value
+
+                console.log(name)
+                console.log(email)
+                console.log(tel)
+                console.log(date)
+
+                // localStorage code
+
+                localStorage.setItem("user_name", name)
+                localStorage.setItem("user_email", email)
+                localStorage.setItem("user_tel", tel)
+                localStorage.setItem("user_dob", date)
+
+                window.location.href="./Passwd.html"
+
+            }
+
+        </script>
     </body>
 </html

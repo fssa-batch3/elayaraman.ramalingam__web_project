@@ -30,6 +30,7 @@ main div.profile_bar button{
 }
 h1{
     font-size: 22px;
+    color: var(--violet);
 }
 .name{
     display: flex;

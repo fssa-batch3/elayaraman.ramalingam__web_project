@@ -1,8 +1,7 @@
 header{
     display: flex;
     flex-direction: column;
-    height: 10%;
-    margin-bottom: 5%;
+    height: 15%;
     position: -webkit-sticky;
     position: sticky;
     top: 0;
@@ -19,7 +18,9 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 5% 10%;
+    height: 100%;
+    width: 80%;
+    margin:5% auto;
 }
 nav .logo img{
     height: 60px;
