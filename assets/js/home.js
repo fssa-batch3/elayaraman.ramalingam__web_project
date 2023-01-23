@@ -34,33 +34,30 @@ function fun(){
     
     let open_profile = document.createElement("div");
     open_profile.setAttribute("class","open_profile");
-    open_profile.setAttribute("onclick",`location.href='${element["profile_path"]}'`);
     profile_card.append(open_profile);
+
+    let profile_link = document.createElement("a");
+    profile_link.setAttribute("href",element["profile_path"]);
+    open_profile.append(profile_link);
     
     let chat_profile = document.createElement("img");
     chat_profile.setAttribute("class","chat_profile");
+    chat_profile.setAttribute("alt",element["profile_name"]);
     chat_profile.setAttribute("src",element["profile_pic_path"]);
-    open_profile.append(chat_profile);
+    profile_link.append(chat_profile);
     
     let open_chat = document.createElement("div");
     open_chat.setAttribute("class","open_chat");
-    open_chat.setAttribute("onclick",`location.href='${element["chat_path"]}'`)
     profile_card.append(open_chat);
+
+    let chat_link = document.createElement("a");
+    chat_link.setAttribute("href",element["chat_path"]);
+    open_chat.append(chat_link);
     
     let profile_name = document.createElement("h1");
     profile_name.innerHTML = element["profile_name"];
-    open_chat.append(profile_name);
+    chat_link.append(profile_name);
     
     document.querySelector("div.holder").append(profile_card);
     }
-    
 }
-
-
-
-
-
-
-
-
-
