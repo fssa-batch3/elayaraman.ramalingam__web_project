@@ -6,6 +6,7 @@ header{
     position: sticky;
     top: 0;
     background-color: #d2dfff;
+    align-items: center;
 }
 nav div.logo a{
     display: flex;
@@ -20,7 +21,6 @@ nav{
     align-items: center;
     height: 100%;
     width: 80%;
-    margin:5% auto;
 }
 nav .logo img{
     height: 60px;

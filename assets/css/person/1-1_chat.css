@@ -47,6 +47,7 @@ h1{
 }
 .name img{
     height: 60px;
+    width: 60px;
     border-radius: 50%;
     margin: 0 15px;
 }
@@ -61,7 +62,7 @@ h1{
     margin: 5px;
 }
 input[type="text"]{
-    border-radius: 15px;
+    border-radius: 10px;
     font-size: 14px;
     border: 0;
     height: 60px;
@@ -70,7 +71,7 @@ input[type="text"]{
 }
 .chat_box{
     width: 90%;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -99,13 +100,13 @@ input[type="text"]{
     align-items: flex-end;
     color: #ffffff;
     display: flex;
-    border-radius: 15px 15px 0 15px;
+    border-radius: 10px 10px 0 10px;
 }
 .chat_box div.chat_left{
     background-color: #A4ABBD;
     align-items: flex-start;
     display: flex;
-    border-radius: 15px 15px 15px 0px;
+    border-radius: 10px 10px 10px 0px;
 }
 p{
     margin: 0;
@@ -120,14 +121,14 @@ p{
 .btn_snd{
     display: flex;
     align-items: center;
-    width: 30%;
+    width: 25%;
     justify-content: center;
 }
 .btn_snd button{
     height: 60px;
     width: 100%;
     border: 0;
-    border-radius: 15px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 18px;
     background-color: #00C294;
@@ -152,4 +153,7 @@ div.message{
     width: 70%;
     align-items: center;
     justify-content: center;
+}
+.btn_file{
+    display: none;
 }

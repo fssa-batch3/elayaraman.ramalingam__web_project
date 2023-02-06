@@ -8,52 +8,83 @@
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
 
+
     </head>
     <body>
         <div class="form">
-            <form id="form">
+            <form id="form" role="form" onsubmit="sign_up(event)" autocomplete="off">
                 <h1>Registration</h1>
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="enter your name"  >
-                <label for="name">Email</label>
-                <input type="email" name="email" id="email" placeholder="enter your Email ID"  >
-                <label for="name">Ph No</label>
-                <input type="tel" name="tel" id="tel" placeholder="enter your phone no" >
-                <label for="name">D/O/B</label>
-                <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date">
+                
+                <div class="form_data">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" placeholder="enter your name"  required>
+                </div>
+
+                <div class="form_data">
+                    <label for="tel">Ph No</label>
+                    <input type="tel" name="tel" id="tel" placeholder="enter your phone no" required >
+                </div>
+
+                <div class="form_data">
+                    <label for="date">D/O/B</label>
+                    <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date" name="date" required>
+                </div>
+
+                <div class="form_data">
+                    <label for="new-password">Enter the Password</label>
+                    <input type="password" name="new-password" id="new-password" placeholder="Enter the Password" required>
+                </div>
+
+                <div class="form_data">
+                    <label for="confirm-password">Confirm the Password</label>
+                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm the Password" required >
+                </div>
+
+                <div class="btn_holder">
+                    <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
+                        back
+                    </button>
+                    <button type="submit" class="btn_2 btn1" onclick="createUser()">
+                        Submit
+                    </button>
+                </div>
             </form>
-            <div class="btn_holder">
-                <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
-                    back
-                </button>
-                <button type="button" class="btn_2 btn1" onclick="submit()" >
-                    Submit
-                </button>
-            </div>
+            
         </div>
         <script>
-            function submit(){
 
-                const name = document.getElementById("name").value
-                const email = document.getElementById("email").value
-                const tel = document.getElementById("tel").value
-                const date = document.getElementById("date").value
+            function createUser(){
+                
+                let user_name   =   document.getElementById("name").value;
+                let user_ph     =   document.getElementById("tel").value;
+                let user_dob    =   document.getElementById("date").value;
+                let new_passwd  =   document.getElementById("new-password").value;
+                let user_passwd =   document.getElementById("confirm-password").value;
 
-                console.log(name)
-                console.log(email)
-                console.log(tel)
-                console.log(date)
+                let user_data = new Array();
 
-                // localStorage code
+                user_data = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
-                localStorage.setItem("user_name", name)
-                localStorage.setItem("user_email", email)
-                localStorage.setItem("user_tel", tel)
-                localStorage.setItem("user_dob", date)
+                if(user_data.some((v)=>{return v.user_ph==user_ph}))
+                {
+                    alert("This number is already linked with another account");
+                    window.location.href = "./reg.html";
+                }
+                else
+                {
+                    user_data.push({
+                        "user_name": user_name,
+                        "user_ph": user_ph,
+                        "user_dob": user_dob,
+                        "user_passwd": user_passwd
+                    })
 
-                window.location.href="./Passwd.html"
-
+                    alert("account created for this mobile number");
+                    window.location.href="./login.html";
+                    localStorage.setItem("users",JSON.stringify(user_data));
+                }
             }
+
 
         </script>
     </body>

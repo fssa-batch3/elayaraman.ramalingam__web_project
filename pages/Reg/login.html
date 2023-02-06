@@ -12,21 +12,47 @@
         <div class="form">
             <form id="form" action="../person/home.html">
                 <h1 class="formhead">Login</h1>
-                <label for="name">Email</label>
-                <input type="email" name="name" id="" placeholder="Enter your Email" >
-                <label for="name">Password</label>
-                <input type="password" name="email" id="" placeholder="Enter your password" >
-            </form>
-            <div>
-            </div>
-            <div class="btn_holder">
-                <button type="submit" class="btn_2  link" onclick="history.back()">
-                    back
-                </button>
-                <button type="submit" class="btn_2 btn1"  onclick="window.location.href='../person/home.html'">
-                    Submit
-                </button>
-            </div>
+
+                <div class="form_data">
+                    <label for="tel">Phone number</label>
+                    <input type="tel" name="tel" id="tel" placeholder="Enter your Phone number" >
+                </div>
+                
+                <div class="form_data">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="" placeholder="Enter your password" >
+                </div>
+
+                <div class="btn_holder">
+                    <button type="submit" class="btn_2  link" onclick="history.back()">
+                        back
+                    </button>
+                    <button type="submit" class="btn_2 btn1"  onclick="login()">
+                        Submit
+                    </button>
+                </div>
+            </form>            
         </div>
+
+        <script>
+            function login(){
+
+                let user_tel = document.getElementById("tel").value;
+                let user_passwd = document.getElementById("password").value;
+
+                user_data = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+                if(user_data.some((v)=>{return v.user_ph==user_ph && v.user_passwd==user_passwd})){
+
+                    alert("welcome!");
+                    window.location.href="../profiles/home.html";
+                }
+                else
+                {
+                    alert("Phone number and password is not right")
+                    window.location.href="./login.html";
+                }
+            }
+        </script>
     </body>
 </html

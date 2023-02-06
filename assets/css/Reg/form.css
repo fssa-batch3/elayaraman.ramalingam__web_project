@@ -18,6 +18,11 @@
     border-radius: 40px;
 }
   
+#form div.form_data{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
 a{
     display: flex;
     text-decoration: none;
@@ -30,7 +35,7 @@ a{
     width: 220px;
     font-size: 24px;
     border: 0;
-    border-radius: 30px;
+    border-radius: 10px;
     margin: 20px;
     cursor: pointer;
     box-shadow: 6px 5px 27px 0px rgba(62,66,66,0.31);
@@ -39,7 +44,7 @@ a{
   width: 120px;
   height: 50px;
   border: 0;
-  border-radius: 30px;
+  border-radius: 10px;
   margin: 20px 10px;
   cursor: pointer;
   font-size: 20px;
@@ -61,7 +66,7 @@ input{
     margin:5px 15px ;
     height: 2em;
     width: 250px;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 10px;
     text-align: center;
     font-size: 1rem;
@@ -74,6 +79,8 @@ input{
 } 
 input:focus{
   outline: none;
+  box-shadow: 0 0 5px var(--violet);
+  border: 1px solid var(--violet) ;
 }
 div.main{
   display: flex;
@@ -101,7 +108,7 @@ button{
     width: 100px;
     height: 2rem;
     margin: 0 10px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 16px;
 }
 #edit{
@@ -111,5 +118,7 @@ button{
   }
 .btn_holder {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
-  
+
