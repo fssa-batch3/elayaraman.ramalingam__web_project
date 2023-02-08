@@ -41,7 +41,7 @@
                 </div>
 
                 <div class="btn_holder">
-                    <button type="submit" class="btn_2 btn1 link" onclick="history.back()">
+                    <button type="submit" class="btn_2 btn1 link" onclick="">
                         back
                     </button>
                     <button type="submit" class="btn_2 btn1" onclick="createUser()">
@@ -65,10 +65,11 @@
 
                 user_data = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
 
-                if(user_data.some((v)=>{return v.user_ph==user_ph}))
+                if(user_data.some((v)=>{return v.user_ph!=user_ph}))
                 {
-                    alert("This number is already linked with another account");
-                    window.location.href = "./reg.html";
+
+                    alert("account created for this mobile number");
+                    window.location.href="./login.html";
                 }
                 else
                 {
@@ -77,13 +78,38 @@
                         "user_ph": user_ph,
                         "user_dob": user_dob,
                         "user_passwd": user_passwd
-                    })
-
-                    alert("account created for this mobile number");
-                    window.location.href="./login.html";
+                    })   
                     localStorage.setItem("users",JSON.stringify(user_data));
+
+                   // alert("This number is already linked with another account");
+                   // window.location.href = "./reg.html";
                 }
             }
+            
+            //  function Sign_in()
+            //         {
+            //         let name,email,password;
+            //         name=document.getElementById("name").value;
+            //         email=document.getElementById("email").value;
+            //         password=document.getElementById("password").value;
+            //         let user_records=new Array();
+            //         user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+            //         if(user_records.some((v)=>{return v.email==email}))
+            //         {
+            //         alert("Your account has been Created");
+            //         window.location.href = "../Reg/2_login.html"
+            //         }
+            //         else
+            //         {
+            //         user_records.push({
+            //         "name":name,
+            //         "email":email,
+            //         "password":password
+            //         })
+            //         localStorage.setItem("users",JSON.stringify(user_records));
+            //         }
+            //         }
+            
 
 
         </script>

@@ -32,9 +32,6 @@ div.profile_card{
     justify-content: center;
     width: 50%;
 }
-.open_chat:hover{
-    justify-content: space-between;
-}
 div.profile_card img.chat_profile{
     height: 75px;
     width: 75px;
@@ -65,37 +62,10 @@ h1{
     justify-content: space-around;
     height: 15%;
     align-items: center;
-}
-button.btn_con{
-    font-size:26;
-}
-button.btn_pro{
-    font-size:24px;
-    margin: 5px;
-}
-button.search{
-    background-color: #666666;
-    border: 0;
-    padding:15px 20px;
-    border-radius: 20px;
-    width: 120px;
-    color: white;
-    font-size: 16px;
-}
-button.search:focus,button.search:hover{
-    background-color: var(--violet);
-    scale: 1.1;
-}
-button.btn_pro:hover, button.btn_con:hover{
-    color: #6a5be2;
-    scale: 1.2;
-    transition: 0.4;
-}   
+}  
 button.btn_nav{
     transition: all 0.5s ease 0s;
     text-align: center;
     width: 100px;
 }
-i{
-    font-size: larger;
-}
+
