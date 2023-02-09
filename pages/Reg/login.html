@@ -10,7 +10,7 @@
     </head>
     <body>
         <div class="form">
-            <form id="form" action="../person/home.html">
+            <form id="form">
                 <h1 class="formhead">Login</h1>
 
                 <div class="form_data">
@@ -20,14 +20,14 @@
                 
                 <div class="form_data">
                     <label for="password">Password</label>
-                    <input type="password" name="password" id="" placeholder="Enter your password" required>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" autocomplete="" required>
                 </div>
 
                 <div class="btn_holder">
                     <button type="button" class="btn_2  link" onclick="history.back()">
                         back
                     </button>
-                    <button type="button" class="btn_2 btn1" onclick="login()" >
+                    <button type="submit" class="btn_2 btn1"  >
                         Submit
                     </button>
                 </div>
@@ -35,30 +35,47 @@
         </div>
 
         <script>
-            function login(){
+            const loginForm = document.querySelector("#form");
 
-                let user_tel = document.getElementById("tel").value;
-                let user_passwd = document.getElementById("password").value;
+            loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
 
+            const formData = new FormData(loginForm);
+            const registrationData = JSON.parse(localStorage.getItem("registrationData"));
 
-                let user_data = new Array();
-                user_data = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
-
-                if(user_data.some((v)=>{return v.user_ph==user_ph && v.user_passwd==user_passwd})){
-
-                    alert("welcome!");
-                    let logged_user = user_data.filter((v)=>{return v.user_tel==user_tel && v.user_passwd==user_passwd})[0]
-                    localStorage.setItem("user_tel",logged_user.user_tel);
-                    localStorage.setItem("user_passed",logged_user.user_passwd);
-                    window.location.href="../profiles/home.html";
-                }
-                else
-                {
-                    alert("Phone number and password is not right")
-                    
-                }
-
+            // Input validation
+            if (!formData.get("tel")) {
+                alert("Phone number is required");
+                return;
             }
+
+            if (!formData.get("password")) {
+                alert("Password is required");
+                return;
+            }
+
+            // Check if the credentials match
+            let isAuthenticated = false;
+            for (let i = 0; i < registrationData.length; i++) {
+                if (
+                formData.get("tel") === registrationData[i].tel &&
+                formData.get("password") === registrationData[i].password
+                ) {
+                isAuthenticated = true;
+                break;
+                }
+            }
+
+            if (isAuthenticated) {
+                alert("Login successful");
+            } else {
+                alert("Invalid phone number or password");
+            }
+
+            window.location.href="C:/Users/ElayaramanRamalingam/Desktop/elayaraman.ramalingam__web_project/pages/person/home.html";
+            }
+            );
+
         </script>
     </body>
 </html

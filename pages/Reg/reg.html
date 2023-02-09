@@ -12,39 +12,34 @@
     </head>
     <body>
         <div class="form">
-            <form id="form" role="form" onsubmit="sign_up(event)" autocomplete="off">
+            <form id="form" autocomplete="on"  onsubmit="">
                 <h1>Registration</h1>
                 
                 <div class="form_data">
                     <label for="name">Name</label>
-                    <input type="text" name="name" id="name" placeholder="enter your name"  required>
+                    <input type="text" name="username" id="username" placeholder="enter your name"  required>
                 </div>
 
                 <div class="form_data">
-                    <label for="tel">Ph No</label>
+                    <label for="tel">Phone No</label>
                     <input type="tel" name="tel" id="tel" placeholder="enter your phone no" required >
                 </div>
 
                 <div class="form_data">
-                    <label for="date">D/O/B</label>
-                    <input placeholder="Date of Birth" type="text" onfocus="(this.type = 'date')"  id="date" name="date" required>
-                </div>
-
-                <div class="form_data">
                     <label for="new-password">Enter the Password</label>
-                    <input type="password" name="new-password" id="new-password" placeholder="Enter the Password" required>
+                    <input type="password" name="new-password" id="new-password" placeholder="Enter the Password" autocomplete="off" required>
                 </div>
 
                 <div class="form_data">
-                    <label for="confirm-password">Confirm the Password</label>
-                    <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm the Password" required >
+                    <label for="confirm_password">Confirm the Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm the Password" autocomplete="off" required>
                 </div>
 
                 <div class="btn_holder">
-                    <button type="submit" class="btn_2 btn1 link" onclick="">
+                    <button class="btn_2 btn1 link" onclick="window.history.back()">
                         back
                     </button>
-                    <button type="submit" class="btn_2 btn1" onclick="createUser()">
+                    <button type="submit" class="btn_2 btn1">
                         Submit
                     </button>
                 </div>
@@ -52,66 +47,77 @@
             
         </div>
         <script>
+                        // function signup(e){
+                            const form = document.querySelector("#form");
 
-            function createUser(){
-                
-                let user_name   =   document.getElementById("name").value;
-                let user_ph     =   document.getElementById("tel").value;
-                let user_dob    =   document.getElementById("date").value;
-                let new_passwd  =   document.getElementById("new-password").value;
-                let user_passwd =   document.getElementById("confirm-password").value;
+                            form.addEventListener("submit", function(event) {
+                            event.preventDefault();
+                            console.log("username");
 
-                let user_data = new Array();
+                            const formData = new FormData(form);
+                            let registrationData = [];
 
-                user_data = JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+                            // Input validation
+                            if (!formData.get("username")) {
+                                alert("Username is required");
+                                return;
+                            }
+                            
 
-                if(user_data.some((v)=>{return v.user_ph!=user_ph}))
-                {
+                            if (!formData.get("tel")) {
+                                alert("tel is required");
+                                return;
+                            }
 
-                    alert("account created for this mobile number");
-                    window.location.href="./login.html";
-                }
-                else
-                {
-                    user_data.push({
-                        "user_name": user_name,
-                        "user_ph": user_ph,
-                        "user_dob": user_dob,
-                        "user_passwd": user_passwd
-                    })   
-                    localStorage.setItem("users",JSON.stringify(user_data));
+                            if (!formData.get("confirm_password")) {
+                                alert("Password is required");
+                                return;
+                            }
 
-                   // alert("This number is already linked with another account");
-                   // window.location.href = "./reg.html";
-                }
-            }
-            
-            //  function Sign_in()
-            //         {
-            //         let name,email,password;
-            //         name=document.getElementById("name").value;
-            //         email=document.getElementById("email").value;
-            //         password=document.getElementById("password").value;
-            //         let user_records=new Array();
-            //         user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
-            //         if(user_records.some((v)=>{return v.email==email}))
-            //         {
-            //         alert("Your account has been Created");
-            //         window.location.href = "../Reg/2_login.html"
-            //         }
-            //         else
-            //         {
-            //         user_records.push({
-            //         "name":name,
-            //         "email":email,
-            //         "password":password
-            //         })
-            //         localStorage.setItem("users",JSON.stringify(user_records));
-            //         }
-            //         }
-            
+                            if (localStorage.getItem("registrationData")) {
+                            registrationData = JSON.parse(localStorage.getItem("registrationData"));
 
+                            for (let i = 0; i < registrationData.length; i++) {
+                            if (formData.get("tel") === registrationData[i].tel) {
+                                alert("User already exists");
+                                return;
+                            }
+                            }
+                            }
+                            if(formData.get("new-password") !== formData.get("confirm_password")){
+                                alert("both passwords should be same");
+                                return;
+                            }
 
+                            // Password validation
+                            if (formData.get("confirm_password").length < 8) {
+                                alert("Password must be at least 8 characters long");
+                                return;
+                            }
+
+                            // Check if the data already exists in local storage
+                            if (localStorage.getItem("registrationData")) {
+                                registrationData = JSON.parse(localStorage.getItem("registrationData"));
+                            }
+
+                            // Push the new data to the array
+                            registrationData.push({
+                                username: formData.get("username"),
+                                tel: formData.get("tel"),
+                                password: formData.get("confirm_password")
+                            });
+
+                            // Store the array in local storage
+                            localStorage.setItem("registrationData", JSON.stringify(registrationData));
+
+                            // go to the login page
+
+                            window.location.href="./login.html";
+
+                            // Clear the form
+                            // form.reset();
+                            });
+                        
         </script>
     </body>
 </html
