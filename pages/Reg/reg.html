@@ -58,6 +58,7 @@
                             let registrationData = [];
 
                             // Input validation
+
                             if (!formData.get("username")) {
                                 alert("Username is required");
                                 return;
@@ -84,6 +85,7 @@
                             }
                             }
                             }
+
                             if(formData.get("new-password") !== formData.get("confirm_password")){
                                 alert("both passwords should be same");
                                 return;
@@ -92,6 +94,36 @@
                             // Password validation
                             if (formData.get("confirm_password").length < 8) {
                                 alert("Password must be at least 8 characters long");
+                                return;
+                            }
+                            // Space validation
+                            if (formData.get("username").indexOf(" ") !== -1) {
+                                alert("Username cannot start with spaces");
+                                return;
+                            }
+
+                            if (formData.get("username").lastIndexOf(" ") !== -1) {
+                                alert("Username cannot end with spaces");
+                                return;
+                            }
+
+                            if (formData.get("tel").indexOf(" ") !== -1) {
+                                alert("Phone number cannot contain spaces");
+                                return;
+                            }
+
+                            if (formData.get("tel").lastIndexOf(" ") !== -1) {
+                                alert("Phone number cannot contain spaces");
+                                return;
+                            }
+
+                            if (formData.get("confirm_password").indexOf(" ") !== -1) {
+                                alert("Password cannot begin with spaces");
+                                return;
+                            }
+
+                            if (formData.get("confirm_password").lastIndexOf(" ") !== -1) {
+                                alert("Password cannot end with spaces");
                                 return;
                             }
 
