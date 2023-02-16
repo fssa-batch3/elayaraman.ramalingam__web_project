@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
 
+        <script src="../../assets/js/profile.js"></script>
+
 
     </head>
     <body>
@@ -27,38 +29,62 @@
             </nav>
         </header>
         <section>
-            <form id="form" class="profile">
+            <form id="form" class="profile" onload="initProfilePage()">
                 <h1 class="formhead">Profile</h1>
                 <div class="logo">
                     <img src="../../assets/images/Logos/1-1_logo.jpg" alt="1-1">
-                    
                 </div>
-                <div class="details">
-                    <Label>Name</Label>
-                    <input type="text" placeholder="" value="Elayaraman Ramalingam">
-                </div>
-                <div class="details">
-                    <Label>D/O/B</Label>
-                    <input type="text" placeholder="" value="07/08/2003">
-                </div>
-                <div class="details">
+                <div class="form_data">
                     <Label>Username</Label>
-                    <input type="text" placeholder="" value="Elaya">
+                    <input type="text" placeholder="" class="fc" id="username" value="">
                 </div>
-                <div class="details">
-                    <Label>Email</Label>
-                    <input type="Email" placeholder="" value="elayaraman007@gmail.com">
-                </div>
-                <div class="details">
+                <div class="form_data">
                     <Label>Ph no</Label>
-                    <input type="tel" placeholder="" value="9344048138">
+                    <input type="tel" id="tel" placeholder="" class="fc" value="">
                 </div>
                 <div class="btn_holder">
-                    <button type="submit" id="edit" formaction="../person/Passwd.html">
+                    <button type="submit" id="edit" formaction="../person/profile.html">
                         Submit
                     </button>
                 </div>
             </form>
         </section>
+
+        <script>
+            
+
+
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+
+            document.getElementById('username').value = user.username;
+            document.getElementById('tel').value = user.tel;
+
+            const form = document.getElementById("form");
+            form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+
+            const users = JSON.parse(localStorage.getItem("users") || [])
+            const username = document.getElementById('username').value.trim();
+            const userObj = users.find (obj => users.tel === users.tel);
+
+            console.log(userObj);
+
+            user.username = username;
+            userObj.username = username;
+
+
+
+      
+            localStorage.setItem('currentUser', JSON.stringify(user));
+            localStorage.setItem("users",JSON.stringify(users));
+            alert('Profile updated successfully!');
+
+            window.location.href="profile.html";
+            });
+
+       
+            
+        </script>
     </body>
 </html>

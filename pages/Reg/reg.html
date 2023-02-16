@@ -12,27 +12,27 @@
     </head>
     <body>
         <div class="form">
-            <form id="form" autocomplete="on"  onsubmit="">
+            <form id="form" autocomplete="on" >
                 <h1>Registration</h1>
                 
                 <div class="form_data">
-                    <label for="name">Name</label>
-                    <input type="text" name="username" id="username" placeholder="enter your name"  required>
+                    <label for="name">Username</label>
+                    <input type="text" name="username" id="username" placeholder="enter your name" >
                 </div>
 
                 <div class="form_data">
                     <label for="tel">Phone No</label>
-                    <input type="tel" name="tel" id="tel" placeholder="enter your phone no" required >
+                    <input type="tel" name="tel" id="tel" placeholder="enter your phone no" pattern="[1-9]{1}[0-9]{9}"  >
                 </div>
 
                 <div class="form_data">
-                    <label for="new-password">Enter the Password</label>
-                    <input type="password" name="new-password" id="new-password" placeholder="Enter the Password" autocomplete="off" required>
+                    <label for="password">Enter the Password</label>
+                    <input type="password" name="password" id="password" placeholder="Enter the Password" autocomplete="off" >
                 </div>
 
                 <div class="form_data">
-                    <label for="confirm_password">Confirm the Password</label>
-                    <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm the Password" autocomplete="off" required>
+                    <label for="user_password">Confirm the Password</label>
+                    <input type="password" name="user_password" id="user_password" placeholder="Confirm the Password" autocomplete="off" >
                 </div>
 
                 <div class="btn_holder">
@@ -47,109 +47,53 @@
             
         </div>
         <script>
-                        // function signup(e){
-                            const form = document.querySelector("#form");
 
-                            form.addEventListener("submit", function(event) {
-                            event.preventDefault();
-                            console.log("username");
+                    const form = document.getElementById("form");
 
-                            const formData = new FormData(form);
-                            let registrationData = [];
+                    form.addEventListener("submit", function(event){
+                    event.preventDefault();
 
-                            // Input validation
+                    const username = document.getElementById('username').value.trim();
+                    const tel = document.getElementById('tel').value.trim();
+                    const password = document.getElementById('password').value.trim();
+                    const userPassword = document.getElementById('user_password').value.trim();
 
-                            if (!formData.get("username")) {
-                                alert("Username is required");
-                                return;
-                            }
-                            
+                    if (!username || !tel || !password || !userPassword) {
+                        alert('Please fill all the fields!');
+                        return;
+                    }
 
-                            if (!formData.get("tel")) {
-                                alert("tel is required");
-                                return;
-                            }
+                    if (!/^[a-zA-Z]+$/.test(username)) {
+                        alert('Please enter a valid name!');
+                        return;
+                    }
 
-                            if (!formData.get("confirm_password")) {
-                                alert("Password is required");
-                                return;
-                            }
+                    if (!/^\d{10}$/.test(tel)) {
+                        alert('Please enter a valid phone number!');
+                        return;
+                    }
 
-                            if (localStorage.getItem("registrationData")) {
-                            registrationData = JSON.parse(localStorage.getItem("registrationData"));
+                    const users = JSON.parse(localStorage.getItem('users')) || [];
 
-                            for (let i = 0; i < registrationData.length; i++) {
-                            if (formData.get("tel") === registrationData[i].tel) {
-                                alert("User already exists");
-                                return;
-                            }
-                            }
-                            }
+                    if (users.some(function(user) { return user.tel === tel })) {
+                        alert('This phone number is already registered!');
+                        return;
+                    }
 
-                            if(formData.get("new-password") !== formData.get("confirm_password")){
-                                alert("both passwords should be same");
-                                return;
-                            }
+                    if (password !== userPassword) {
+                        alert('Passwords do not match!');
+                        return;
+                    }
 
-                            // Password validation
-                            if (formData.get("confirm_password").length < 8) {
-                                alert("Password must be at least 8 characters long");
-                                return;
-                            }
-                            // Space validation
-                            if (formData.get("username").indexOf(" ") !== -1) {
-                                alert("Username cannot start with spaces");
-                                return;
-                            }
+                    const user = { username: username, tel: tel, userPassword: userPassword };
+                    users.push(user);
 
-                            if (formData.get("username").lastIndexOf(" ") !== -1) {
-                                alert("Username cannot end with spaces");
-                                return;
-                            }
+                    localStorage.setItem('users', JSON.stringify(users));
+                    alert('Registration successful!');
 
-                            if (formData.get("tel").indexOf(" ") !== -1) {
-                                alert("Phone number cannot contain spaces");
-                                return;
-                            }
+                    window.location.href="./login.html";
 
-                            if (formData.get("tel").lastIndexOf(" ") !== -1) {
-                                alert("Phone number cannot contain spaces");
-                                return;
-                            }
-
-                            if (formData.get("confirm_password").indexOf(" ") !== -1) {
-                                alert("Password cannot begin with spaces");
-                                return;
-                            }
-
-                            if (formData.get("confirm_password").lastIndexOf(" ") !== -1) {
-                                alert("Password cannot end with spaces");
-                                return;
-                            }
-
-                            // Check if the data already exists in local storage
-                            if (localStorage.getItem("registrationData")) {
-                                registrationData = JSON.parse(localStorage.getItem("registrationData"));
-                            }
-
-                            // Push the new data to the array
-                            registrationData.push({
-                                username: formData.get("username"),
-                                tel: formData.get("tel"),
-                                password: formData.get("confirm_password")
-                            });
-
-                            // Store the array in local storage
-                            localStorage.setItem("registrationData", JSON.stringify(registrationData));
-
-                            // go to the login page
-
-                            window.location.href="./login.html";
-
-                            // Clear the form
-                            // form.reset();
-                            });
-                        
+                    });
         </script>
     </body>
 </html

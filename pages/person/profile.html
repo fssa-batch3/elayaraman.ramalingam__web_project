@@ -10,6 +10,8 @@
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
 
+        <script src="../../assets/js/profile.js"></script>
+
 
     </head>
     <body>
@@ -20,7 +22,7 @@
                         </a>  
                     </div>
                 <div class="nav">
-                        <button class="btn_nav" onclick="location.href='../../index.html'">Logout</button>
+                        <button class="btn_nav"  onclick="logout()">Logout</button>
                 </div>
             </nav>
         </header>
@@ -32,48 +34,54 @@
                     
                 </div>
                 <div class="form_data">
-                    <Label>Name</Label>
-                    <input type="text" placeholder="" id="user_name">
+                    <Label>Username</Label>
+                    <input type="text" placeholder="" class="fc" id="username">
                 </div>
-                <div class="form_data">
-                    <Label>D/O/B</Label>
-                    <input type="text" placeholder="" value="07/08/2003">
-                </div>
+
                 <div class="form_data">
                     <Label>Ph no</Label>
-                    <input type="tel" placeholder="" value="9344048138">
+                    <input type="tel" placeholder="" class="fc" id="tel">
                 </div>
-                <div class="form_data">
-                    <Label>Profile</Label>
-                    <input type="file" placeholder="Change" class="file">
-                </div>
-                
-            </form>
-            <div class="btn_holder">
+
+                <div class="btn_holder">
                 <button type="submit" id="edit" formaction="../person/profile_edit.html">
                     Edit
                 </button>
-                <button type="submit" id="submit" class="btn" formaction="./home.html">
-                            Close
-                </button>
-            </div>
-
-            <script>
-
                 
-                const user_name = localStorage.getItem("user_name")
-                const user_email = localStorage.getItem("user_email")
-                const user_tel = localStorage.getItem("user_tel")
-                const user_date = localStorage.getItem("user_date")
+            </div>
+                
+            </form>
+            <button type="submit" id="submit" class="btn" onclick="deleteProfile()">
+                Delete
+            </button>
+            
 
-                console.log(user_name);
-                console.log(user_email);
-                console.log(user_tel);
-                console.log(user_date);
-
-                document.getElementById("user_name") .value=user_name
-
-            </script>
+            
         </section>
+        <script>
+
+            const user = JSON.parse(localStorage.getItem('currentUser'));
+
+            document.getElementById('username').value = user.username;
+            document.getElementById('tel').value = user.tel;
+
+            const users = JSON.parse(localStorage.getItem("users") || [])
+
+            function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = '../../index.html';
+            }
+
+            function deleteProfile() {
+
+            const users = JSON.parse(localStorage.getItem("users") || [])
+            
+            console.log( users.find (obj => users.tel === users.tel));
+
+            localStorage.removeItem(users.find (obj => users.tel === users.tel));
+
+            }
+
+        </script>
     </body>
 </html>

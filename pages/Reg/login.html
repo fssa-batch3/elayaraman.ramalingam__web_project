@@ -19,8 +19,12 @@
                 </div>
                 
                 <div class="form_data">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" autocomplete="" required>
+                    <label for="userPassword">Password</label>
+                    <input type="password" name="userPassword" id="userPassword" placeholder="Enter your password" autocomplete="" required>
+                </div>
+
+                <div class="btn_holder">
+                    <input type="checkbox" name="rememberMe" id="rememberMe"> remember me
                 </div>
 
                 <div class="btn_holder">
@@ -35,46 +39,35 @@
         </div>
 
         <script>
-            const loginForm = document.querySelector("#form");
 
-            loginForm.addEventListener("submit", function(event) {
-            event.preventDefault();
+                
+                const form = document.getElementById("form");
+                form.addEventListener("submit", function(event){
+                event.preventDefault();
 
-            const formData = new FormData(loginForm);
-            const registrationData = JSON.parse(localStorage.getItem("registrationData"));
+                const tel = document.getElementById('tel').value.trim();
+                const userPassword = document.getElementById('userPassword').value.trim();
+                const rememberMe = document.getElementById('rememberMe').checked;
 
-            // Input validation
-            if (!formData.get("tel")) {
-                alert("Phone number is required");
-                return;
-            }
+                const users = JSON.parse(localStorage.getItem('users')) || [];
 
-            if (!formData.get("password")) {
-                alert("Password is required");
-                return;
-            }
+                console.log(users);
 
-            // Check if the credentials match
-            let isAuthenticated = false;
-            for (let i = 0; i < registrationData.length; i++) {
-                if (
-                formData.get("tel") === registrationData[i].tel &&
-                formData.get("password") === registrationData[i].password
-                ) {
-                isAuthenticated = true;
-                break;
+                const user = users.find(user => user.tel === tel && user.userPassword === userPassword);
+
+                console.log(user);
+
+                if (!user) {
+                    alert('Invalid phone number or password!');
+                    return;
                 }
-            }
 
-            if (isAuthenticated) {
-                alert("Login successful");
-            } else {
-                alert("Invalid phone number or password")
-                return;
-            }
-            window.location.href="../person/home.html";
-            }
-            );
+                if (rememberMe) {
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                }
+
+                window.location.href="../person/home.html"
+                });
 
         </script>
     </body>

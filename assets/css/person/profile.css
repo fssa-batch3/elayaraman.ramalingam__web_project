@@ -17,17 +17,12 @@ section{
     width: fit-content;
     justify-content: center;
 }
-.logo img{
-    height: 120px;
-    border-radius: 50%;
-}
 a{
     font-size: 16px;
 }
 label{
     font-size: 22px;
     width: 50%;
-    text-align: left;
 }
 .file{
     font-size:1 0;
@@ -41,6 +36,11 @@ label{
 .btn_holder button {
     font-size: 22px;
 }
+
+.fc{
+    width: fit-content;
+}
+
 #edit{
     height: 50px;
     border: 0;
@@ -50,7 +50,14 @@ input{
     animation: none;
     margin: 0;
     width: 50%;
-    text-align: left;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+input:hover{
+    outline: none;
+    border: none;
+    box-shadow: none;
 }
 #form{
     width: 80%;
