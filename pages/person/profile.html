@@ -51,12 +51,6 @@
             </div>
                 
             </form>
-            <button type="submit" id="submit" class="btn" onclick="deleteProfile()">
-                Delete
-            </button>
-            
-
-            
         </section>
         <script>
 
@@ -70,16 +64,6 @@
             function logout() {
             localStorage.removeItem('currentUser');
             window.location.href = '../../index.html';
-            }
-
-            function deleteProfile() {
-
-            const users = JSON.parse(localStorage.getItem("users") || [])
-            
-            console.log( users.find (obj => users.tel === users.tel));
-
-            localStorage.removeItem(users.find (obj => users.tel === users.tel));
-
             }
 
         </script>

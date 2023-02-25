@@ -37,9 +37,6 @@ const profile_list = [
     },
 ]
 
-const n = profile_list.length
-
-
 function fun(){
     for(let list of profile_list){
     

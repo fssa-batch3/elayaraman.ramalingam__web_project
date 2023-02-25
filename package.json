@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/fssa-batch3/elayaraman.ramalingam__web_project#readme",
   "dependencies": {
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "uuid": "^9.0.0"
   }
 }

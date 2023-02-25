@@ -50,6 +50,8 @@
 
                     const form = document.getElementById("form");
 
+                    const uuid = require('uuid');
+
                     form.addEventListener("submit", function(event){
                     event.preventDefault();
 
@@ -85,7 +87,7 @@
                         return;
                     }
 
-                    const user = { username: username, tel: tel, userPassword: userPassword };
+                    const user = { userId : uuid(), username: username, tel: tel, userPassword: userPassword };
                     users.push(user);
 
                     localStorage.setItem('users', JSON.stringify(users));

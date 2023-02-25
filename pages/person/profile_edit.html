@@ -55,6 +55,7 @@
 
 
             const user = JSON.parse(localStorage.getItem('currentUser'));
+            const users = JSON.parse(localStorage.getItem("users"))
 
             document.getElementById('username').value = user.username;
             document.getElementById('tel').value = user.tel;
@@ -63,25 +64,40 @@
             form.addEventListener("submit", function(event){
             event.preventDefault();
 
-
-            const users = JSON.parse(localStorage.getItem("users") || [])
             const username = document.getElementById('username').value.trim();
-            const userObj = users.find (obj => users.tel === users.tel);
+            
+            let userIndex = -1;
 
-            console.log(userObj);
+            for (let i=0; i < users.length;i++){
+                if(users[i].tel === user.tel){
+                    userIndex = i;
+                    break;
+                }
 
-            user.username = username;
-            userObj.username = username;
+            }
+
+            console.log(users[userIndex]);
+
+            let passwd = prompt("Enter you Password");
+
+            if(passwd === user.userPassword){
+                users[userIndex].username  = username;
+                user.username = username;
+
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem("users",JSON.stringify(users));
+                alert('Profile updated successfully!'); 
+                window.location.href="profile.html";
+            }
+            else{
+                alert("The Password is incorrect");
+                return;
+            }
+            
 
 
-
-      
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            localStorage.setItem("users",JSON.stringify(users));
-            alert('Profile updated successfully!');
-
-            window.location.href="profile.html";
-            });
+                       
+        });
 
        
             
