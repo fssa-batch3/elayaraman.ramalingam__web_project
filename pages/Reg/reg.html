@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="../../assets/css/Reg/font.css">
         <link rel="shortcut icon" href="../../assets/images/logo.png" type="image/x-icon">
 
+        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+
 
     </head>
     <body>
@@ -50,7 +52,7 @@
 
                     const form = document.getElementById("form");
 
-                    const uuid = require('uuid');
+                   //const { v4: uuidv4 } = require('uuid');
 
                     form.addEventListener("submit", function(event){
                     event.preventDefault();
@@ -87,7 +89,7 @@
                         return;
                     }
 
-                    const user = { userId : uuid(), username: username, tel: tel, userPassword: userPassword };
+                    const user = { id : uuidv4(), username: username, tel: tel, userPassword: userPassword };
                     users.push(user);
 
                     localStorage.setItem('users', JSON.stringify(users));

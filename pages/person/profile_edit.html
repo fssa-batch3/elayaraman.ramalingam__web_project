@@ -73,7 +73,6 @@
                     userIndex = i;
                     break;
                 }
-
             }
 
             console.log(users[userIndex]);
@@ -86,7 +85,7 @@
 
                 localStorage.setItem('currentUser', JSON.stringify(user));
                 localStorage.setItem("users",JSON.stringify(users));
-                alert('Profile updated successfully!'); 
+                alert(`Profile updated successfully! ${username}`); 
                 window.location.href="profile.html";
             }
             else{
