@@ -25,3 +25,8 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 - request read
 - request status edit
 - request deletion
+------------
+**3) contact management**
+- add contact
+- read contact
+- block contact
