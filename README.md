@@ -15,8 +15,13 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 -     User Details Edit
 -     User Delete
 ------------
-**2) Message CRUD**
--     Message Creation
--     Message  Read
--      Delete 
+**2) Chat CRUD**
+-     chat Creation
+-     chat Read
+-     chat Delete 
 ------------
+**3) Request CRUD**
+- request creation
+- request read
+- request status edit
+- request deletion
