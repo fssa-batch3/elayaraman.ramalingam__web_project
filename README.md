@@ -9,24 +9,24 @@ https://drive.google.com/file/d/1B3ylR6gx3po9ny-bOUJFQIcj_0HtNyu6/view?usp=shari
 https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=sharing
 
 ## # **Feautures : **
-**1) User CRUD**
+**1) User **
 -     User Creation
 -     User Details Read
 -     User Details Edit
 -     User Delete
 ------------
-**2) Chat CRUD**
+**2) Chat **
 -     chat Creation
 -     chat Read
 -     chat Delete 
 ------------
-**3) Request CRUD**
+**3) Request **
 - request creation
 - request read
 - request status edit
 - request deletion
 ------------
-**3) contact management**
+**4) contact **
 - add contact
 - read contact
 - block contact
