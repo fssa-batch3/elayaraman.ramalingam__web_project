@@ -39,38 +39,27 @@
         </div>
 
         <script>
-
                 
                 const form = document.getElementById("form");
                 form.addEventListener("submit", function(event){
                 event.preventDefault();
-
                 const tel = document.getElementById('tel').value.trim();
                 const userPassword = document.getElementById('userPassword').value.trim();
                 const rememberMe = document.getElementById('rememberMe').checked;
-
                 const users = JSON.parse(localStorage.getItem('users')) || [];
-
                 console.log(users);
-
                 const user = users.find(user => user.tel === tel && user.userPassword === userPassword);
-
                 console.log(user);
-
                 if (!user) {
                     alert('Invalid phone number or password!');
                     return;
                 }
-
                 if (rememberMe) {
                     localStorage.setItem('currentUser', JSON.stringify(user));
                 }
-
                 alert(`Welcome! ${user.username} 😊`)
-
                 window.location.href="../person/home.html"
                 });
-
         </script>
     </body>
 </html
