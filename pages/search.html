@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>search</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/custom.css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+    <div class="module">
+        <header class="m-head">
+            <div class="f-header">
+                <p>Search</p>
+            </div>
+            <div>
+                <i class="fi fi-rr-menu-dots-vertical"></i>
+                <img src="../assets/images/profile/3.jpg" alt="" height="50px" id="btn-profile">
+            </div>
+        </header>
+        <form class="m-search">
+                <input type="search" id="form1" class="form-control" placeholder="" aria-label="Search" />
+        </form>
+        <section class="m-body">
+            <div class="profile-card">
+                <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+                <div class="content">
+                    <p>Kowshik</p>
+                    <div class="card-holder">
+                        <button class="req">
+                            Request
+                        </button>
+                    </div>
+                </div>
+        </section>
+        <nav class="m-nav">
+            <div class="m-nav-items">
+                <button class="" id="btn-search">
+                    <i class="fi fi-rr-user-add"></i>
+                </button>
+            </div>
+            <div class="m-nav-items">
+                <button class="" id="btn-home">
+                    <i class="fi fi-rr-envelope"></i>
+                </button>
+            </div>
+            <div class="m-nav-items">
+                <button class="" id="btn-req">
+                    <i class="fi fi-rr-portrait"></i>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <script>
+        console.log("hello!");
+
+        const byId = id => document.getElementById(id);
+
+        byId("btn-req").addEventListener("click", () => window.location.href = "./requests.html");
+        byId("btn-search").addEventListener("click", () => window.location.href = "./search.html");
+        byId("btn-home").addEventListener("click", () => window.location.href = "./home.html");
+        byId("btn-profile").addEventListener("click", () => window.location.href = "./profile.html");
+
+    </script>
+</body>
+</html>

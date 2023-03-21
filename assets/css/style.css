@@ -1,0 +1,177 @@
+@import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-decoration: none;
+    outline: none;
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar{
+    display: none;;
+}
+:root{
+    --primary : #2EA6FD ;
+    --success : #5CB85C;
+    --success1 : #BDF3BD;
+    --danger : #E03C31;
+    --danger1 : #F9C6C3;
+}
+html, body{
+    height: 100%;
+    width: 100%;
+}
+.holder{
+    height: 100%;
+    width: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+/* home */
+
+.module{
+    height: 100%;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.m-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 80%;
+    margin: auto;
+    flex: 0 1 100px;
+}
+.m-head p{
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+}
+div.m-header{
+    display: flex;
+    align-items: center;
+    width: auto;
+    margin-right: auto;
+}
+.m-header img{
+    margin: 0 15px;
+}
+
+.m-head img{
+    border-radius: 50%;
+}
+.m-body{
+    background: #fff;
+    flex : 1 1 auto;
+    width: 80%;
+    margin: 10px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+    justify-content: flex-start;
+    height: 70%;
+    align-items: center;
+}
+form.m-search{
+    min-height: 50px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+    width: 80%;
+    margin: auto;
+    /* flex: 0 1 50px; */
+}
+form.m-search input{
+    outline: none;
+    height: 100%;
+    width: 100%;
+    border: 0;
+    background: #f3f3f3;
+}
+.m-nav{
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+    /* flex: 0 1 60px; */
+    height: 80px;
+    max-height: 100px;
+    align-items: center;
+}
+.m-nav .m-nav-items button{
+    font-size: 24px;
+    color: var(--primary);
+    background: none ;
+}
+.profile-card{
+    display: flex;
+    margin: 5px 0;
+    width: 100%;
+    max-width: 300px;
+    background: #f3f3f3;
+    min-height: 110px;
+    scroll-behavior: smooth;
+    border-radius: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.profile-card p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+.profile-card span{
+    font-size: 12px;
+    text-align: center;
+    font-weight: lighter;
+    color: rgba(0, 0, 0,0.6);
+}
+.profile-card img{
+    border-radius: 50%;
+    height: 50px;
+}
+.profile-card .card-holder{
+    display: flex;
+    justify-content: space-evenly;
+}
+.profile-card .card-holder button{
+    height: 40px;
+    width: 40px;
+    margin: 5px;
+    color: white;
+    font-weight: bolder;
+    border-radius: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-card .card-holder button.yes{
+    background: var(--success);
+}
+.profile-card .card-holder button.no{
+    background: var(--danger);
+}
+.profile-card .card-holder button.req{
+    background: var(--primary);
+    width: fit-content;
+    padding: 5px;
+}
+.profile-card .card-holder button.yes.active{
+    background: var(--success1);
+    color: var(--success);
+}
+.profile-card .card-holder button.no{
+    background: var(--danger);
+}

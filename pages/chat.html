@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chat</title>
+
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/chat.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap/custom.css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <script src="../assets/js/chat.js"></script>
+</head>
+<body>
+        <header class="c-head navbar">
+            <div class="container-sm">
+                <div>
+                    <i class="fi fi-br-angle-small-left"></i>
+                </div>
+                <div class="c-header">
+                    <img src="../assets/images/profile/4.jpg" alt="" height="50px">
+                    <p>Kowshik</p>
+                </div>
+                <div>
+                    <i class="fi fi-rr-menu-dots-vertical"></i>
+                </div>
+            </div>
+        </header>
+        <div class="c-module">
+            <div class="c-holder">
+                <div class="message in">
+                    <div class="msg">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, eaque!</p>
+                    </div>
+                    <div class="time">
+                        <span>10:00 AM</span>
+                    </div>
+                </div>
+                <div class="message out">
+                    <div class="msg">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, eaque!</p>
+                    </div>
+                    <div class="time">
+                        <span>10:00 AM</span>
+                    </div>
+                </div>
+            </div>
+            <div class="c-bar">
+                <input type="text" value="message">
+                <button id="btn-send">
+                    <i class="fi fi-rr-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+    <script>
+        console.log("hello!");
+        document.getElementById("btn-send").addEventListener("click", appndmsg);
+
+        window.addEventListener("load", Chat);
+        function Chat(){
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('userHomeList[i].userph');
+
+        console.log(id);
+        console.log("Working!");
+        }
+    </script>
+</body>
+</html>
