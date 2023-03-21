@@ -42,14 +42,13 @@
     </div>
     <script>
 
-        window.addEventListener("load", function(event) {
-
-            currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        // window.addEventListener("load", function(event) {
+        //     currentUser = JSON.parse(localStorage.getItem("currentUser"));
             
-            if(currentUser){
-            window.location.href="home.html";
-        }
-        });
+        //     if(currentUser){
+        //     window.location.href="home.html";
+        // }
+        // });
 
         const regform = document.getElementById("login");
         regform.addEventListener("submit",login);

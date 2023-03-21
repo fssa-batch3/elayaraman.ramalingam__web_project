@@ -23,6 +23,7 @@ if (passwd !== userpasswd) return alert("both passwords should match");
     if (regcheck) {
         const user = {id: uuidv4(), username : username, userph : userph, passwd: userpasswd};
         localStorage.setItem("userList", JSON.stringify([...userList, user]));
+        document.querySelector("input").value = "";
         window.location.href = "./pages/login.html";
     } else {
         alert("Please Agree to our policies!");

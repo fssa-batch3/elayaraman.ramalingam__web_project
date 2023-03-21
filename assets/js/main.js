@@ -14,6 +14,12 @@ for(let i = 0; i<UserList.length;i++){
 
 function loadUser(){
     console.log(userHomeList);
+    if(userHomeList.length == 0){
+        let str = document.createElement('p');
+        str.textContent = "You have no contacts in your list to chat"
+        document.querySelector(".m-body").appendChild(str);
+
+    }
     for(let i=0;i<userHomeList.length;i++ ){
     const profileCard = document.createElement("div");
     profileCard.classList.add("profile-card");
@@ -42,7 +48,7 @@ function loadUser(){
 
     // create nested span element
     const descSpan = document.createElement("span");
-    descSpan.textContent = "Kurukka indha kowshik vandha";
+    descSpan.textContent = userHomeList[i].userph;
 
     // append span element to div element
     contentDiv.appendChild(descSpan);

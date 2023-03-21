@@ -76,7 +76,6 @@ div.m-header{
     margin: 10px 0;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     overflow-y: auto;
     justify-content: flex-start;
@@ -87,10 +86,8 @@ form.m-search{
     min-height: 50px;
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 10px auto;
     width: 80%;
-    margin: auto;
-    /* flex: 0 1 50px; */
 }
 form.m-search input{
     outline: none;
@@ -103,7 +100,6 @@ form.m-search input{
     display: flex;
     width: 90%;
     justify-content: space-around;
-    /* flex: 0 1 60px; */
     height: 80px;
     max-height: 100px;
     align-items: center;
