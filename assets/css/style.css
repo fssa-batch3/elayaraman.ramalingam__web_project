@@ -121,6 +121,9 @@ form.m-search input{
     justify-content: space-evenly;
     align-items: center;
 }
+.content{
+    cursor: pointer;
+}
 .profile-card p{
     font-size: 20px;
     text-align: center;

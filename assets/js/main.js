@@ -36,7 +36,9 @@ function loadUser(){
     // create nested div element
     const contentDiv = document.createElement("div");
     contentDiv.classList.add("content");
-    contentDiv.setAttribute("onclick", `window.location.href='./chat.html?${userHomeList[i].userph}'`);    
+    contentDiv.setAttribute("onclick", `window.location.href = "./chat.html?id=${userHomeList[i].userph}";`);
+
+    // contentDiv.setAttribute("onclick", window.location.href = `./chat.html?${userHomeList[i].userph} = id`);    
     // chat.appendChild(contentDiv);
 
     // create nested p element
@@ -60,3 +62,4 @@ function loadUser(){
     document.querySelector(".m-body").appendChild(profileCard);
     }
 }
+

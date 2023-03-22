@@ -13,9 +13,11 @@
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
     <script src="../assets/js/chat.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 </head>
 <body>
-        <header class="c-head navbar">
+        <!-- <header class="c-head navbar">
             <div class="container-sm">
                 <div>
                     <i class="fi fi-br-angle-small-left"></i>
@@ -28,7 +30,7 @@
                     <i class="fi fi-rr-menu-dots-vertical"></i>
                 </div>
             </div>
-        </header>
+        </header> -->
         <div class="c-module">
             <div class="c-holder">
                 <div class="message in">
@@ -57,17 +59,11 @@
         </div>
         
     <script>
-        console.log("hello!");
-        document.getElementById("btn-send").addEventListener("click", appndmsg);
+
+        addHeader()
 
         window.addEventListener("load", Chat);
-        function Chat(){
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('userHomeList[i].userph');
-
-        console.log(id);
-        console.log("Working!");
-        }
+        document.getElementById("btn-send").addEventListener("click", appndmsg);
     </script>
 </body>
 </html>
