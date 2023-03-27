@@ -10,15 +10,15 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 
 ## # **Feautures : **
 **1) User **
--     User Creation
--     User Details Read
--     User Details Edit
--     User Delete
+-     User Creation(completed)
+-     User Details Read(completed)
+-     User Details Edit(completed)
+-     User Delete(completed)
 ------------
 **2) Chat **
--     chat Creation
--     chat Read
--     chat Delete 
+-     chat Creation(completed)
+-     chat Read(completed)
+-     chat Delete (completed)
 ------------
 **3) Request **
 - request creation

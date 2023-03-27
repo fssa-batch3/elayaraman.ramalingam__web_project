@@ -3,8 +3,11 @@ if(!currentUser){
     currentUser = JSON.parse(localStorage.getItem("currentUser"));
 }
 let UserList = JSON.parse(localStorage.getItem("userList"));
-
+let id = currentUser.userph;
+let user = UserList.find(user => user.userph == id);
+let userContacts = user.userContacts;
 let userHomeList = [];
+const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
 
 for(let i = 0; i<UserList.length;i++){
     if(currentUser.userph != UserList[i].userph){
@@ -12,54 +15,66 @@ for(let i = 0; i<UserList.length;i++){
     }
 }
 
+console.log(userHomeList);
+
+function loadList(){
+        for (let i = 0; i < userHomeList.length; i++) {
+            const user = userHomeList[i];
+            let check_id = parseInt(currentUser.userph) + parseInt(user.userph);
+            if(!requestList.some((requestList) => requestList.req_id === check_id)){
+                const profileCard = `
+                <div class="profile-card">
+                <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+                <div class="content">
+                    <p>${user.username}</p>
+                    <div class="card-holder">
+                    <button class="req" onclick="request(${user.userph})">
+                        Request
+                    </button>
+                    </div>
+                </div>
+                </div>
+                `;
+                document.querySelector(".m-body").innerHTML += profileCard;
+            }
+        }
+        };
+    function request(id){
+        let sender = currentUser.userph;
+        const req_id = parseInt(sender) + parseInt(id);
+        const request ={
+            req_id: req_id,
+            sender : sender,
+            receiver : id,
+            status : false,
+            timestamp : Date.now()
+        }
+        if (!requestList.some((req) => req.req_id === req_id)) {
+            requestList.push(request);
+            localStorage.setItem("requestList", JSON.stringify(requestList));
+            document.querySelector(".m-body").innerHTML = "";
+            loadList();
+    }}
+
 function loadUser(){
     console.log(userHomeList);
-    if(userHomeList.length == 0){
+    if(userContacts.length == 0){
         let str = document.createElement('p');
         str.textContent = "You have no contacts in your list to chat"
         document.querySelector(".m-body").appendChild(str);
-
     }
-    for(let i=0;i<userHomeList.length;i++ ){
-    const profileCard = document.createElement("div");
-    profileCard.classList.add("profile-card");
-
-    // create nested img element
-    const profileImg = document.createElement("img");
-    profileImg.src = "../assets/images/profile/4.jpg";
-    profileImg.alt = userHomeList[i].username;
-    profileImg.height = "50px";
-
-    // append img element to parent element
-    profileCard.appendChild(profileImg);
-
-    // create nested div element
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("content");
-    contentDiv.setAttribute("onclick", `window.location.href = "./chat.html?id=${userHomeList[i].userph}";`);
-
-    // contentDiv.setAttribute("onclick", window.location.href = `./chat.html?${userHomeList[i].userph} = id`);    
-    // chat.appendChild(contentDiv);
-
-    // create nested p element
-    const nameP = document.createElement("p");
-    nameP.textContent = userHomeList[i].username;
-
-    // append p element to div element
-    contentDiv.appendChild(nameP);
-
-    // create nested span element
-    const descSpan = document.createElement("span");
-    descSpan.textContent = userHomeList[i].userph;
-
-    // append span element to div element
-    contentDiv.appendChild(descSpan);
-
-    // append div element to parent element
-    profileCard.appendChild(contentDiv);
-
-    // append parent element to the document body
-    document.querySelector(".m-body").appendChild(profileCard);
+    for(let i=0;i<userContacts.length;i++ ){
+        const profileCard = `
+            <div class="profile-card">
+                <img src="../assets/images/profile/4.jpg" alt="${userHomeList[i].username}" height="50px">
+                <div class="content" onclick="window.location.href='./chat.html?id=${userHomeList[i].userph}'">
+                    <p>${userHomeList[i].username}</p>
+                    <span>${userHomeList[i].userph}</span>
+                </div>
+            </div>
+        `;
+        document.querySelector(".m-body").insertAdjacentHTML('beforeend', profileCard);
     }
+    
 }
 

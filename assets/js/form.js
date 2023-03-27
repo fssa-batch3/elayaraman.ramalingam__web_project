@@ -21,7 +21,7 @@ if (passwd !== userpasswd) return alert("both passwords should match");
     if (userList.some(user => user.userph == userph)) return alert("This Phone number is already registered!");
 
     if (regcheck) {
-        const user = {id: uuidv4(), username : username, userph : userph, passwd: userpasswd};
+        const user = {id: uuidv4(), username : username, userph : userph, passwd: userpasswd, userContacts : []};
         localStorage.setItem("userList", JSON.stringify([...userList, user]));
         document.querySelector("input").value = "";
         window.location.href = "./pages/login.html";
