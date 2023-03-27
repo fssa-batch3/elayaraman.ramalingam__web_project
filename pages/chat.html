@@ -17,23 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
 </head>
 <body>
-        <!-- <header class="c-head navbar">
-            <div class="container-sm">
-                <div>
-                    <i class="fi fi-br-angle-small-left"></i>
-                </div>
-                <div class="c-header">
-                    <img src="../assets/images/profile/4.jpg" alt="" height="50px">
-                    <p>Kowshik</p>
-                </div>
-                <div>
-                    <i class="fi fi-rr-menu-dots-vertical"></i>
-                </div>
-            </div>
-        </header> -->
         <div class="c-module">
             <div class="c-holder">
-                <div class="message in">
+                <!-- <div class="message in">
                     <div class="msg">
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, eaque!</p>
                     </div>
@@ -48,10 +34,11 @@
                     <div class="time">
                         <span>10:00 AM</span>
                     </div>
-                </div>
+                </div> -->
             </div>
+            
             <div class="c-bar">
-                <input type="text" value="message">
+                <input type="text" placeholder="message" id="msg_val">
                 <button id="btn-send">
                     <i class="fi fi-rr-paper-plane"></i>
                 </button>
@@ -59,10 +46,8 @@
         </div>
         
     <script>
-
         addHeader()
-
-        window.addEventListener("load", Chat);
+        window.addEventListener("load", loadMessages);
         document.getElementById("btn-send").addEventListener("click", appndmsg);
     </script>
 </body>
