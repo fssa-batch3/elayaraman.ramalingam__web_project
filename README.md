@@ -16,17 +16,14 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 -     User Delete(completed)
 ------------
 **2) Chat **
--     chat Creation(completed)
--     chat Read(completed)
--     chat Delete (completed)
+-     request creation(completed)
+-     request read
+-     request status 
+-     request deletion
+
 ------------
 **3) Request **
-- request creation
-- request read
-- request status edit
-- request deletion
+-     chat Creation(completed)
+-     chat Read(completed)
+-     chat delete(yet to start)
 ------------
-**4) contact **
-- add contact
-- read contact
-- block contact
