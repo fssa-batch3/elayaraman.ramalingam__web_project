@@ -15,8 +15,6 @@ for(let i = 0; i<UserList.length;i++){
     }
 }
 
-console.log(userHomeList);
-
 function loadList(){
         for (let i = 0; i < userHomeList.length; i++) {
             const user = userHomeList[i];
@@ -55,6 +53,13 @@ function loadList(){
             document.querySelector(".m-body").innerHTML = "";
             loadList();
     }}
+
+    function loadRequest() {
+        const requestList = JSON.parse(localStorage.getItem("requestList"));
+        const id = parseInt(currentUser.userph);
+        console.log(requestList);
+        console.log(currentUser.userph);
+}
 
 function loadUser(){
     console.log(userHomeList);

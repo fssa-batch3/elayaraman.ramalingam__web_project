@@ -18,15 +18,17 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 **2) Chat **
 -     chat Creation(completed)
 -     chat Read(completed)
--     chat Delete (completed)
+-     chat Delete (yet to be started)
 ------------
 **3) Request **
-- request creation
-- request read
-- request status edit
-- request deletion
+-     request creation(completed)
+-     request read
+-     request status edit
+-     request deletion
 ------------
 **4) contact **
-- add contact
-- read contact
-- block contact
+-      add contact
+-      read contact
+-      block contact
+
+## Creating account( completed : white_check_mark: )

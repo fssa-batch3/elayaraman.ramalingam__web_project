@@ -26,6 +26,16 @@ function logout(){
 
     window.location.href="../index.html";
 }
+function deleteUser(){
+
+    UserList.splice(index, 1);
+    localStorage.setItem("userList", JSON.stringify(UserList));
+
+    sessionStorage.clear();
+    localStorage.removeItem("currentUser");
+
+    window.location.href="../index.html";
+}
 
 function submit(){
 
