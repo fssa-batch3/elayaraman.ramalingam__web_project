@@ -16,7 +16,6 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 -     User Delete(completed)
 ------------
 **2) Chat **
-<<<<<<< HEAD
 -     chat Creation(completed)
 -     chat Read(completed)
 -     chat Delete (yet to be started)
@@ -32,17 +31,35 @@ https://drive.google.com/file/d/11N1UtQfpJqs2_THorSdwwTOWvDIPZiO2/view?usp=shari
 -      read contact
 -      block contact
 
-## Creating account( completed : white_check_mark: )
-=======
--     request creation(completed)
--     request read
--     request status 
--     request deletion
+## Creating account ( completed : white_check_mark: )
+
+###USER
+
+#### Create an account :
+- ##### Steps
+	- 		Open the main page.
+	- 		Enter requires details on the respective fields.
+	- 		Click submit button.
+- ##### Expected Result:
+	- 		The user will redirected to the login page.
 
 ------------
-**3) Request **
--     chat Creation(completed)
--     chat Read(completed)
--     chat delete(yet to start)
-------------
->>>>>>> fedd71d5fe2733cf6668192c7e07d19f2c3665d9
+
+#### login to an account :
+- ##### Steps
+	- 		Navigate to login page.
+	- 		Enter requires details on the respective fields.
+	- 		Click Login now button.
+- ##### Expected Result:
+	- 		The user will redirected to the Home page.
+
+### REQUEST
+
+#### send request to chat :
+- ##### Steps
+	- 		Navigate to request page by clicking left button in navbar .
+	- 		Choose users to be requested names or their phone numbers.
+	- 		Click request button.
+- ##### Expected Result:
+	- 		The profile card will be disappeared.
+

@@ -57,9 +57,39 @@ function loadList(){
     function loadRequest() {
         const requestList = JSON.parse(localStorage.getItem("requestList"));
         const id = parseInt(currentUser.userph);
-        console.log(requestList);
-        console.log(currentUser.userph);
-}
+        const req_list = [];
+        for (let i = 0; i < requestList.length; i++) {
+            if(requestList[i].receiver == id){
+                req_list.push(requestList[i]);
+            }
+        }
+        const requestPage = document.querySelector(".request-page");
+        const mBody = document.querySelector(".m-body");
+        for (let i = 0; i < req_list.length; i++) {
+            let req_id = parseInt(req_list[i].sender);
+            let req_sender = UserList.find(req => req.userph == req_id);
+            console.log(req_sender);
+            const request = req_list[i];
+            const profileCard = `
+                <div class="profile-card">
+                    <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+                    <div class="content">
+                        <p>${req_sender.username}</p>
+                        <div class="card-holder">
+                            <button class="yes">
+                                <i class="fi fi-br-check"></i>
+                            </button>
+                            <button class="no">
+                                <i class="fi fi-br-cross"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            mBody.innerHTML += profileCard;
+        }
+    }
+    
 
 function loadUser(){
     console.log(userHomeList);
