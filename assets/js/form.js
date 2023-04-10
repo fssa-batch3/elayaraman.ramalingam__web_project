@@ -10,7 +10,7 @@ function reg(e){
 
 if (!username || !passwd || !userpasswd || !userph) return alert("Please fill out all the fields");
 
-if (!/^[a-zA-Z]+$/.test(username)) return alert("Enter valid username");
+if (!/^[a-zA-Z0-9_-\s]{5,12}$/  .test(username)) return alert("Enter valid username");
 
 if (!/^\d{10}$/.test(userph)) return alert("Enter valid Phone number");
 

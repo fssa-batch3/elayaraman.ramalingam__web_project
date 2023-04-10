@@ -20,7 +20,9 @@ const headerTemplate = `
     <header class="c-head navbar">
         <div class="container-sm">
             <div>
-                <i class="fi fi-br-angle-small-left"></i>
+                <button class="btn" onclick="window.history.back()">
+                    <i class="fi fi-br-angle-small-left"></i>
+                </button>
             </div>
             <div class="c-header">
                 <img src="../assets/images/profile/4.jpg" alt="" height="50px">
