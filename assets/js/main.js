@@ -1,3 +1,19 @@
+//mock request;
+
+let mockreq = [
+        {
+        "req_id": "12345678909344048136",
+        "sender": 1234567890,
+        "receiver": 9344048136,
+        "status": false,
+        "timestamp": 1681298503895
+        }
+    ];
+
+localStorage.setItem("requestList", JSON.stringify(mockreq));
+
+mockreq = "";
+
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if(!currentUser){
     currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
@@ -14,13 +30,28 @@ console.log(userContacts);
 let userHomeList = [];
 const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
 
+
 //loop to get list of users without the current user
 
-for(let i = 0; i<UserList.length;i++){
-    if(currentUser.userph != UserList[i].userph){
-        userHomeList.push(UserList[i]);
-    }
+let contactArray = [];
+
+for(let i = 0; i < userContacts.length; i++){
+    contactArray.push(userContacts[i].id);
 }
+
+console.log(contactArray);
+
+for(let i = 0; i<UserList.length;i++){
+    console.log(contactArray[i]);
+    console.log(UserList[i].userph);
+        if(contactArray[0] == parseInt(UserList[i].userph)){
+            userHomeList.push(UserList[i]);
+        }
+}
+
+console.log(userHomeList);
+
+
 
 let userSearchList = [];
 
@@ -129,9 +160,10 @@ let userSearchList = [];
         sender_contacts.push(contact_1);
         requestList.splice(requestList.findIndex(req => req.sender === i && req.receiver === parseInt(user.userph)), 1);
         localStorage.setItem("requestList",JSON.stringify(requestList));
+
+        window.location.href = "./home.html";
         
         localStorage.setItem("userList",JSON.stringify(UserList));
-        loadRequest();
     }
     function removeReq(i){
         let userContacts = user.userContacts;
@@ -141,13 +173,15 @@ let userSearchList = [];
     }
 
 
+
+
 function loadUser(){
     if(userContacts.length == 0){
         let str = document.createElement('p');
         str.textContent = "You have no contacts in your list to chat"
         document.querySelector(".m-body").appendChild(str);
     }
-    for(let i=0;i<userContacts.length;i++ ){
+    for(let i=0;i<userHomeList.length;i++ ){
         const profileCard = `
             <div class="profile-card">
                 <img src="../assets/images/profile/4.jpg" alt="${userHomeList[i].username}" height="50px">

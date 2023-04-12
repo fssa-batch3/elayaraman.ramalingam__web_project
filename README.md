@@ -53,6 +53,10 @@ yet to start :x:
 
 ## Adding contacts 
 
+Login details : 
+phone number : 9344048136
+password : 1234
+
 ### Send request to others ( completed :white_check_mark:  )
 
     - Steps:
@@ -71,8 +75,55 @@ yet to start :x:
         2. You'll see the home page.
         3. Navigate to requests page by clicking right button on navigation panel.
         4. you have the list of requests.
-        5. Click the request button on the profile cards to request.
+        5. Click the accept button on the profile cards to add contacts.
     - Expected Result:
         - The requested profile card should be dissappered from the page.
+        - the contact should be added in the home page
+
+### create convo ( completed :white_check_mark:  )
+
+    - Steps:
+        1. Login as a user.
+        2. You'll see the home page.
+        3. you have the list of contacts.
+        5. Click the contact create convo.
+    - Expected Result:
+        - The page shoulb navigated to chat page for the contact.
+
+### create message ( completed :white_check_mark:  )
+
+    - Steps:
+        1. Login as a user.
+        2. You'll see the home page.
+        3. you have the list of contacts.
+        5. Click the contact to chat.
+        6. type the message in the input field.
+        7. click the send button
+    - Expected Result:
+        - the typed message should be on the chat page.
+
+### edit username ( completed :white_check_mark:  )
+
+    - Steps:
+        1. Login as a user.
+        2. You'll see the home page.
+        3. click the profile button on top right.
+        5. Click the edit button.
+        6. type the username in the input field.
+        7. click the submit button.
+        8. type the password in the prompt.
+    - Expected Result:
+        - the page redirected to the profile page and the username should be changed.
+
+### logout ( completed :white_check_mark:  )
+
+    - Steps:
+        1. Login as a user.
+        2. You'll see the home page.
+        3. click the profile button on top right.
+        5. Click the logout button on the top right.
+    - Expected Result:
+        - the window redirected to the registration page.
+
 
 
