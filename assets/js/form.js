@@ -1,31 +1,4 @@
-const mockUsers = JSON.parse(localStorage.getItem("userList")) || [
-    {
-        "id": "c31b942a-5d64-497f-a2fe-c83d0c6cbbfe",
-        "username": "Elaya",
-        "userph": "9344048138",
-        "passwd": "1234",
-        "userContacts": [
-        ]
-        },
-        {
-        "id": "b412092c-d6e6-4dd1-96d4-69a5e340c899",
-        "username": "Luffy",
-        "userph": "9344048136",
-        "passwd": "1234",
-        "userContacts": [
-        ]
-        },
-        {
-        "id": "37182ab7-b5b6-4e7f-8838-04cc59c5ea8f",
-        "username": "SivaGopi",
-        "userph": "1234567890",
-        "passwd": "1234",
-        "userContacts": []
-        }
-];
-localStorage.setItem("userList", JSON.stringify(mockUsers));
-const userList = JSON.parse(localStorage.getItem("userList")) || [];
-console.log(userList);
+
 
 function reg(e){
     e.preventDefault();
