@@ -1,4 +1,6 @@
 
+const userList = JSON.parse(localStorage.getItem("userList")) || [];
+console.log(userList);
 
 function reg(e){
     e.preventDefault();
