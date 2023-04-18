@@ -1,37 +1,19 @@
 
-
 let currentUser = JSON.parse(localStorage.getItem("currentUser"));
 if(!currentUser){
     currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
-    currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
 }
-
 
 let UserList = JSON.parse(localStorage.getItem("userList"));
 
-
 let id = currentUser.userph;
-
 
 let user = UserList.find(user => user.userph == id);
 
-
 let userContacts = user.userContacts;
-console.log(userContacts);
 console.log(userContacts);
 let userHomeList = [];
 const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
-
-
-//loop to get list of users without the current user
-
-let contactArray = [];
-
-for(let i = 0; i < userContacts.length; i++){
-    contactArray.push(userContacts[i].id);
-}
-
-console.log(contactArray);
 
 
 //loop to get list of users without the current user
@@ -50,11 +32,6 @@ for(let i = 0; i<UserList.length;i++){
         if(contactArray[0] == parseInt(UserList[i].userph)){
             userHomeList.push(UserList[i]);
         }
-    console.log(contactArray[i]);
-    console.log(UserList[i].userph);
-        if(contactArray[0] == parseInt(UserList[i].userph)){
-            userHomeList.push(UserList[i]);
-        }
 }
 
 console.log(userHomeList);
@@ -65,23 +42,7 @@ let userSearchList = [];
 
     function loadList() {
         document.querySelector(".m-body").innerHTML = "";
-console.log(userHomeList);
-
-
-
-let userSearchList = [];
-
-    function loadList() {
-        document.querySelector(".m-body").innerHTML = "";
         for (let i = 0; i < userHomeList.length; i++) {
-            const contact = userHomeList[i];
-            const check = requestList.some((req) => (
-                req.sender === parseInt(contact.userph) && 
-                req.receiver === parseInt(user.userph) || 
-                req.sender === parseInt(user.userph) && 
-                req.receiver === parseInt(contact.userph)
-            ));
-            if (!check) {
             const contact = userHomeList[i];
             const check = requestList.some((req) => (
                 req.sender === parseInt(contact.userph) && 
@@ -103,26 +64,11 @@ let userSearchList = [];
                         </div>
                         </div>
                         `;
-                        <div class="profile-card">
-                        <img src="../assets/images/profile/4.jpg" alt="" height="60px">
-                        <div class="content">
-                            <p>${contact.username}</p>
-                            <div class="card-holder">
-                            <button class="req" onclick="request(${contact.userph})">
-                                Request
-                            </button>
-                            </div>
-                        </div>
-                        </div>
-                        `;
                 document.querySelector(".m-body").innerHTML += profileCard;
             }
         }
     }
-    }
     function request(id){
-        let sender = parseInt(user.userph);
-        const req_id = "" + sender + id;
         let sender = parseInt(user.userph);
         const req_id = "" + sender + id;
         const request ={
@@ -132,13 +78,6 @@ let userSearchList = [];
             status : false,
             timestamp : Date.now()
         }
-        requestList.push(request);
-        localStorage.setItem("requestList", JSON.stringify(requestList));
-        document.querySelector(".m-body").innerHTML = "";
-        loadList();
-    }
-
-// function to load requests in request page
         requestList.push(request);
         localStorage.setItem("requestList", JSON.stringify(requestList));
         document.querySelector(".m-body").innerHTML = "";
@@ -225,7 +164,6 @@ function loadUser(){
         str.textContent = "You have no contacts in your list to chat"
         document.querySelector(".m-body").appendChild(str);
     }
-    for(let i=0;i<userHomeList.length;i++ ){
     for(let i=0;i<userHomeList.length;i++ ){
         const profileCard = `
             <div class="profile-card">
