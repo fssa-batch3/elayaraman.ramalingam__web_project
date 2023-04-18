@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
 
     <script src="../assets/js/bootstrap.bundle.js"></script>
-    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/request.js"></script>
 </head>
 <body>
     <div class="module">
@@ -20,7 +20,6 @@
                 <p>Requests</p>
             </div>
             <div>
-                <i class="fi fi-rr-menu-dots-vertical"></i>
                 <img src="../assets/images/profile/3.jpg" alt="" height="50px" id="btn-profile">
             </div>
         </header>
@@ -28,7 +27,7 @@
                 <input type="search" id="form1" class="form-control" placeholder="" aria-label="Search" />
         </form>
         <section class="m-body">
-            <div class="profile-card">
+            <!-- <div class="profile-card">
                 <img src="../assets/images/profile/4.jpg" alt="" height="60px">
                 <div class="content">
                     <p>Kowshik</p>
@@ -41,7 +40,7 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </section>
         <nav class="m-nav">
             <div class="m-nav-items">
@@ -66,7 +65,7 @@
 
         const byId = id => document.getElementById(id);
 
-        loadRequest();
+        loadRequest()
         
         byId("btn-req").addEventListener("click", () => window.location.href = "./requests.html");
         byId("btn-search").addEventListener("click", () => window.location.href = "./search.html");

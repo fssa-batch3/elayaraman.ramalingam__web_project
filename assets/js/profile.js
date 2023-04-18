@@ -40,6 +40,7 @@ function deleteUser(){
 function submit(){
 
     let username = document.getElementById("username").value.trim();
+    if (!username ) return alert("Enter valid username")
     currentUser.username = username;
     UserList[index].username = username;
 
