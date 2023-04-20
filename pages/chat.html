@@ -49,6 +49,11 @@
         addHeader()
         window.addEventListener("load", loadMessages);
         document.getElementById("btn-send").addEventListener("click", appndmsg);
+        document.addEventListener("keydown", function(press){
+            if(press.key === "Enter"){
+                appndmsg();
+            }
+        });
     </script>
 </body>
 </html>

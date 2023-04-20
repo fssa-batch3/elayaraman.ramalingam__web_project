@@ -1,0 +1,12 @@
+{
+    "id":"string",
+    "username":"string",
+    "userph":"string",
+    "passwd":"string",
+    "userContacts":[
+        {
+            "id":"string",
+            "status":"boolean"
+        }
+    ]
+}

@@ -24,7 +24,7 @@ function logout(){
     sessionStorage.clear();
     localStorage.removeItem("currentUser");
 
-    window.location.href="../index.html";
+    window.location.href="./login.html";
 }
 function deleteUser(){
 
@@ -50,7 +50,7 @@ function submit(){
         sessionStorage.setItem("tempuser",JSON.stringify(currentUser));
         localStorage.setItem( "userList" ,JSON.stringify(UserList));
 
-        window.location.href="profile.html";
+        window.location.href="/profile.html";
     }
     else{
         alert("Password is incorrect");

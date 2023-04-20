@@ -1,0 +1,15 @@
+{
+    "id":"string",
+    "user1":"number",
+    "user2":"number",
+    "messages":[
+        {
+            "id":"string",
+            "message":"string",
+            "receiver":"string",
+            "sender":"boolean",
+            "time":"string",
+            "timestamp":"string"
+        }
+    ]
+}

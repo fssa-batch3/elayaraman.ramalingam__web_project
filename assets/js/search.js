@@ -17,13 +17,21 @@ const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
 
 //loop to get list of users without the current user
 
-for(let i = 0; i<UserList.length;i++){
+let contact_list = []
 
+for(let i=0;i<user.userContacts.length;i++){
+    contact_list.push(user.userContacts[i].id)
+}
+
+for(let i = 0; i<UserList.length;i++){
     console.log(UserList[i].userph);
-        if(id != UserList[i].userph){
+        if(id != UserList[i].userph && !UserList[i].userph.includes(contact_list)){
             userHomeList.push(UserList[i]);
         }
 }
+
+
+
 
 let userSearchList = [];
 

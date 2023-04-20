@@ -46,7 +46,7 @@ script.async = true;
 document.head.appendChild(script);
 
 // for time stamp
-async function loadMessages() {
+function loadMessages() {
   // code to load messages
     const convo = convo_list.find(convo => convo.id === convoid);
     if (convo && convo.messages && convo.messages.length > 0) {
@@ -70,7 +70,7 @@ async function loadMessages() {
     }
 }
 
-async function Chat() {
+function Chat() {
     let convo = convo_list.find(convo => convo.id === convoid);
     if (!convo && user1.userph !== user2.userph) {
         convo = {
@@ -86,9 +86,9 @@ async function Chat() {
 }
 
 
-async function appndmsg(e) {
+function appndmsg(e) {
     e.preventDefault();
-    const convo = await Chat();
+    const convo = Chat();
     let message = document.getElementById("msg_val").value.trim();
     if (message) {
         if (!convo.messages) {
@@ -109,12 +109,3 @@ async function appndmsg(e) {
     loadMessages();
 }
 
-function handleStorageChange(event) {
-        if (event.key === "convo_list") {
-        loadMessages();
-        }
-    }
-    
-    window.addEventListener("storage", handleStorageChange);
-
-Chat();
