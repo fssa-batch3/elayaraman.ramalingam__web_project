@@ -1,5 +1,5 @@
 
-//declarations
+// **declarations**
 
 
 // logged user 
@@ -15,7 +15,7 @@ let userHomeList = [];
 const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
 
 
-//loop to get list of users without the current user
+//loop to get list of users without the current user and contacts
 
 let contact_list = []
 
@@ -24,7 +24,6 @@ for(let i=0;i<user.userContacts.length;i++){
 }
 
 for(let i = 0; i<UserList.length;i++){
-    console.log(UserList[i].userph);
         if(id != UserList[i].userph && !UserList[i].userph.includes(contact_list)){
             userHomeList.push(UserList[i]);
         }
@@ -45,22 +44,42 @@ let userSearchList = [];
                 req.sender == user.userph && 
                 req.receiver == contact.userph
             ));
-            if (!check) {
+
+            let status = !check ? "request":"can_request";
+            let btn_text = !check ? "Request":"Cancel";
+
+            // if (!check) {
                 const profileCard = `
                         <div class="profile-card">
                         <img src="../assets/images/profile/4.jpg" alt="" height="60px">
                         <div class="content">
                             <p>${contact.username}</p>
                             <div class="card-holder">
-                            <button class="req" onclick="request(${contact.userph})">
-                                Request
+                            <button class="req" onclick="${status}(${contact.userph})">
+                                ${btn_text}
                             </button>
                             </div>
                         </div>
                         </div>
                         `;
                 document.querySelector(".m-body").innerHTML += profileCard;
-            }
+            // }
+            // else {
+            //     const profileCard = `
+            //             <div class="profile-card">
+            //             <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+            //             <div class="content">
+            //                 <p>${contact.username}</p>
+            //                 <div class="card-holder">
+            //                 <button class="req" onclick="can_request(${contact.userph})">
+            //                     cancel
+            //                 </button>
+            //                 </div>
+            //             </div>
+            //             </div>
+            //             `;
+            //     document.querySelector(".m-body").innerHTML += profileCard;
+            // }
         }
     }
     function request(id){
@@ -74,6 +93,12 @@ let userSearchList = [];
             timestamp : Date.now()
         }
         requestList.push(request);
+        localStorage.setItem("requestList", JSON.stringify(requestList));
+        document.querySelector(".m-body").innerHTML = "";
+        loadList();
+    }
+    function can_request(id){
+        requestList.splice(requestList.findIndex(req => req.sender == id && req.receiver == user.userph),1)
         localStorage.setItem("requestList", JSON.stringify(requestList));
         document.querySelector(".m-body").innerHTML = "";
         loadList();

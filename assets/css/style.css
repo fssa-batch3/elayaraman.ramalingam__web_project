@@ -165,6 +165,7 @@ form.m-search input{
 .profile-card .card-holder button.req{
     background: var(--primary);
     width: fit-content;
+    min-width: 85px;
     padding: 5px;
 }
 .profile-card .card-holder button.yes.active{
