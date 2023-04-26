@@ -43,10 +43,19 @@ div.c-header{
 }
 
 .c-holder .message{
-    width: 100%;
+    width: 70%;
+    max-width: 250px;
     padding: 5px;
     display: flex;
     flex-direction: column;
+}
+.delete-btn{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .c-holder .in{
     align-items: flex-start;
@@ -69,6 +78,12 @@ div.c-header{
 }
 .c-holder .message .time{
     font-size: 14px;
+}
+
+#message{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 .c-bar{
     height: 50px;

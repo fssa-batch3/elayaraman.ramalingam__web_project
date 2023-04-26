@@ -47,7 +47,7 @@ for (let i = 0; i < requestList.length; i++) {
             if(req_sender){
                 const profileCard = `
                 <div class="profile-card">
-                    <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+                <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${req_sender.userph}'">
                     <div class="content">
                         <p>${req_sender.username}</p>
                         <div class="card-holder">

@@ -14,22 +14,23 @@ let user = UserList.find(user => user.userph == id);
 let userHomeList = [];
 const requestList = JSON.parse(localStorage.getItem('requestList'))||[];
 
+console.log(UserList);
 
 //loop to get list of users without the current user and contacts
 
-let contact_list = []
+const contact_list = []
 
 for(let i=0;i<user.userContacts.length;i++){
     contact_list.push(user.userContacts[i].id)
 }
 
 for(let i = 0; i<UserList.length;i++){
-        if(id != UserList[i].userph && !UserList[i].userph.includes(contact_list)){
-            userHomeList.push(UserList[i]);
-        }
+    if( UserList[i].userph.includes(contact_list) && id !== UserList[i].userph ){
+        userHomeList.push(UserList[i]);
+    }
 }
 
-
+console.log(userHomeList);
 
 
 let userSearchList = [];
@@ -40,18 +41,21 @@ let userSearchList = [];
             const contact = userHomeList[i];
             const check = requestList.some((req) => (
                 req.sender == contact.userph && 
-                req.receiver == user.userph || 
-                req.sender == user.userph && 
-                req.receiver == contact.userph
+                req.receiver == user.userph 
             ));
 
-            let status = !check ? "request":"can_request";
-            let btn_text = !check ? "Request":"Cancel";
+            const check_status = requestList.some((req) =>(
+                req.sender == user.userph && 
+                req.receiver == contact.userph
+            )
+            )
+            let status = !check_status ? "request":"can_request";
+            let btn_text = !check_status ? "Request":"Cancel";
 
-            // if (!check) {
+            if (!check ) {
                 const profileCard = `
                         <div class="profile-card">
-                        <img src="../assets/images/profile/4.jpg" alt="" height="60px">
+                        <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${contact.userph}'">
                         <div class="content">
                             <p>${contact.username}</p>
                             <div class="card-holder">
@@ -63,8 +67,8 @@ let userSearchList = [];
                         </div>
                         `;
                 document.querySelector(".m-body").innerHTML += profileCard;
-            // }
-            // else {
+            }
+            // if(check) {
             //     const profileCard = `
             //             <div class="profile-card">
             //             <img src="../assets/images/profile/4.jpg" alt="" height="60px">
