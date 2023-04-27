@@ -29,7 +29,7 @@ console.log(contactArray);
 for(let i = 0; i<UserList.length;i++){
     console.log(contactArray[i]);
     console.log(UserList[i].userph);
-        if(contactArray[0] == parseInt(UserList[i].userph)){
+        if(contactArray[i] == parseInt(UserList[i].userph)){
             userHomeList.push(UserList[i]);
         }
 }

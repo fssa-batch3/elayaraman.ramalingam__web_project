@@ -17,7 +17,7 @@
     const convo = convo_list.find((convo) => convo.id === convoid);
 
     const headerTemplate = `
-        <header class="c-head navbar">
+        <header class="c-head navbar navbar-fixed-top">
             <div class="container-sm">
                 <div>
                     <button class="btn" onclick="window.history.back()">
@@ -88,47 +88,30 @@
     document.querySelectorAll("#message").forEach(
         (message) => {
             message.addEventListener("dblclick", (e) => {
-                const buttons = document.querySelectorAll(".delete-btn .btn");
-                buttons.forEach((btn) => {
-                    btn.classList.toggle("d-none");
-                })
+                const button = message.querySelector(".delete-btn .btn");
+                // button.forEach((btn) => {
+                //     btn.classList.toggle("d-none");
+                // })
+                button.classList.toggle("d-none");
             })
         }
 
     );
-
-    // document.querySelectorAll(".message").forEach((message) => {
-    //     message.addEventListener("dblclick", (e) => {
-    //       message.querySelectorAll(".delete-btn .btn").forEach((btn) => {
-    //         btn.classList.remove("d-none");
-    //       });
-    //     });
-    //   });
-      
-
 
     }
 
     
     
     function deleteMsg(id) {
-
-
             console.log(id)
-
             const msgIndex = convo.messages.findIndex(msg => msg.id === id);
-
             console.log(msgIndex);
-
             if(msgIndex > 0) {
                 convo.messages.splice(msgIndex, 1); 
             }
-
             localStorage.setItem("convo_list", JSON.stringify(convo_list));
-
             loadMessages();
         
-
     }
 
 
