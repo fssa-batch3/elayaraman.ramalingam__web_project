@@ -17,16 +17,29 @@ const navbarTemplate = `
             </div>
         </nav>`;
 
-function addNavbar(){
-    document.querySelector(".module")
-        .insertAdjacentHTML('beforeend',navbarTemplate); 
+function addNavbar() {
+  document
+    .querySelector(".module")
+    .insertAdjacentHTML("beforeend", navbarTemplate);
 }
 
 addNavbar();
 
-const byId = id => document.getElementById(id);
+const byId = (id) => document.getElementById(id);
 
-byId("btn-req").addEventListener("click", () => window.location.href = "./requests.html");
-byId("btn-search").addEventListener("click", () => window.location.href = "./search.html");
-byId("btn-home").addEventListener("click", () => window.location.href = "./home.html");
-byId("btn-profile").addEventListener("click", () => window.location.href = "./profile.html");
+byId("btn-req").addEventListener(
+  "click",
+  () => window.location.href === "./requests.html"
+);
+byId("btn-search").addEventListener(
+  "click",
+  () => window.location.href === "./search.html"
+);
+byId("btn-home").addEventListener(
+  "click",
+  () => window.location.href === "./home.html"
+);
+byId("btn-profile").addEventListener(
+  "click",
+  () => window.location.href === "./profile.html"
+);

@@ -1,0 +1,7 @@
+
+node_modules/**
+assets/js/vendor/*.js
+**/*.config.js
+**/*.min.js
+# path/to/bootstrap.js
+
