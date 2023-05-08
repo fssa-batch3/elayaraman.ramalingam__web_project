@@ -3,16 +3,18 @@ if (!currentUser) {
   currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
 }
 
+console.log(currentUser);
+
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
 const id = currentUser.userph;
 
-const user = UserList.find((user) => user.userph === id);
+const user = UserList.find((userCheck) => userCheck.userph === id);
 
 const { userContacts } = user;
 console.log(userContacts);
 const userHomeList = [];
-const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
+// const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
 
 // loop to get list of users without the current user
 
@@ -25,13 +27,10 @@ for (let i = 0; i < userContacts.length; i += 1) {
 console.log(contactArray);
 
 for (let i = 0; i < UserList.length; i += 1) {
-  console.log(contactArray[i]);
-  console.log(UserList[i].userph);
-  if (contactArray[i] === parseInt(UserList[i].userph)) {
+  if (contactArray.includes(UserList[i].userph)) {
     userHomeList.push(UserList[i]);
   }
 }
-
 console.log(userHomeList);
 
 function loadUser() {
