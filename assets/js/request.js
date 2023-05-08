@@ -1,43 +1,39 @@
-const currentUser = JSON.parse(localStorage.getItem("currentUser")) || JSON.parse(sessionStorage.getItem("tempuser"));
+let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+if (!currentUser) {
+  currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
+}
 
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
-const user = UserList.find((user) => user.userph === currentUser.userph);
+const id = currentUser.userph;
 
+const user = UserList.find((user) => user.userph === id);
+
+const userHomeList = [];
 const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
 
+const mBody = document.querySelector(".m-body");
+
 // loop to get list of users without the current user
-const userHomeList = UserList.filter((x) => !contact_list.includes(x.userph) && x.userph !== user.userph);
+
+for (let i = 0; i < UserList.length; i++) {
+  if (id !== UserList[i].userph) {
+    userHomeList.push(UserList[i]);
+  }
+}
 
 // create req-list
 
-const reqList = requestList.filter( (request) => request.receiver === user.userph);
+const req_list = [];
+for (let i = 0; i < requestList.length; i++) {
+  if (requestList[i].receiver === id) {
+    req_list.push(requestList[i]);
+  }
+}
 
 // function to load requests in request page
 function loadRequest() {
   const mBody = document.querySelector(".m-body");
-
-  reqList.forEach((request) => {
-    const sender = UserList.find( req => req.userph === user.userph);
-
-    const profileCard = `
-    <div class="profile-card">
-    <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${req_sender.userph}'">
-        <div class="content">
-            <p>${req_sender.username}</p>
-            <div class="card-holder">
-                <button class="yes" onclick="addContact(${userph})">
-                    <i class="fi fi-br-check"></i>
-                </button>
-                <button class="no" onclick="removeReq(${userph})">
-                    <i class="fi fi-br-cross"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-`;
-mBody.innerHTML += profileCard;
-  })
   for (let i = 0; i < req_list.length; i++) {
     const req_id = `${parseInt(req_list[i].sender)}`;
     const req_sender = UserList.find((req) => req.userph === req_id);

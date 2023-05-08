@@ -12,7 +12,7 @@
         <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
 
         <script src="../assets/js/bootstrap.bundle.js"></script>
-
+        <script src="../assets/js/profile.js"></script>
     </head>
     <body>
         <header class="c-head navbar">
@@ -53,8 +53,20 @@
                 </div>
             </div>
         </section>
-        <script src="../assets/js/profile.js"></script>
         <script>
+        window.addEventListener("load", profile);
+
+        const byId = (id) => document.getElementById(id);
+        byId("edit").addEventListener(
+  "click",
+  () => (window.location.href = "./edit.html")
+);
+        byId("back").addEventListener(
+  "click",
+  () => (window.location.href = "./home.html")
+);
+        byId("logout").addEventListener("click", logout);
+        byId("delete").addEventListener("click", deleteUser);
     </script>
     </body>
 </html>

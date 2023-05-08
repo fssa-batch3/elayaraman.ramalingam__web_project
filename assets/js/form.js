@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 
 const userList = JSON.parse(localStorage.getItem("userList")) || [];
 console.log(userList);
@@ -57,13 +58,10 @@ if (regform) {
 function login(e) {
   e.preventDefault();
 
-  const userph = parseInt(document.getElementById("userph").value.trim(), 10);
-
-  const userpasswd = document.getElementById("userpasswd").value.trim();
-
+  const [userph, userpasswd] = ["userph", "userpasswd"].map((id) =>
+    document.getElementById(id).value.trim()
+  );
   const rememberMe = document.getElementById("rememberMe").checked;
-  console.log(userph);
-  console.log(userpasswd);
 
   // const userList = JSON.parse(localStorage.getItem("userList")) || [];
   const user = userList.find(

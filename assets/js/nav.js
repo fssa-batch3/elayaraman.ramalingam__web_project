@@ -29,17 +29,17 @@ const byId = (id) => document.getElementById(id);
 
 byId("btn-req").addEventListener(
   "click",
-  () => window.location.href = "./requests.html"
+  () => window.location.href === "./requests.html"
 );
 byId("btn-search").addEventListener(
   "click",
-  () => window.location.href = "./search.html"
+  () => window.location.href === "./search.html"
 );
 byId("btn-home").addEventListener(
   "click",
-  () => window.location.href = "./home.html"
+  () => window.location.href === "./home.html"
 );
 byId("btn-profile").addEventListener(
   "click",
-  () => window.location.href = "./profile.html"
+  () => window.location.href === "./profile.html"
 );

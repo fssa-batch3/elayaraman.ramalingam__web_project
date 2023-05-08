@@ -47,24 +47,3 @@ function submit() {
     alert("Password is incorrect");
   }
 }
-window.addEventListener("load", profile);
-
-const byId = (id) => document.getElementById(id);
-
-byId("edit").addEventListener("click", submit);
-
-byId("back").addEventListener(
-  "click",
-  () => window.location.href === "./profile.html"
-);
-window.addEventListener("load", profile);
-byId("edit").addEventListener(
-"click",
-() => (window.location.href = "./edit.html")
-);
-byId("back").addEventListener(
-"click",
-() => (window.location.href = "./home.html")
-);
-byId("logout").addEventListener("click", logout);
-byId("delete").addEventListener("click", deleteUser);
