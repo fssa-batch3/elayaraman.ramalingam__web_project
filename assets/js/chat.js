@@ -1,13 +1,16 @@
+/* eslint-disable prettier/prettier */
 const UserList = JSON.parse(localStorage.getItem("userList"));
-console.log(UserList);
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-const userid = currentUser.userph;
+const currentUser =
+  JSON.parse(localStorage.getItem("currentUser")) ||
+  JSON.parse(sessionStorage.getItem("tempuser"));
+
+const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-const user = UserList.find((users) => users.userph === id);
+const receiver = UserList.find((users) => users.userph === user.userph);
 
-const user1 = UserList.find((userOneCheck) => userOneCheck.userph === userid);
+const user1 = UserList.find((userOneCheck) => userOneCheck.userph === user.userph);
 const user2 = UserList.find((userTwoCheck) => userTwoCheck.userph === id);
 
 const convoid = user1.userph + user2.userph;
@@ -26,7 +29,7 @@ const headerTemplate = `
                 </div>
                 <div class="c-header">
                     <img src="../assets/images/profile/4.jpg" alt="" height="50px">
-                    <p>${user.username}</p>
+                    <p>${receiver.username}</p>
                 </div>
                 <div>
                     <i class="fi fi-rr-menu-dots-vertical"></i>
@@ -99,26 +102,12 @@ function loadMessages() {
     message.addEventListener("dblclick", (e) => {
       e.preventDefault();
       const button = message.querySelector(".delete-btn .btn");
-      // button.forEach((btn) => {
-      //     btn.classList.toggle("d-none");
-      // })
       button.classList.toggle("d-none");
     });
   });
 }
 
 window.addEventListener("load", loadMessages);
-
-// function deleteMsg(id) {
-//   console.log(id);
-//   const msgIndex = convo.messages.findIndex((msg) => msg.id === id);
-//   console.log(msgIndex);
-//   if (msgIndex > 0) {
-//     convo.messages.splice(msgIndex, 1);
-//   }
-//   localStorage.setItem("convo_list", JSON.stringify(convo_list));
-//   loadMessages();
-// }
 
 function Chat() {
   const currentConvo = convo_list.find((convos) => convos.id === convoid);
@@ -144,6 +133,7 @@ function appndmsg(e) {
       convo.messages = [];
     }
     convo.messages.push({
+      // eslint-disable-next-line no-undef
       id: uuidv4(),
       message,
       sender: user1.userph,

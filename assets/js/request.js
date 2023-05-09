@@ -1,101 +1,102 @@
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-if (!currentUser) {
-  currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
-}
-
+const currentUser =
+  JSON.parse(localStorage.getItem("currentUser")) ||
+  JSON.parse(sessionStorage.getItem("tempuser"));
 const UserList = JSON.parse(localStorage.getItem("userList"));
-
-const id = currentUser.userph;
-
-const user = UserList.find((user) => user.userph === id);
-
-const userHomeList = [];
+const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
-
-const mBody = document.querySelector(".m-body");
-
-// loop to get list of users without the current user
-
-for (let i = 0; i < UserList.length; i++) {
-  if (id !== UserList[i].userph) {
-    userHomeList.push(UserList[i]);
-  }
-}
+const body = document.querySelector(".m-body");
 
 // create req-list
 
-const req_list = [];
-for (let i = 0; i < requestList.length; i++) {
-  if (requestList[i].receiver === id) {
-    req_list.push(requestList[i]);
-  }
-}
+const reqNum = requestList.filter(request => request.receiver === user.userph)
+  .map(request => request.sender);
 
+const reqList = UserList.filter(
+  (userObj) => reqNum.includes(userObj.userph));
+
+console.log(reqList)
 // function to load requests in request page
 function loadRequest() {
-  const mBody = document.querySelector(".m-body");
-  for (let i = 0; i < req_list.length; i++) {
-    const req_id = `${parseInt(req_list[i].sender)}`;
-    const req_sender = UserList.find((req) => req.userph === req_id);
-    const request = req_list[i];
-    const userph = request.sender;
-    if (req_sender) {
-      const profileCard = `
-                <div class="profile-card">
-                <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${req_sender.userph}'">
-                    <div class="content">
-                        <p>${req_sender.username}</p>
-                        <div class="card-holder">
-                            <button class="yes" onclick="addContact(${userph})">
-                                <i class="fi fi-br-check"></i>
-                            </button>
-                            <button class="no" onclick="removeReq(${userph})">
-                                <i class="fi fi-br-cross"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            `;
-      mBody.innerHTML += profileCard;
-    }
-  }
+  body.innerHTML = "";
+  reqList.forEach((request) =>{
+
+    const { sender } = request;
+    const profileCard = `
+    <div class="profile-card">
+    <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${sender.userph}'">
+        <div class="content">
+            <p>${sender.username}</p>
+            <div class="card-holder">
+                <button class="yes" data-num=${sender.userph} onclick="addContact(${sender.userph})">
+                    <i class="fi fi-br-check"></i>
+                </button>
+                <button class="no" data-num=${sender.userph} onclick="removeReq(${sender.userph})">
+                    <i class="fi fi-br-cross"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+`;
+body.innerHTML += profileCard;
+
+  });
 }
 
+document.querySelectorAll(".yes, .no").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (btn.classList.contains("yes")) {
+      addContact(e.target.dataset.num);
+    } else if (btn.classList.contains("no")) {
+      removeReq(e.target.dataset.num);
+    }
+  });
+});
+
 function addContact(num) {
-  const req_sender = UserList.find((req) => req.userph === num);
-  console.log(num);
-  const contact = {
+  parseInt(num,10);
+  const sender = UserList.find((req) => req.userph === num);
+  const contactObjectForUser = {
     id: num,
     status: true,
   };
-  const contact_1 = {
+  const contactObjectForSender = {
     id: user.userph,
     status: true,
   };
   const { userContacts } = user;
-  const sender_contacts = req_sender.userContacts;
-  userContacts.push(contact);
-  sender_contacts.push(contact_1);
+  const senderContacts = sender.userContacts;
+  userContacts.push(contactObjectForUser);
+  senderContacts.push(contactObjectForSender);
   requestList.splice(
     requestList.findIndex(
-      (req) => req.sender === num && req.receiver === parseInt(user.userph)
+      (req) => req.sender === num && req.receiver === parseInt(user.userph,10)
     ),
     1
   );
   localStorage.setItem("requestList", JSON.stringify(requestList));
   localStorage.setItem("userList", JSON.stringify(UserList));
-  document.querySelector(".m-body").innerHTML = "";
+  body.innerHTML = "";
   loadRequest();
 }
 function removeReq(num) {
+  parseInt(num,10);
+  console.log(num);
   requestList.splice(
     requestList.findIndex(
-      (req) => req.sender === num && req.receiver === parseInt(user.userph)
+      (req) => req.sender === num && req.receiver === parseInt(user.userph,10)
     ),
     1
   );
-
   localStorage.setItem("requestList", JSON.stringify(requestList));
-  document.querySelector(".m-body").innerHTML = "";
+  body.innerHTML = "";
   loadRequest();
 }
+document.querySelectorAll(".yes, .no").forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    if (btn.classList.contains("yes")) {
+      addContact(e.target.dataset.num);
+    } else if (btn.classList.contains("no")) {
+      removeReq(e.target.dataset.num);
+    }
+  });
+});

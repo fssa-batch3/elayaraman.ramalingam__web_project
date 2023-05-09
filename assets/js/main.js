@@ -1,38 +1,22 @@
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+const currentUser =
+  JSON.parse(localStorage.getItem("currentUser")) ||
+  JSON.parse(sessionStorage.getItem("tempuser"));
+
 if (!currentUser) {
-  currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
+  alert("There is a problem in your login please login again");
+  // eslint-disable-next-line no-unused-expressions
+  window.location.href === "./login.html";
 }
 
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
-const id = currentUser.userph;
-
-const user = UserList.find((user) => user.userph === id);
+const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const { userContacts } = user;
-console.log(userContacts);
-const userHomeList = [];
-const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
 
-// loop to get list of users without the current user
+const contactList = user.userContacts.map((contact) => contact.id);
 
-const contactArray = [];
-
-for (let i = 0; i < userContacts.length; i += 1) {
-  contactArray.push(userContacts[i].id);
-}
-
-console.log(contactArray);
-
-for (let i = 0; i < UserList.length; i += 1) {
-  console.log(contactArray[i]);
-  console.log(UserList[i].userph);
-  if (contactArray[i] === parseInt(UserList[i].userph)) {
-    userHomeList.push(UserList[i]);
-  }
-}
-
-console.log(userHomeList);
+const userHomeList = UserList.filter((x) => contactList.includes(x.userph));
 
 function loadUser() {
   if (userContacts.length === 0) {
@@ -40,19 +24,19 @@ function loadUser() {
     str.textContent = "You have no contacts in your list to chat";
     document.querySelector(".m-body").appendChild(str);
   }
-  for (let i = 0; i < userHomeList.length; i += 1) {
+  userHomeList.forEach((userObj) => {
     const profileCard = `
-            <div class="profile-card">
-                <img src="../assets/images/profile/4.jpg" alt="${userHomeList[i].username}" height="50px">
-                <div class="content" onclick="window.location.href='./chat.html?id=${userHomeList[i].userph}'">
-                    <p>${userHomeList[i].username}</p>
-                    <span>${userHomeList[i].userph}</span>
-                </div>
-            </div>
-        `;
+      <div class="profile-card">
+        <img src="../assets/images/profile/4.jpg" alt="${userObj.username}" height="50px">
+        <div class="content" onclick="window.location.href='./chat.html?id=${userObj.userph}'">
+          <p>${userObj.username}</p>
+          <span>${userObj.userph}</span>
+        </div>
+      </div>
+    `;
     document
       .querySelector(".m-body")
       .insertAdjacentHTML("beforeend", profileCard);
-  }
+  });
 }
 window.addEventListener("load", loadUser);
