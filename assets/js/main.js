@@ -8,6 +8,8 @@ if (!currentUser) {
   window.location.href === "./login.html";
 }
 
+console.log(currentUser);
+
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
 const user = UserList.find((userObj) => userObj.userph === currentUser.userph);

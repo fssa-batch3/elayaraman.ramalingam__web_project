@@ -8,7 +8,7 @@ const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
 
-console.log(UserList);
+console.log(UserList)
 
 // loop to get list of users without the current user and contacts
 
@@ -19,12 +19,8 @@ const userHomeList = UserList.filter(
 );
 
 console.log(userHomeList);
-
 function loadList() {
   const body = document.querySelector(".m-body");
-  body.innerHTML = "";
-
-  userHomeList.forEach((contact) => {
     const requestFromOthers = requestList.some(
       (req) => req.sender === contact.userph && req.receiver === user.userph
     );
@@ -50,8 +46,8 @@ function loadList() {
       `;
       body.innerHTML += profileCard;
     }
-  });
-}
+  };
+
 
 loadList();
 function request(requestId) {
