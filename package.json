@@ -23,6 +23,7 @@
   "dependencies": {
     "eslint-plugin-css": "^0.7.0",
     "http-server": "^14.1.1",
+    "jquery": "^3.6.4",
     "uuid": "^9.0.0"
   },
   "devDependencies": {

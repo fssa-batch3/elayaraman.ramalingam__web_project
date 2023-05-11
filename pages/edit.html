@@ -10,9 +10,6 @@
         <link rel="stylesheet" href="../assets/css/profile.css">
         <link rel="stylesheet" href="../assets/css/vendor/custom.css">
         <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
-
-        <script src="../assets/js/bootstrap.bundle.js"></script>
-        <script src="../assets/js/profile.js"></script>
     </head>
     <body>
         <header class="c-head navbar">
@@ -28,23 +25,24 @@
                     <img src="../assets/images/profile/3.jpg" alt="user" height="75px">
                 </div>
                 <div class="mb-3 p-fields">
-                    <label for="username">Name </label>
-                    <input type="text" id="username">
+                    <label for="username">Type your new username </label>
+                    <input type="text" id="editUserName" maxlength="12">
                 </div>
-                <div class="mb-3 p-fields">
+                <!-- <div class="mb-3 p-fields">
                     <label for="userph">Phone No</label>
                     <input type="text" id="userph">
-                </div>
+                </div> -->
                 <div class="btn-holder mt-3">
                     <div>
                         <button class="btn btn-home" id="back">Back</button>
                     </div>
                     <div>
-                        <button class="btn btn-primary" id="edit">Submit</button>
+                        <button class="btn btn-primary" id="edit">Save</button>
                     </div>
                 </div>
             </div>
         </section>
-        <script>    </script>
+        <script src="../assets/js/bootstrap.bundle.js"></script>
+        <script src="../assets/js/edit.js"></script>
     </body>
 </html>

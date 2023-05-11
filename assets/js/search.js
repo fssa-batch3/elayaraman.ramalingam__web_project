@@ -21,6 +21,8 @@ const userHomeList = UserList.filter(
 console.log(userHomeList);
 function loadList() {
   const body = document.querySelector(".m-body");
+  body.innerHTML = "";
+  userHomeList.forEach((contact) =>{
     const requestFromOthers = requestList.some(
       (req) => req.sender === contact.userph && req.receiver === user.userph
     );
@@ -46,6 +48,7 @@ function loadList() {
       `;
       body.innerHTML += profileCard;
     }
+  })
   };
 
 

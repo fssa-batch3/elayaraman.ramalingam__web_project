@@ -3,21 +3,30 @@ const UserList = JSON.parse(localStorage.getItem("userList"));
 const currentUser =
   JSON.parse(localStorage.getItem("currentUser")) ||
   JSON.parse(sessionStorage.getItem("tempuser"));
-
 const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
-const receiver = UserList.find((users) => users.userph === user.userph);
+const receiverId = parseInt(id);
 
-const user1 = UserList.find((userOneCheck) => userOneCheck.userph === user.userph);
-const user2 = UserList.find((userTwoCheck) => userTwoCheck.userph === id);
+const receiver = UserList.find((users) => users.userph === receiverId);
+const sender = user;
 
-const convoid = user1.userph + user2.userph;
+console.log(receiverId);
+console.log(user.userph);
 
-const convo_list = JSON.parse(localStorage.getItem("convo_list")) || [];
+console.log(sender);
+console.log(receiver);
 
-const convo = convo_list.find((findConvo) => findConvo.id === convoid);
+const convoId = "" + sender.userph + receiverId;
+
+console.log(convoId);
+
+const convoList = JSON.parse(localStorage.getItem("convoList")) || [];
+
+console.log(convoList);
+
+const messageContainer = document.querySelector(".c-holder");
 
 const headerTemplate = `
         <header class="c-head navbar navbar-fixed-top">
@@ -39,56 +48,68 @@ const headerTemplate = `
     `;
 
 function addHeader() {
-  document
-    .querySelector("body")
-    .insertAdjacentHTML("afterbegin", headerTemplate);
+  document.querySelector("body").insertAdjacentHTML("afterbegin", headerTemplate);
 }
 
 addHeader();
 
+const convo = chat();
+
+function chat() {
+  const currentConvo = convoList.find((convos) => convos.id === (""+user.userph + receiverId) || ("" + receiverId + user.userph));
+  if (!currentConvo && sender.userph !== receiverId) {
+    const convoObj = {
+      id: convoId,
+      user1: sender.userph,
+      user2: receiverId,
+      messages: [],
+    };
+    convoList.push(convoObj);
+    localStorage.setItem("convoList", JSON.stringify(convoList));
+  }
+  return currentConvo;
+}
+
 // for time stamp
 function loadMessages() {
-  // code to load messages
-  const pickedConvo = convo_list.find((pickConvo) => pickConvo.id === convoid);
-  if (pickedConvo && pickedConvo.messages && pickedConvo.messages.length > 0) {
-    const messages = pickedConvo.messages.sort(
-      (a, b) => new Date(a.timestamp) - new Date(b.timestamp)
-    );
-    const messageContainer = document.querySelector(".c-holder");
-    let html = "";
-    messages.forEach((message) => {
-      const senderClass = message.sender === user1.userph ? "out" : "in";
-      const delete_btn =
-        message.sender === user1.userph
-          ? `<div class="delete-btn"><button class="btn btn-danger text-white d-none" data-message-id="${message.id}" type="button" >delete</button></div>`
-          : "";
+  const messages = convo ? convo.messages.sort((a, b) => new Date(a.timestamp) - new Date(b.timestamp)) : [];
 
-      html += `
-            <div id="message" >
-            ${delete_btn}
-                <div class="message ${senderClass}">
+  console.log(messages);
 
+  let messageHTML = "";
+
+  messages.forEach((message) => {
+    const messageFromSender = message.sender === receiverId;
+
+    const classForMessage = !messageFromSender ? "out" : "in";
+
+    const deleteBtn = !messageFromSender
+      ? `<div class="delete-btn"><button class="btn btn-danger text-white d-none" data-message-id="${message.id}" type="button">delete</button></div>`
+      : "";
+
+    messageHTML += `
+            <div id="message">
+            ${deleteBtn}
+                <div class="message ${classForMessage}">
                 <div class="msg">
                     <p>${message.message}</p>
                 </div>
                 <div class="time">
-                    <span>${message.time}</span>
+                    <span>${message.timeWithDate}</span>
                 </div>
                 </div>
                 </div>
             `;
-    });
-    messageContainer.innerHTML = html;
-  }
+  });
+
+  messageContainer.innerHTML = messageHTML;
 
   function deleteMsg(msgId) {
-    console.log(id);
     const msgIndex = convo.messages.findIndex((msg) => msg.id === msgId);
-    console.log(msgIndex);
-    if (msgIndex > 0) {
+    if (msgIndex > -1) {
       convo.messages.splice(msgIndex, 1);
     }
-    localStorage.setItem("convo_list", JSON.stringify(convo_list));
+    localStorage.setItem("convoList", JSON.stringify(convoList));
     loadMessages();
   }
 
@@ -105,49 +126,56 @@ function loadMessages() {
       button.classList.toggle("d-none");
     });
   });
+  // document.querySelectorAll("#message").forEach((message) => {
+  //   const button = message.querySelector(".delete-btn .btn");
+  //   message.addEventListener("dblclick", (e) => {
+  //     e.preventDefault();
+  //     button.classList.add("d-none");
+  //   });
+  //   document.addEventListener("click", (e) => {
+  //     if (!button) {
+  //       button.classList.remove("d-none");
+  //     }
+  //   });
+  // });
+
 }
 
 window.addEventListener("load", loadMessages);
 
-function Chat() {
-  const currentConvo = convo_list.find((convos) => convos.id === convoid);
-  if (!convo && user1.userph !== user2.userph) {
-    const convoObj = {
-      id: convoid,
-      user1: user1.userph,
-      user2: user2.userph,
-      messages: [],
-    };
-    convo_list.push(convoObj);
-    localStorage.setItem("convo_list", JSON.stringify(currentConvo));
-  }
-  return convo;
-}
-
 function appndmsg(e) {
   e.preventDefault();
-  const convo = Chat();
+  const convo = chat();
   const message = document.getElementById("msg_val").value.trim();
+  const currentDate = new Date();
+
+  const timeWithDate = currentDate.toLocaleString("en-US", {
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  });
   if (message) {
     if (!convo.messages) {
       convo.messages = [];
     }
     convo.messages.push({
-      // eslint-disable-next-line no-undef
       id: uuidv4(),
       message,
-      sender: user1.userph,
-      receiver: user2.userph,
+      sender: sender.userph,
+      receiver: receiverId,
       time: new Date().toLocaleTimeString("en-US", {
         hour: "numeric",
         minute: "numeric",
         hour12: true,
       }),
+      timeWithDate : timeWithDate,
       timestamp: new Date(),
     });
     document.getElementById("msg_val").value = "";
   }
-  localStorage.setItem("convo_list", JSON.stringify(convo_list));
+  localStorage.setItem("convoList", JSON.stringify(convoList));
 
   loadMessages();
 }

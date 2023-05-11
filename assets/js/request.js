@@ -14,13 +14,16 @@ const reqNum = requestList.filter(request => request.receiver === user.userph)
 const reqList = UserList.filter(
   (userObj) => reqNum.includes(userObj.userph));
 
+  console.log(reqList);
+
 console.log(reqList)
 // function to load requests in request page
 function loadRequest() {
   body.innerHTML = "";
   reqList.forEach((request) =>{
 
-    const { sender } = request;
+    const  sender  = request;
+
     const profileCard = `
     <div class="profile-card">
     <img src="../assets/images/profile/4.jpg" alt="" height="60px" onclick="window.location.href='./details.html?id=${sender.userph}'">
@@ -89,6 +92,7 @@ function removeReq(num) {
   );
   localStorage.setItem("requestList", JSON.stringify(requestList));
   body.innerHTML = "";
+  console.log("page Refreshed");
   loadRequest();
 }
 document.querySelectorAll(".yes, .no").forEach((btn) => {

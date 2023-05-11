@@ -1,25 +1,32 @@
-let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-if (!currentUser) {
-  currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
-}
+
+const currentUser =
+  JSON.parse(localStorage.getItem("currentUser")) ||
+  JSON.parse(sessionStorage.getItem("tempuser"));
+
+console.log(currentUser);
 
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
-const id = currentUser.userph;
+console.log(UserList);
 
-const user = UserList.find((user) => user.userph === id);
+const user = UserList.find((user) => user.userph === currentUser.userph);
 
-function profile() {
-  document.getElementById("username").value = user.username;
-  document.getElementById("userph").value = user.userph;
-}
+
+const userNameField = document.getElementById("username") ;
+const userphField = document.getElementById("userph") ;
+
+console.log(userNameField);
+console.log(userphField);
+
+userNameField.value = user.username;
+userphField.value = user.userph;
 
 function logout() {
   sessionStorage.clear();
   localStorage.removeItem("currentUser");
-
   window.location.href = "./login.html";
 }
+
 function deleteUser() {
   UserList.splice(index, 1);
   localStorage.setItem("userList", JSON.stringify(UserList));
@@ -30,8 +37,10 @@ function deleteUser() {
   window.location.href = "../index.html";
 }
 
+// js for edit page
+
 function submit() {
-  const username = document.getElementById("username").value.trim();
+  console.log(username);
   if (!username) return alert("Enter valid username");
   currentUser.username = username;
   UserList[index].username = username;
@@ -46,25 +55,8 @@ function submit() {
   } else {
     alert("Password is incorrect");
   }
-}
-window.addEventListener("load", profile);
+};
 
-const byId = (id) => document.getElementById(id);
-
-byId("edit").addEventListener("click", submit);
-
-byId("back").addEventListener(
-  "click",
-  () => window.location.href === "./profile.html"
-);
-window.addEventListener("load", profile);
-byId("edit").addEventListener(
-"click",
-() => (window.location.href = "./edit.html")
-);
-byId("back").addEventListener(
-"click",
-() => (window.location.href = "./home.html")
-);
-byId("logout").addEventListener("click", logout);
-byId("delete").addEventListener("click", deleteUser);
+document.getElementById("edit").addEventListener("click", () =>{
+  window.location.href = "./edit.html";
+});
