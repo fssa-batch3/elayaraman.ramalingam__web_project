@@ -1,3 +1,7 @@
+if (!currentUser) {
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
+}
 
 const currentUser =
   JSON.parse(localStorage.getItem("currentUser")) ||
@@ -59,4 +63,7 @@ function submit() {
 
 document.getElementById("edit").addEventListener("click", () =>{
   window.location.href = "./edit.html";
+});
+document.getElementById("back").addEventListener("click", () =>{
+  window.location.href = "./home.html";
 });

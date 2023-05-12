@@ -2,10 +2,11 @@ const currentUser =
   JSON.parse(localStorage.getItem("currentUser")) ||
   JSON.parse(sessionStorage.getItem("tempuser"));
 
+  console.log(currentUser);
+
 if (!currentUser) {
   alert("There is a problem in your login please login again");
-  // eslint-disable-next-line no-unused-expressions
-  window.location.href === "./login.html";
+  window.location.href = "./login.html";
 }
 
 console.log(currentUser);

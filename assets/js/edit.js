@@ -1,3 +1,8 @@
+if (!currentUser) {
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
+}
+
 const currentUser =
   JSON.parse(localStorage.getItem("currentUser")) ||
   JSON.parse(sessionStorage.getItem("tempuser"));
