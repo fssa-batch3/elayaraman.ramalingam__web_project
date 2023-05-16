@@ -52,6 +52,7 @@ if (regform) {
   regform.addEventListener("submit", reg);
 }
 
+
 // code for login form
 
 function login(e) {
@@ -61,7 +62,6 @@ function login(e) {
 
   const userpasswd = document.getElementById("userpasswd").value.trim();
 
-  const rememberMe = document.getElementById("rememberMe").checked;
   console.log(userph);
   console.log(userpasswd);
 
@@ -74,15 +74,9 @@ function login(e) {
     alert("Invalid phone number or password!");
     return;
   }
-  localStorage.removeItem("currentUser");
-  if (rememberMe) {
-    localStorage.setItem("currentUser", JSON.stringify(user));
-    sessionStorage.setItem("tempuser", JSON.stringify(user));
-  } else {
-    sessionStorage.setItem("tempuser", JSON.stringify(user));
-  }
+  sessionStorage.removeItem("currentUser");
+  sessionStorage.setItem("currentUser", JSON.stringify(user));
   alert(`Welcome! ${user.username} 😊`);
-
   window.location.href = "./home.html";
 }
 

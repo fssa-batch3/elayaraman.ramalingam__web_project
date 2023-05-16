@@ -1,8 +1,7 @@
 
 // logged user
 const currentUser =
-  JSON.parse(localStorage.getItem("currentUser")) ||
-  JSON.parse(sessionStorage.getItem("tempuser"));
+  JSON.parse(sessionStorage.getItem("currentUser"));
 
   if (!currentUser) {
     body.innerHTML = "";

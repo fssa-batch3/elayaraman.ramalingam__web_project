@@ -42,6 +42,7 @@ div.c-header{
     height: calc(100% - 50px) !important;
     overflow-y: auto;
     width:85%;
+    /* position: absolute; */
     margin: auto;
 }
 

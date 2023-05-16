@@ -1,11 +1,10 @@
-if (!currentUser) {
-  alert("There is a problem in your login please login again");
-  window.location.href = "./login.html";
-}
-
 const currentUser =
-  JSON.parse(localStorage.getItem("currentUser")) ||
-  JSON.parse(sessionStorage.getItem("tempuser"));
+  JSON.parse(sessionStorage.getItem("currentUser"));
+
+  if (!currentUser) {
+    alert("There is a problem in your login please login again");
+    window.location.href = "./login.html";
+  }
 
 console.log(currentUser);
 
@@ -66,4 +65,7 @@ document.getElementById("edit").addEventListener("click", () =>{
 });
 document.getElementById("back").addEventListener("click", () =>{
   window.location.href = "./home.html";
+});
+document.getElementById("logout").addEventListener("click", () =>{
+  window.location.href = "./login.html";
 });

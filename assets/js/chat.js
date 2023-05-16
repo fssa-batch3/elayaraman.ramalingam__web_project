@@ -1,8 +1,6 @@
-/* eslint-disable prettier/prettier */
 const UserList = JSON.parse(localStorage.getItem("userList"));
 const currentUser =
-  JSON.parse(localStorage.getItem("currentUser")) ||
-  JSON.parse(sessionStorage.getItem("tempuser"));
+  JSON.parse(sessionStorage.getItem("currentUser"));
 const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const params = new URLSearchParams(window.location.search);
@@ -54,6 +52,12 @@ function addHeader() {
 addHeader();
 
 const convo = chat();
+
+console.log(convo);
+
+console.log(convo.messages);
+
+
 
 function chat() {
   const currentConvo = convoList.find((convos) => convos.id === (""+user.userph + receiverId) || ("" + receiverId + user.userph));
@@ -126,22 +130,11 @@ function loadMessages() {
       button.classList.toggle("d-none");
     });
   });
-  // document.querySelectorAll("#message").forEach((message) => {
-  //   const button = message.querySelector(".delete-btn .btn");
-  //   message.addEventListener("dblclick", (e) => {
-  //     e.preventDefault();
-  //     button.classList.add("d-none");
-  //   });
-  //   document.addEventListener("click", (e) => {
-  //     if (!button) {
-  //       button.classList.remove("d-none");
-  //     }
-  //   });
-  // });
-
 }
 
 window.addEventListener("load", loadMessages);
+
+console.log(convo.messages.length);
 
 function appndmsg(e) {
   e.preventDefault();
@@ -179,5 +172,3 @@ function appndmsg(e) {
 
   loadMessages();
 }
-
-document.getElementById("btn-send").addEventListener("click", appndmsg);
