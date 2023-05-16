@@ -1,56 +1,44 @@
-let currentUser = JSON.parse(sessionStorage.getItem("tempuser"));
-if(!currentUser){
-    currentUser = JSON.parse(localStorage.getItem("currentUser"));
-}
-let UserList = JSON.parse(localStorage.getItem("userList"));
+const currentUser =
+  JSON.parse(sessionStorage.getItem("currentUser"));
 
-let userHomeList = [];
+  console.log(currentUser);
 
-for(let i = 0; i<UserList.length;i++){
-    if(currentUser.userph != UserList[i].userph){
-        userHomeList.push(UserList[i]);
-    }
+if (!currentUser) {
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
 }
 
-function loadUser(){
-    console.log(userHomeList);
-    for(let i=0;i<userHomeList.length;i++ ){
-    const profileCard = document.createElement("div");
-    profileCard.classList.add("profile-card");
+console.log(currentUser);
 
-    // create nested img element
-    const profileImg = document.createElement("img");
-    profileImg.src = "../assets/images/profile/4.jpg";
-    profileImg.alt = userHomeList[i].username;
-    profileImg.height = "50px";
+const UserList = JSON.parse(localStorage.getItem("userList"));
 
-    // append img element to parent element
-    profileCard.appendChild(profileImg);
+const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
-    // create nested div element
-    const contentDiv = document.createElement("div");
-    contentDiv.classList.add("content");
-    contentDiv.setAttribute("onclick", `window.location.href='./chat.html?${userHomeList[i].userph}'`);    
-    // chat.appendChild(contentDiv);
+const { userContacts } = user;
 
-    // create nested p element
-    const nameP = document.createElement("p");
-    nameP.textContent = userHomeList[i].username;
+const contactList = user.userContacts.map((contact) => contact.id);
 
-    // append p element to div element
-    contentDiv.appendChild(nameP);
+const userHomeList = UserList.filter((x) => contactList.includes(x.userph));
 
-    // create nested span element
-    const descSpan = document.createElement("span");
-    descSpan.textContent = "Kurukka indha kowshik vandha";
-
-    // append span element to div element
-    contentDiv.appendChild(descSpan);
-
-    // append div element to parent element
-    profileCard.appendChild(contentDiv);
-
-    // append parent element to the document body
-    document.querySelector(".m-body").appendChild(profileCard);
-    }
+function loadUser() {
+  if (userContacts.length === 0) {
+    const str = document.createElement("p");
+    str.textContent = "You have no contacts in your list to chat";
+    document.querySelector(".m-body").appendChild(str);
+  }
+  userHomeList.forEach((userObj) => {
+    const profileCard = `
+      <div class="profile-card">
+        <img src="../assets/images/profile/4.jpg" alt="${userObj.username}" height="50px">
+        <div class="content" onclick="window.location.href='./chat.html?id=${userObj.userph}'">
+          <p>${userObj.username}</p>
+          <span>${userObj.userph}</span>
+        </div>
+      </div>
+    `;
+    document
+      .querySelector(".m-body")
+      .insertAdjacentHTML("beforeend", profileCard);
+  });
 }
+window.addEventListener("load", loadUser);

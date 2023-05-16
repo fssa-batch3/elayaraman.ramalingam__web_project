@@ -21,6 +21,7 @@
 html, body{
     height: 100%;
     width: 100%;
+    position: fixed;
 }
 .holder{
     height: 100%;
@@ -76,7 +77,6 @@ div.m-header{
     margin: 10px 0;
     border-radius: 5px;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     overflow-y: auto;
     justify-content: flex-start;
@@ -87,10 +87,8 @@ form.m-search{
     min-height: 50px;
     display: flex;
     justify-content: center;
-    margin: 10px 0;
+    margin: 10px auto;
     width: 80%;
-    margin: auto;
-    /* flex: 0 1 50px; */
 }
 form.m-search input{
     outline: none;
@@ -103,7 +101,6 @@ form.m-search input{
     display: flex;
     width: 90%;
     justify-content: space-around;
-    /* flex: 0 1 60px; */
     height: 80px;
     max-height: 100px;
     align-items: center;
@@ -124,6 +121,9 @@ form.m-search input{
     border-radius: 5px;
     justify-content: space-evenly;
     align-items: center;
+}
+.content{
+    cursor: pointer;
 }
 .profile-card p{
     font-size: 20px;
@@ -166,6 +166,7 @@ form.m-search input{
 .profile-card .card-holder button.req{
     background: var(--primary);
     width: fit-content;
+    min-width: 85px;
     padding: 5px;
 }
 .profile-card .card-holder button.yes.active{
