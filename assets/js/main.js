@@ -1,6 +1,5 @@
 const currentUser =
-  JSON.parse(localStorage.getItem("currentUser")) ||
-  JSON.parse(sessionStorage.getItem("tempuser"));
+  JSON.parse(sessionStorage.getItem("currentUser"));
 
   console.log(currentUser);
 
