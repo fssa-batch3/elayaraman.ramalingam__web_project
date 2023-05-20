@@ -1,27 +1,41 @@
 /* form */
-form{
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
-form input.form-input{
+
+form input.form-input {
     width: 100%;
 }
-form div.f-fields{
+
+form div.f-fields {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
 }
-.form-check-input{
+
+.form-check-input {
     margin: 5px;
 }
-.f-header{
+
+.f-header {
     font-size: 24px;
     font-weight: bold;
 }
+
 form button.btn {
     color: white;
     width: 100%;
+}
+
+.input {
+    flex-direction: column;
+}
+
+.input label {
+    font-weight: bold;
+    margin-left: 15px;
 }

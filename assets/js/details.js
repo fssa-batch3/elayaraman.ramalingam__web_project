@@ -1,14 +1,45 @@
+const currentUser =
+  JSON.parse(sessionStorage.getItem("currentUser"));
+
+console.log(currentUser);
+
+if (!currentUser) {
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
+}
+
 const UserList = JSON.parse(localStorage.getItem("userList"));
-const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-const userid = currentUser.userph;
+
+const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
+
+const { userContacts } = user;
 
 const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-const user = UserList.find((UserList) => UserList.userph === id);
+const id = parseInt(params.get("id"));
 
-console.log(user);
 
-function profile() {
-  document.getElementById("username").value = user.username;
-  document.getElementById("userph").value = user.userph;
+const profileObj = UserList.find((obj) => obj.userph === id);
+console.log(profileObj);
+
+const contactArr = userContacts.map(x => { return x.id });
+console.log(contactArr);
+
+const checkContact = contactArr.some(x => x === profileObj.userph);
+
+const editdiv = document.querySelector('.edit');
+
+console.log(editdiv);
+
+console.log(checkContact);
+
+if (checkContact) {
+  editdiv.classList.remove("d-none");
+  document.querySelector(".btn-holder").style.flexDirection = "row";
+
+
 }
+
+document.getElementById("username").value = profileObj.username;
+document.getElementById("userph").value = profileObj.userph;
+
+document.getElementById("edit").addEventListener("click", () => window.location.href = `./chat.html?id=${profileObj.userph}`)

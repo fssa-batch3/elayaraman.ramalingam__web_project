@@ -1,10 +1,10 @@
 const currentUser =
   JSON.parse(sessionStorage.getItem("currentUser"));
 
-  if (!currentUser) {
-    alert("There is a problem in your login please login again");
-    window.location.href = "./login.html";
-  }
+if (!currentUser) {
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
+}
 
 console.log(currentUser);
 
@@ -15,8 +15,8 @@ console.log(UserList);
 const user = UserList.find((user) => user.userph === currentUser.userph);
 
 
-const userNameField = document.getElementById("username") ;
-const userphField = document.getElementById("userph") ;
+const userNameField = document.getElementById("username");
+const userphField = document.getElementById("userph");
 
 console.log(userNameField);
 console.log(userphField);
@@ -26,18 +26,7 @@ userphField.value = user.userph;
 
 function logout() {
   sessionStorage.clear();
-  localStorage.removeItem("currentUser");
   window.location.href = "./login.html";
-}
-
-function deleteUser() {
-  UserList.splice(index, 1);
-  localStorage.setItem("userList", JSON.stringify(UserList));
-
-  sessionStorage.clear();
-  localStorage.removeItem("currentUser");
-
-  window.location.href = "../index.html";
 }
 
 // js for edit page
@@ -60,12 +49,12 @@ function submit() {
   }
 };
 
-document.getElementById("edit").addEventListener("click", () =>{
+document.getElementById("edit").addEventListener("click", () => {
   window.location.href = "./edit.html";
 });
-document.getElementById("back").addEventListener("click", () =>{
+document.getElementById("back").addEventListener("click", () => {
   window.location.href = "./home.html";
 });
-document.getElementById("logout").addEventListener("click", () =>{
+document.getElementById("logout").addEventListener("click", () => {
   window.location.href = "./login.html";
 });

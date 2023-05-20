@@ -1,56 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Registration</title>
 
-        <link rel="stylesheet" href="./assets/css/style.css">
-        <link rel="stylesheet" href="./assets/css/form.css">
-        <link rel="stylesheet" href="./assets/css/vendor/custom.css">
-        <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
-    </head>
-    <body>
-        <div class="holder ">
-            <form id="reg">
-                <div class="f-header mb-3">
-                    Registration Form
-                </div>
-                <div class="f-fields mb-3 ">
-                    <input id="username" type="text" class="form-control form-input" placeholder="Enter your Name" >
-                </div>
-                <div class="f-fields mb-3 ">
-                    <input id="userph" type="tel" class="form-control form-input" placeholder="Enter your phone Number" maxlength="10">
-                </div>
-                <div class="f-fields mb-3 ">
-                    <input id="passwd" type="password" class="form-control form-input" placeholder="Enter your password">
-                </div>
-                <div class="f-fields mb-3 ">
-                    <input id="userpasswd" type="password" class="form-control form-input" placeholder="Confirm the password">
-                </div>
-                <div class="f-fields mb-3">
-                    <label class="form-label text-center">
-                        Click here 👉<a href="./pages/login.html">Login now</a>
-                    </label>
-                </div>
-                <div class="f-fields mb-3">
-                    <input type="checkbox" class="form-check-input" id="regcheck">
-                    <label for="form-check" class="form-check-label">
-                        Accept to our Privacy policies
-                    </label>
-                </div>
-                <div class="f-fields mb-3">
-                    <button id="regbtn" type="submit" class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.0/socket.io.js"></script>
-        <script src="./assets/js/server.js" type="module"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
-        <script src="./assets/js/vendor/bootstrap.bundle.js"></script>
-        <script src="./assets/js/form.js"></script>
-        <script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/form.css">
+    <link rel="stylesheet" href="./assets/css/vendor/custom.css">
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="holder width">
+        <form id="reg">
+            <div class="f-header mb-3">
+                Registration Form
+            </div>
+            <div class="f-fields input mb-3 ">
+                <label for="username " class="mb-1">Enter the username</label>
+                <input id="username" type="text" class="form-control form-input" placeholder="5-12 alphabets"
+                    minlength="5" maxlength="12">
+                <span class"username"></span>
+            </div>
+            <div class="f-fields input mb-3 ">
+                <label for="userph " class="mb-1">Enter the Phone number</label>
+                <input id="userph" type="tel" class="form-control form-input" placeholder="9876543210" maxlength="10">
+            </div>
+            <div class="f-fields input mb-3 ">
+                <label for="passwd " class="mb-1">Enter the password</label>
+                <input id="passwd" type="password" class="form-control form-input" placeholder="at least 6 characters"
+                    minlength="6">
+            </div>
+            <div class="f-fields input mb-3 ">
+                <label for="username " class="mb-1">Confirm the password</label>
+                <input id="userpasswd" type="password" class="form-control form-input"
+                    placeholder="repeat your password">
+            </div>
+            <div class="f-fields mb-3">
+                <label class="form-label text-center">
+                    Click here 👉<a href="./pages/login.html">Login now</a>
+                </label>
+            </div>
+            <div class="f-fields mb-3">
+                <input type="checkbox" class="form-check-input" id="regcheck">
+                <label for="form-check" class="form-check-label">
+                    Accept to our Privacy policies
+                </label>
+            </div>
+            <div class="f-fields mb-3">
+                <button id="regbtn" type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuidv4.min.js"></script>
+    <script src="./assets/js/vendor/bootstrap.bundle.js"></script>
+    <script src="./assets/js/form.js"></script>
+    <script>
     </script>
-    </body>
+</body>
+
 </html>

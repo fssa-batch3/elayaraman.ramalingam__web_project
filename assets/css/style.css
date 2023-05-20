@@ -1,6 +1,7 @@
 @import url('https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css');
 @import url('https://cdn-uicons.flaticon.com/uicons-bold-rounded/css/uicons-bold-rounded.css');
-*{
+
+* {
     margin: 0;
     padding: 0;
     border: 0;
@@ -8,22 +9,28 @@
     outline: none;
     box-sizing: border-box;
 }
-*::-webkit-scrollbar{
-    display: none;;
+
+*::-webkit-scrollbar {
+    display: none;
 }
-:root{
-    --primary : #2EA6FD ;
-    --success : #5CB85C;
-    --success1 : #BDF3BD;
-    --danger : #E03C31;
-    --danger1 : #F9C6C3;
+
+:root {
+    --primary: #2EA6FD;
+    --success: #5CB85C;
+    --success1: #BDF3BD;
+    --danger: #E03C31;
+    --danger1: #F9C6C3;
 }
-html, body{
+
+html,
+body {
     height: 100%;
     width: 100%;
     position: fixed;
+    display: flex;
 }
-.holder{
+
+.holder {
     height: 100%;
     width: 350px;
     display: flex;
@@ -34,7 +41,7 @@ html, body{
 
 /* home */
 
-.module{
+.module {
     height: 100%;
     width: 100%;
     max-width: 500px;
@@ -43,7 +50,8 @@ html, body{
     flex-flow: column;
     align-items: center;
 }
-.m-head{
+
+.m-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -52,27 +60,31 @@ html, body{
     margin: auto;
     flex: 0 1 100px;
 }
-.m-head p{
+
+.m-head p {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
 }
-div.m-header{
+
+div.m-header {
     display: flex;
     align-items: center;
     width: auto;
     margin-right: auto;
 }
-.m-header img{
+
+.m-header img {
     margin: 0 15px;
 }
 
-.m-head img{
+.m-head img {
     border-radius: 50%;
 }
-.m-body{
+
+.m-body {
     background: #fff;
-    flex : 1 1 auto;
+    flex: 1 1 auto;
     width: 80%;
     margin: 10px 0;
     border-radius: 5px;
@@ -83,21 +95,38 @@ div.m-header{
     height: 70%;
     align-items: center;
 }
-form.m-search{
+
+.form-outline.search-input {
+    width: 80%;
+}
+
+.width {
+    min-width: 350px;
+    max-width: 450px;
+    margin: auto;
+}
+
+form.m-search {
     min-height: 50px;
     display: flex;
     justify-content: center;
-    margin: 10px auto;
+    margin: 5px auto;
     width: 80%;
 }
-form.m-search input{
-    outline: none;
+
+form.m-search div.search-input input {
     height: 100%;
     width: 100%;
-    border: 0;
-    background: #f3f3f3;
+    border: 2px solid #2dc8fc4a;
+    border-radius: 5px 0 0 5px;
 }
-.m-nav{
+
+form.m-search button.search-btn {
+    width: 20%;
+    border-radius: 0 5px 5px 0;
+}
+
+.m-nav {
     display: flex;
     width: 90%;
     justify-content: space-around;
@@ -105,12 +134,14 @@ form.m-search input{
     max-height: 100px;
     align-items: center;
 }
-.m-nav .m-nav-items button{
+
+.m-nav .m-nav-items button {
     font-size: 24px;
     color: var(--primary);
-    background: none ;
+    background: none;
 }
-.profile-card{
+
+.profile-card {
     display: flex;
     margin: 5px 0;
     width: 100%;
@@ -122,30 +153,36 @@ form.m-search input{
     justify-content: space-evenly;
     align-items: center;
 }
-.content{
+
+.content {
     cursor: pointer;
 }
-.profile-card p{
+
+.profile-card p {
     font-size: 20px;
     text-align: center;
     font-weight: bold;
     margin: 0;
 }
-.profile-card span{
+
+.profile-card span {
     font-size: 12px;
     text-align: center;
     font-weight: lighter;
-    color: rgba(0, 0, 0,0.6);
+    color: rgba(0, 0, 0, 0.6);
 }
-.profile-card img{
+
+.profile-card img {
     border-radius: 50%;
     height: 50px;
 }
-.profile-card .card-holder{
+
+.profile-card .card-holder {
     display: flex;
     justify-content: space-evenly;
 }
-.profile-card .card-holder button{
+
+.profile-card .card-holder button {
     height: 40px;
     width: 40px;
     margin: 5px;
@@ -157,22 +194,25 @@ form.m-search input{
     align-items: center;
     justify-content: center;
 }
-.profile-card .card-holder button.yes{
+
+.profile-card .card-holder button.yes {
     background: var(--success);
 }
-.profile-card .card-holder button.no{
+
+.profile-card .card-holder button.no {
     background: var(--danger);
 }
-.profile-card .card-holder button.req{
+
+.profile-card .card-holder button.req {
     background: var(--primary);
     width: fit-content;
     min-width: 85px;
     padding: 5px;
 }
-.profile-card .card-holder button.yes.active{
+
+.profile-card .card-holder button.yes.active {
     background: var(--success1);
     color: var(--success);
 }
-.profile-card .card-holder button.no{
-    background: var(--danger);
-}
+
+.search {}

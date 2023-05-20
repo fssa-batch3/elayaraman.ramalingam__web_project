@@ -1,24 +1,34 @@
+const currentUser =
+  JSON.parse(sessionStorage.getItem("currentUser"));
+
 if (!currentUser) {
   alert("There is a problem in your login please login again");
   window.location.href = "./login.html";
 }
 
-const currentUser =
-  JSON.parse(localStorage.getItem("currentUser")) ||
-  JSON.parse(sessionStorage.getItem("tempuser"));
+console.log(currentUser);
 
 const UserList = JSON.parse(localStorage.getItem("userList"));
 
+console.log(UserList);
+
 const user = UserList.find((user) => user.userph === currentUser.userph);
 
-const username = user.username;
 
 const userNameField = document.getElementById("editUserName");
+const userphField = document.getElementById("userph");
+
+console.log(userNameField);
+console.log(userphField);
+
+userNameField.value = user.username;
+
+
 
 function submit() {
   const newUserName = userNameField.value.trim();
   console.log(newUserName);
-  if(!newUserName) return alert("Please enter a valid username");
+  if (!newUserName) return alert("Please enter a valid username");
 
   currentUser.username = newUserName;
   user.username = newUserName;

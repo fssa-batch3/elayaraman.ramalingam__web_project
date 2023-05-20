@@ -1,4 +1,4 @@
-header.c-head{
+header.c-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,54 +6,68 @@ header.c-head{
     margin: auto;
     flex: 0 1 100px;
     background: #fff;
-    position: absolute;
+    /* position: absolute; */
     z-index: 99999;
     width: 100%;
 }
-div.c-header{
+
+.c-head svg {
+    height: 24px;
+}
+
+div.c-header {
     display: flex;
     align-items: center;
     width: auto;
     margin-right: auto;
 }
-.c-header img{
+
+.c-header img {
     margin: 0 15px;
     border-radius: 50%;
 }
-.c-head p{
+
+.c-head p {
     font-size: 24px;
     font-weight: bold;
     margin: 0;
 }
-.c-head img{
+
+.c-head img {
     border-radius: 50%;
 }
-.c-module{
+
+.c-module {
     height: calc(100% - 90px) !important;
     width: 100%;
     margin: 80px auto auto auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: fixed ;
-
+    position: fixed;
 }
-.c-holder{
-    height: calc(100% - 50px) !important;
+
+.c-holder {
+    height: calc(100% - 50px);
     overflow-y: auto;
-    width:85%;
+    width: 85%;
     /* position: absolute; */
-    margin: auto;
+    margin: 0 auto;
 }
 
-.c-holder .message{
+.c-holder-secondary {
+    height: calc(100% - 400px) !important;
+}
+
+.c-holder .message {
     width: 70%;
     max-width: 250px;
     padding: 5px;
     display: flex;
     flex-direction: column;
 }
-.delete-btn{
+
+.delete-btn {
     width: 30%;
     height: 100%;
     display: flex;
@@ -61,49 +75,59 @@ div.c-header{
     align-items: center;
     margin: auto;
 }
-.c-holder .in{
+
+.c-holder .in {
     align-items: flex-start;
 }
-.in .msg{
+
+.in .msg {
     border-radius: 5px 5px 5px 0;
 }
-.c-holder .out{
+
+.c-holder .out {
     align-items: flex-end;
 }
-.out .msg{
+
+.out .msg {
     border-radius: 5px 5px 0px 5px;
 }
-.c-holder .message .msg{
+
+.c-holder .message .msg {
     background: var(--primary);
     color: #fff;
     padding: 5px;
 
     width: 80%;
 }
-.c-holder .message .time{
+
+.c-holder .message .time {
     font-size: 14px;
 }
 
-#message{
+#message {
     display: flex;
     flex-direction: row;
     align-items: center;
 }
-.c-bar{
+
+.c-bar {
     height: 50px;
     display: flex;
     width: 95%;
     margin: auto;
     justify-content: center;
 }
-.c-bar input{
+
+.c-bar input {
     height: 100%;
     width: calc(100% - 60px);
     border: 1px solid #000;
-    padding: 5px 10px ;
+    padding: 5px 10px;
 }
-.c-bar button{
+
+.c-bar button {
     width: 50px;
+    border: 0;
     border-radius: 0 5px 5px 0;
     display: flex;
     align-items: center;
@@ -112,4 +136,58 @@ div.c-header{
     background: var(--primary);
     color: white;
     font-size: 18px;
+}
+
+/* Emoji picker styles */
+.emoji-picker {
+    position: absolute;
+    bottom: 60px;
+    right: 10px;
+    z-index: 999;
+}
+
+/* Chat interface styles */
+.c-module {
+    height: calc(100% - 90px) !important;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+}
+
+
+
+.c-bar input {
+    flex-grow: 1;
+    height: 100%;
+    border: 1px solid #00000063;
+    padding: 5px 10px;
+}
+
+
+
+.c-bar input {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 5px 10px;
+    border-radius: 5px 0 0 5px;
+}
+
+.c-bar #btn-emoji {
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+#emoji-picker-container {
+    position: absolute;
+    bottom: 70px;
+    left: 0;
+    width: 100%;
+    /* display: none; */
+}
+
+#msg_val:focus+#emoji-picker-container {
+    display: block;
 }
