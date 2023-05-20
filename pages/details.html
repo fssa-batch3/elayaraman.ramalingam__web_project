@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Details</title>
 
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/profile.css">
-        <link rel="stylesheet" href="../assets/css/vendor/custom.css">
-        <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
 
-        <script src="../assets/js/bootstrap.bundle.js"></script>
-        <script src="../assets/js/details.js"></script>
-    </head>
-    <body>
-        <!-- <header class="c-head navbar">
-            <div class="container-sm">
-            <div class="c-header">
-            <p>Profile</p>
-            </div>
-            <div>
-            <button class="btn btn-primary" id="logout">
-            logout
-            </button>
-            </div>
-            </div>
-            </header> -->
-        <section class="p-module h-100">
-            <div class="p-holder ">
-                <div class="img mb-5">
-                    <img src="../assets/images/profile/3.jpg" alt="user" height="75px">
-                </div>
-                <div class="mb-3 p-fields">
-                    <label for="username">Name </label>
-                    <input type="text" id="username" readonly>
-                </div>
-                <div class="mb-3 p-fields">
-                    <label for="userph">Phone No</label>
-                    <input type="text" id="userph" readonly>
-                </div>
-                <div class="btn-holder mt-3">
-                    <div>
-                        <button class="btn btn-primary" id="edit">Message</button>
-                    </div>
-                    <div>
-                        <button class="btn btn-home" id="back">Close</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <script>
-        window.addEventListener("load", profile);
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="stylesheet" href="../assets/css/vendor/custom.css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
 
+    <script src="../assets/js/bootstrap.bundle.js"></script>
+    <style>
+        .btn-holder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="p-module h-100">
+        <div class="p-holder ">
+            <div class="img mb-5">
+                <img src="../assets/images/profile/3.jpg" alt="user" height="75px">
+            </div>
+            <div class="mb-3 p-fields">
+                <label for="username">Name </label>
+                <input type="text" id="username" readonly>
+            </div>
+            <div class="mb-3 p-fields">
+                <label for="userph">Phone No</label>
+                <input type="text" id="userph" readonly>
+            </div>
+            <div class="btn-holder mt-3">
+                <div class="edit d-none">
+                    <button class="btn btn-primary" id="edit">Message</button>
+                </div>
+                <div>
+                    <button class="btn btn-home" id="back">Close</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../assets/js/details.js"></script>
+    <script>
         const byId = (id) => document.getElementById(id);
-        byId("edit").addEventListener(
-  "click",
-  () => (window.location.href = "./edit.html")
-);
         byId("back").addEventListener("click", () => history.back());
-        // byId("logout").addEventListener("click", logout);
-        // byId("delete").addEventListener("click", deleteUser);
+
     </script>
-    </body>
+</body>
+
 </html>

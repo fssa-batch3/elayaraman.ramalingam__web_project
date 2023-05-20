@@ -3,19 +3,21 @@
 const currentUser =
   JSON.parse(sessionStorage.getItem("currentUser"));
 
-  if (!currentUser) {
-    body.innerHTML = "";
-    alert("There is a problem in your login please login again");
-    window.location.href = "./login.html";
-  }
-  
+if (!currentUser) {
+  body.innerHTML = "";
+  alert("There is a problem in your login please login again");
+  window.location.href = "./login.html";
+}
+
 
 const UserList = JSON.parse(localStorage.getItem("userList"));
 const user = UserList.find((userObj) => userObj.userph === currentUser.userph);
 
 const requestList = JSON.parse(localStorage.getItem("requestList")) || [];
 
-console.log(UserList)
+console.log(UserList);
+
+const body = document.querySelector(".m-body");
 
 // loop to get list of users without the current user and contacts
 
@@ -27,9 +29,10 @@ const userHomeList = UserList.filter(
 
 console.log(userHomeList);
 function loadList() {
-  const body = document.querySelector(".m-body");
+  console.log("workig!!")
+
   body.innerHTML = "";
-  userHomeList.forEach((contact) =>{
+  userHomeList.forEach((contact) => {
     const requestFromOthers = requestList.some(
       (req) => req.sender === contact.userph && req.receiver === user.userph
     );
@@ -39,8 +42,8 @@ function loadList() {
 
     if (!requestFromOthers) {
       const button = requestByUser
-        ? `<button class="req" id="btnCan" data-phone="${contact.userph}" type="button">Cancel</button>`
-        : `<button class="req" id="btnReq" data-phone="${contact.userph}" type="button">Request</button>`;
+        ? `<button class="req req-btn" id="btnCan" data-phone="${contact.userph}" type="button">Cancel</button>`
+        : `<button class="req req-btn" id="btnReq" data-phone="${contact.userph}" type="button">Request</button>`;
 
       const profileCard = `
       <div class="profile-card">
@@ -56,7 +59,17 @@ function loadList() {
       body.innerHTML += profileCard;
     }
   })
-  };
+  document.querySelectorAll(".req").forEach((button) => {
+    button.addEventListener("click", function buttonSwitch() {
+      const phoneNumber = this.getAttribute("data-phone");
+      if (this.id === "btnReq") {
+        request(phoneNumber);
+      } else if (this.id === "btnCan") {
+        cancelRequest(phoneNumber);
+      }
+    });
+  });
+};
 
 
 loadList();
@@ -95,13 +108,4 @@ function cancelRequest(cancelId) {
   loadList();
 }
 
-document.querySelectorAll(".req").forEach((button) => {
-  button.addEventListener("click", function buttonSwitch() {
-    const phoneNumber = this.getAttribute("data-phone");
-    if (this.id === "btnReq") {
-      request(phoneNumber);
-    } else if (this.id === "btnCan") {
-      cancelRequest(phoneNumber);
-    }
-  });
-});
+

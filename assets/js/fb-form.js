@@ -21,11 +21,8 @@ function reg(e) {
   if (!username || !passwd || !userpasswd || !userph)
     return alert("Please fill out all the fields");
 
-  if (!/^[a-zA-Z_-\s]{5,12}$/.test(username))
+  if (!/^[a-zA-Z0-9_-\s]{5,12}$/.test(username))
     return alert("Enter valid username");
-
-  if (!/.{6,12}/.test(userpasswd))
-    return alert("Enter valid password");
 
   if (!/^\d{10}$/.test(userph)) return alert("Enter valid Phone number");
 
@@ -34,20 +31,6 @@ function reg(e) {
   if (userList.some((user) => user.userph === userph))
     return alert("This Phone number is already registered!");
 
-  if (regcheck) {
-    const user = {
-      id: uuidv4(),
-      username,
-      userph,
-      passwd: userpasswd,
-      userContacts: [],
-    };
-    localStorage.setItem("userList", JSON.stringify([...userList, user]));
-    document.querySelector("input").value = "";
-    window.location.href = "./pages/login.html";
-  } else {
-    alert("Please Agree to our policies!");
-  }
 }
 
 const regform = document.getElementById("reg");
