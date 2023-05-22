@@ -27,14 +27,17 @@ console.log(convoList);
 const messageContainer = document.querySelector(".c-holder");
 
 const headerTemplate = `
-        <header class="c-head navbar navbar-fixed-top">
+        <header class="c-head navbar navbar-fixed-top width">
             <div class="container-sm">
                 <div>
-                    <button class="btn" onclick="window.history.back()">
-                        <i class="fi fi-br-angle-small-left"></i>
+                    <button class="btn" onclick="window.location.href='./home.html'">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+
                     </button>
                 </div>
-                <div class="c-header">
+                <div class="c-header" onclick="window.location.href='./details.html?id=${receiver.userph}'">
                     <img src="../assets/images/profile/4.jpg" alt="" height="50px">
                     <p>${receiver.username}</p>
                 </div>
@@ -60,7 +63,12 @@ console.log(convo.messages);
 
 
 function chat() {
-  const currentConvo = convoList.find((convos) => convos.id === (""+user.userph + receiverId) || ("" + receiverId + user.userph));
+  let currentConvo = convoList.find(
+    (convos) =>
+      (convos.user1 === sender.userph && convos.user2 === receiverId) ||
+      (convos.user1 === receiverId && convos.user2 === sender.userph)
+  );
+
   if (!currentConvo && sender.userph !== receiverId) {
     const convoObj = {
       id: convoId,
@@ -70,7 +78,9 @@ function chat() {
     };
     convoList.push(convoObj);
     localStorage.setItem("convoList", JSON.stringify(convoList));
+    currentConvo = convoObj;
   }
+
   return currentConvo;
 }
 
@@ -134,11 +144,10 @@ function loadMessages() {
 
 window.addEventListener("load", loadMessages);
 
-console.log(convo.messages.length);
 
-function appndmsg(e) {
+document.querySelector("#btn-send").addEventListener("click", function appndmsg(e) {
   e.preventDefault();
-  const convo = chat();
+  console.log("working")
   const message = document.getElementById("msg_val").value.trim();
   const currentDate = new Date();
 
@@ -163,7 +172,7 @@ function appndmsg(e) {
         minute: "numeric",
         hour12: true,
       }),
-      timeWithDate : timeWithDate,
+      timeWithDate: timeWithDate,
       timestamp: new Date(),
     });
     document.getElementById("msg_val").value = "";
@@ -171,4 +180,5 @@ function appndmsg(e) {
   localStorage.setItem("convoList", JSON.stringify(convoList));
 
   loadMessages();
-}
+});
+

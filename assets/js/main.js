@@ -1,7 +1,7 @@
 const currentUser =
   JSON.parse(sessionStorage.getItem("currentUser"));
 
-  console.log(currentUser);
+console.log(currentUser);
 
 if (!currentUser) {
   alert("There is a problem in your login please login again");
@@ -28,8 +28,8 @@ function loadUser() {
   }
   userHomeList.forEach((userObj) => {
     const profileCard = `
-      <div class="profile-card">
-        <img src="../assets/images/profile/4.jpg" alt="${userObj.username}" height="50px">
+      <div class="profile-card" >
+        <img src="../assets/images/profile/4.jpg" alt="${userObj.username}" height="50px" onclick="window.location.href='./details.html?id=${userObj.userph}'">
         <div class="content" onclick="window.location.href='./chat.html?id=${userObj.userph}'">
           <p>${userObj.username}</p>
           <span>${userObj.userph}</span>

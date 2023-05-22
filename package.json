@@ -2,6 +2,7 @@
   "name": "chit-chat",
   "version": "1.0.0",
   "description": "[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa-batch3_elayaraman.ramalingam__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa-batch3_elayaraman.ramalingam__web_project)",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "dev": "http-server ./",
