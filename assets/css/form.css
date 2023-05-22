@@ -39,3 +39,6 @@ form button.btn {
     font-weight: bold;
     margin-left: 15px;
 }
+.error{
+    color: var(--danger);
+}
