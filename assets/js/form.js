@@ -1,12 +1,16 @@
 
 const userList = JSON.parse(localStorage.getItem("userList")) || [];
 console.log(userList);
+const error =     document.getElementById("main");
 
 // use uuidv4() to generate UUID
 
 function reg(e) {
   e.preventDefault();
   console.log("Hello world!");
+
+  document.querySelectorAll(".error").innerHTML = "";
+
 
   const [username, passwd, userpasswd] = [
     "username",
@@ -18,18 +22,22 @@ function reg(e) {
 
   const regcheck = document.getElementById("regcheck").checked;
 
-  if (!username || !passwd || !userpasswd || !userph)
-    return alert("Please fill out all the fields");
+  if (!username || !passwd || !userpasswd || !userph){
+    error.innerHTML = "Fill out the fields";
+    // return alert("Please fill out all the fields");
+    return;
+  }
+
 
   if (!/^[a-zA-Z_-\s]{5,12}$/.test(username))
-    return alert("Enter valid username");
+    return error.innerHTML = "Enter valid username";
 
   if (!/.{6,12}/.test(userpasswd))
-    return alert("Enter valid password");
+    return error.innerHTML = "Enter valid password";
 
-  if (!/^\d{10}$/.test(userph)) return alert("Enter valid Phone number");
+  if (!/^\d{10}$/.test(userph)) return error.innerHTML="Enter valid Phone number";
 
-  if (passwd !== userpasswd) return alert("both passwords should match");
+  if (passwd !== userpasswd) return error.innerHTML="both passwords should match";
 
   if (userList.some((user) => user.userph === userph))
     return alert("This Phone number is already registered!");
@@ -73,8 +81,7 @@ function login(e) {
   );
 
   if (!user) {
-    alert("Invalid phone number or password!");
-    return;
+    return error.innerHTML = "Invalid phone number or password!";
   }
   sessionStorage.removeItem("currentUser");
   sessionStorage.setItem("currentUser", JSON.stringify(user));

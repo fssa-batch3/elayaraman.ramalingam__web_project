@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/form.css">
     <link rel="stylesheet" href="./assets/css/vendor/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
 </head>
 
@@ -21,9 +22,7 @@
             </div>
             <div class="f-fields input mb-3 ">
                 <label for="username " class="mb-1">Enter the username</label>
-                <input id="username" type="text" class="form-control form-input" placeholder="5-12 alphabets"
-                    minlength="5" maxlength="12">
-                <span class"username"></span>
+                <input id="username" type="text" class="form-control form-input" placeholder="5-12 alphabets">
             </div>
             <div class="f-fields input mb-3 ">
                 <label for="userph " class="mb-1">Enter the Phone number</label>
@@ -39,6 +38,7 @@
                 <input id="userpasswd" type="password" class="form-control form-input"
                     placeholder="repeat your password">
             </div>
+            <span id="main" class="error mb-2 animate__wobble animate__headShake "></span>
             <div class="f-fields mb-3">
                 <label class="form-label text-center">
                     Click here 👉<a href="./pages/login.html">Login now</a>
